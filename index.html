@@ -6,20 +6,20 @@
 <title>Имя Фамилия — сайты для малого бизнеса</title>
 <meta name="description" content="Делаю сайты для малого бизнеса: онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽, заявки приходят в Telegram.">
 <meta property="og:title" content="Имя Фамилия — сайты для малого бизнеса">
-<meta property="og:description" content="Онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽. Посмотрите примеры и примерьте сайт на своё дело.">
-<meta property="og:image" content="img/plants-desk.jpg">
+<meta property="og:description" content="Онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽. Примерьте сайт на своё дело прямо на странице.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#3d0012;
-  --surface:#4d0519;
-  --surface-2:#5c0b22;
-  --ink:#ff99d3;
-  --muted:#d98bb4;
-  --accent:#ff99d3;
-  --accent-ink:#3d0012;
+  --bg:#FFFFFF;
+  --surface:#EDEDEA;
+  --surface-2:#E7E7E4;
+  --ink:#111111;
+  --muted:#4F4F4C;
+  --accent:#2348E8;
+  --accent-hover:#1A37BF;
+  --accent-ink:#FFFFFF;
   --font:'Onest','Segoe UI',Arial,sans-serif;
   --s-small:14px;
   --s-body:clamp(17px,1rem + .2vw,19px);
@@ -41,7 +41,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border:0;border-radius:0;
   background:var(--accent);color:var(--accent-ink);font:500 var(--s-body) var(--font);text-decoration:none;cursor:pointer;
   transition:transform 160ms var(--ease),background-color 160ms ease}
-.btn:hover{background:#ffb8e0}
+.btn:hover{background:var(--accent-hover)}
 .btn:active{transform:scale(.97)}
 .muted{color:var(--muted)}
 
@@ -50,7 +50,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .stage{position:sticky;top:0;height:100svh;padding:var(--m) 0 var(--m) var(--m)}
 .stage-in{position:relative;height:100%;background:var(--surface);overflow:hidden}
 .layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 400ms ease,visibility 0s 400ms}
-.stage[data-on=try] .layer[data-l=try],.stage[data-on=work] .layer[data-l=work],.stage[data-on=how] .layer[data-l=how]{opacity:1;visibility:visible;transition:opacity 400ms ease}
+.stage[data-on=try] .layer[data-l=try],.stage[data-on=how] .layer[data-l=how]{opacity:1;visibility:visible;transition:opacity 400ms ease}
 .col{padding:0 var(--m) 0 clamp(32px,5vw,88px);min-width:0}
 @media(max-width:900px){
   .split{display:block}
@@ -64,12 +64,12 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .top a{text-decoration:none;font-size:var(--s-small);font-weight:500}
 .top a:hover{text-decoration:underline}
 .top .act{background:var(--accent);color:var(--accent-ink);padding:12px 18px}
-.top .act:hover{text-decoration:none;background:#ffb8e0}
+.top .act:hover{text-decoration:none;background:var(--accent-hover)}
 .hero-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0}
 .hero .lead{font-size:var(--s-lead);line-height:1.3;max-width:24ch}
 .hero .lead+p{margin-top:32px}
 .hero .facts{margin-top:28px;color:var(--muted);font-size:var(--s-body)}
-.wordmark{font-size:var(--s-display);font-weight:400;letter-spacing:-.045em;line-height:.9;white-space:nowrap;margin-left:-9vw;position:relative;z-index:2;transform-origin:left bottom}
+.wordmark{font-size:var(--s-display);font-weight:500;letter-spacing:-.045em;line-height:.9;white-space:nowrap;margin-left:-9vw;position:relative;z-index:2;transform-origin:left bottom}
 @supports (animation-timeline:scroll()){
   @media (prefers-reduced-motion:no-preference){
     .wordmark{animation:shrink linear both;animation-timeline:scroll(root);animation-range:0 100svh}
@@ -95,7 +95,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .field input:focus,.field textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--ink)}
 .opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .opt{min-height:48px;padding:0 18px;border:0;border-radius:0;background:var(--surface-2);color:var(--ink);font:500 16px var(--font);cursor:pointer;transition:background-color 150ms ease,transform 150ms var(--ease)}
-.opt:hover{background:#6e1530}
+.opt:hover{background:#DADAD6}
 .opt:active{transform:scale(.97)}
 .opt[aria-pressed=true]{background:var(--ink);color:var(--accent-ink)}
 .tones{display:flex;gap:10px}
@@ -106,36 +106,18 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 @media(max-width:900px){.inline-phone{display:flex;justify-content:center}}
 
 /* Телефон с превью (рамка устройства и сам сайт внутри) */
-.phone{width:min(320px,78%);aspect-ratio:9/18.5;background:#1a0008;border-radius:44px;padding:12px;position:relative}
-.screen{height:100%;border-radius:33px;overflow:hidden;background:var(--pv-bg,#F4F1EC);color:var(--pv-ink,#1C1917);display:flex;flex-direction:column;font-family:var(--font);transition:background-color 300ms ease}
+.phone{width:min(320px,78%);aspect-ratio:9/18.5;background:#111;border-radius:44px;padding:12px;position:relative}
+.screen{height:100%;border-radius:33px;overflow:hidden;background:var(--pv-bg,#F5F5F3);color:var(--pv-ink,#1C1917);display:flex;flex-direction:column;font-family:var(--font);transition:background-color 300ms ease}
 .pv-bar{display:flex;justify-content:space-between;align-items:center;padding:22px 18px 10px;font-size:13px;font-weight:700}
-.pv-bar i{font-style:normal;background:var(--pv-acc,#9E0B2A);color:#fff;padding:6px 10px;font-size:11px;border-radius:99px}
+.pv-bar i{font-style:normal;background:var(--pv-acc,#2348E8);color:#fff;padding:6px 10px;font-size:11px;border-radius:99px}
 .pv-hero{padding:22px 18px 18px}
 .pv-hero b{display:block;font-size:26px;line-height:1;letter-spacing:-.04em;font-weight:700;word-break:break-word}
 .pv-hero p{font-size:13px;line-height:1.35;margin-top:12px;opacity:.8}
-.pv-btn{display:inline-block;margin-top:16px;background:var(--pv-acc,#9E0B2A);color:#fff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:99px}
+.pv-btn{display:inline-block;margin-top:16px;background:var(--pv-acc,#2348E8);color:#fff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:99px}
 .pv-list{margin-top:auto;font-size:13px;background:rgba(0,0,0,.06);padding:14px 18px 22px;font-size:12px;line-height:1.3}
 .pv-list div{display:flex;justify-content:space-between;padding:7px 0}
 .pv-list div b{font-weight:700}
 .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:33px}
-
-/* Примеры: тихий список */
-.work{padding:clamp(80px,12vw,180px) 0}
-.rows{list-style:none;max-width:640px}
-.rows a{display:grid;grid-template-columns:1fr auto;gap:2px 20px;padding:18px 0;text-decoration:none;transition:color 150ms ease}
-.rows a b{font-weight:500;font-size:var(--s-lead);letter-spacing:-.02em}
-.rows a span{color:var(--muted);font-size:var(--s-body);grid-column:1/-1}
-.rows a em{font-style:normal;font-size:var(--s-body);align-self:center}
-.rows:hover a,.rows:focus-within a{color:var(--muted)}
-.rows:hover a span,.rows:focus-within a span{color:var(--muted)}
-.rows a:hover,.rows a:focus-visible{color:var(--ink)}
-.rows a:hover em{transform:translateX(4px)}
-.rows a em{transition:transform 150ms var(--ease)}
-.rows .shot{display:none}
-@media(max-width:900px){
-  .rows .shot{display:block;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:top;width:100%;margin-top:24px}
-  .rows li+li .shot{margin-top:40px}
-}
 
 /* Как работаю */
 .how{padding:clamp(80px,12vw,180px) 0 clamp(40px,6vw,80px)}
@@ -156,12 +138,8 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .chat .who{font-size:13px;color:#7f91a4;padding:0 4px}
 .chat .msg{background:#182533;padding:10px 14px;border-radius:14px 14px 14px 4px;max-width:88%}
 .chat .me{align-self:flex-end;background:#2b5278;border-radius:14px 14px 4px 14px}
-.chat .card{background:#182533;border-radius:14px;overflow:hidden;max-width:88%;align-self:flex-end}
-.chat .card img{width:100%;height:150px;object-fit:cover;object-position:top}
-.chat .card div{padding:10px 14px}
-.chat .card small{display:block;color:#6ab3f3;font-size:13px}
 .chat .bot{border-left:3px solid #6ab3f3}
-.chat .bot b{display:block;margin-bottom:4px}
+.chat .bot b,.step .chat .bot b{display:block;margin-bottom:4px;font-size:15px;font-weight:600;letter-spacing:0;line-height:1.35}
 .chat-s{display:none}
 .layer[data-l=how] .chat[data-s="1"] .s1,.layer[data-l=how] .chat[data-s="2"] .s2,.layer[data-l=how] .chat[data-s="3"] .s3{display:block}
 
@@ -177,7 +155,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .plan .sum{font-size:clamp(56px,8vw,140px);letter-spacing:-.05em;line-height:.85;font-weight:400}
 .plan .sum small{font-size:var(--s-lead);letter-spacing:-.02em;margin-right:8px}
 .plan:first-child .btn{background:var(--accent-ink);color:var(--ink)}
-.plan:first-child .btn:hover{background:#5c0b22}
+.plan:first-child .btn:hover{background:var(--surface-2)}
 .price-note{grid-column:1/-1;padding:28px var(--m);background:var(--bg);color:var(--muted);font-size:var(--s-body)}
 @media(max-width:900px){
   .price{grid-template-columns:1fr}
@@ -193,9 +171,9 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .contact h2 span{display:block;color:var(--muted)}
 .one{position:relative}
 .one input{width:100%;height:64px;padding:0 76px 0 20px;border:0;border-radius:0;background:var(--ink);color:var(--accent-ink);font:500 var(--s-body) var(--font)}
-.one input::placeholder{color:#7a2a4f;opacity:1}
-.one input:focus{outline:none;box-shadow:inset 0 0 0 3px var(--surface-2)}
-.one button{position:absolute;right:8px;top:8px;width:48px;height:48px;border:0;border-radius:50%;background:var(--accent-ink);color:var(--ink);font-size:22px;cursor:pointer;transition:transform 150ms var(--ease)}
+.one input::placeholder{color:#A3A3A0;opacity:1}
+.one input:focus{outline:none;box-shadow:inset 0 0 0 3px var(--accent)}
+.one button{position:absolute;right:8px;top:8px;width:48px;height:48px;border:0;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:22px;cursor:pointer;transition:transform 150ms var(--ease)}
 .one button:hover{transform:translateX(3px)}
 .one button:disabled{opacity:.6;cursor:wait}
 .next{margin-top:16px;font-size:var(--s-small);color:var(--muted)}
@@ -205,29 +183,23 @@ summary{cursor:pointer;font-size:16px;font-weight:500;min-height:44px;display:fl
 details .field{margin-top:12px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .status{margin-top:20px;font-size:var(--s-body);min-height:1.5em}
-.status.err{color:#ffd0e9}
+.status.err{color:#B3261E}
 .direct{margin-top:72px;display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:var(--s-small)}
 .direct dt{color:var(--muted)}
 .direct a{font-weight:500}
 @media(max-width:600px){.contact{padding:120px var(--m) 100px}.direct{grid-template-columns:1fr;gap:2px}.direct dd{margin-bottom:14px}}
 
-/* Подвал: картинка и меню */
-footer{display:grid;grid-template-columns:1fr 1fr;min-height:100svh}
-footer .pic{overflow:hidden;background:var(--surface)}
-footer .pic img{width:100%;height:100%;object-fit:cover;object-position:78% center}
-footer .menu{padding:80px var(--m) 32px clamp(32px,6vw,96px);display:flex;flex-direction:column}
-footer .wm{font-size:16px;font-weight:500;margin-bottom:40px}
-footer nav a{display:block;font-size:clamp(28px,2.8vw,44px);font-weight:500;letter-spacing:-.03em;text-decoration:none;padding:6px 0;transition:transform 150ms var(--ease),color 150ms ease}
-footer nav:hover a{color:var(--muted)}
-footer nav a:hover,footer nav a:focus-visible{color:var(--ink);transform:translateX(12px)}
-footer .info{margin-top:64px;display:flex;gap:48px;flex-wrap:wrap;font-size:15px}
-footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:var(--muted)}
-@media(max-width:900px){
-  footer{grid-template-columns:1fr;min-height:auto}
-  footer .pic{height:50svh}
-  footer .menu{padding:48px var(--m) 32px}
-  footer nav a{font-size:clamp(28px,8vw,40px)}
-}
+/* Подвал */
+footer{background:var(--ink);color:var(--accent-ink);padding:96px var(--m) 32px}
+footer .wm{font-size:var(--s-display);font-weight:500;letter-spacing:-.045em;line-height:.9;margin-bottom:64px}
+footer .row{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
+footer nav a{display:block;font-size:clamp(24px,2.4vw,36px);font-weight:500;letter-spacing:-.03em;text-decoration:none;padding:4px 0;transition:transform 150ms var(--ease),color 150ms ease}
+footer nav:hover a{color:#9A9A96}
+footer nav a:hover,footer nav a:focus-visible{color:var(--accent-ink);transform:translateX(10px)}
+footer .info{display:flex;flex-direction:column;gap:8px;font-size:var(--s-body)}
+footer .legal{margin-top:80px;font-size:var(--s-small);color:#9A9A96}
+footer :focus-visible{outline-color:var(--accent-ink)}
+@media(max-width:900px){footer{padding:64px var(--m) 28px}footer .wm{font-size:clamp(44px,13vw,96px)}}
 
 /* Появление частей секций */
 .js .rise{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms var(--ease)}
@@ -246,13 +218,12 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
   <aside class="stage" id="stage" data-on="try" aria-hidden="true">
     <div class="stage-in">
       <div class="layer" data-l="try"><div class="phone" data-ui><div class="screen pv"></div></div></div>
-      <div class="layer" data-l="work"><div class="phone" data-ui><img id="workShot" src="img/plants-phone.jpg" alt="" width="390" height="844"></div></div>
       <div class="layer" data-l="how">
         <div class="chat" id="stageChat" data-s="1" data-ui>
           <span class="who">Анна</span>
           <div class="msg chat-s s1 s2 s3">Здравствуйте! Хочу сайт для студии маникюра, чтобы записывались сами.</div>
           <div class="msg me chat-s s1 s2 s3">Давайте созвонимся на 20 минут, расскажете про клиентов и цены.</div>
-          <div class="card chat-s s2 s3"><img src="img/nails-phone.jpg" alt="" width="390" height="844"><div>Первая версия готова<small>посмотреть сайт</small></div></div>
+          <div class="msg me chat-s s2 s3">Первая версия готова, откройте с телефона:<br><u>ваш-сайт.ru</u></div>
           <div class="msg bot chat-s s3"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div>
         </div>
       </div>
@@ -263,7 +234,6 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
     <header class="hero" id="top">
       <nav class="top" aria-label="Разделы">
         <a class="hide-m" href="#try">Примерка</a>
-        <a class="hide-m" href="#work">Примеры</a>
         <a class="hide-m" href="#how">Как работаю</a>
         <a class="hide-m" href="#price">Цены</a>
         <a class="act" href="#contact">Обсудить сайт</a>
@@ -291,16 +261,6 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
       <div class="inline-phone"><div class="phone" data-ui><div class="screen pv"></div></div></div>
     </section>
 
-    <section class="work" id="work" data-stage="work">
-      <h2 class="rise">Примеры</h2>
-      <ul class="rows rise">
-        <li><img class="shot" src="img/plants-phone.jpg" alt="Первый экран сайта магазина растений" width="390" height="844" loading="lazy">
-          <a href="plants/" data-shot="img/plants-phone.jpg"><b>Гербарий</b><em>→</em><span>Магазин растений: каталог с фильтрами, корзина, доставка</span></a></li>
-        <li><img class="shot" src="img/nails-phone.jpg" alt="Первый экран сайта мастера маникюра" width="390" height="844" loading="lazy">
-          <a href="nails/" data-shot="img/nails-phone.jpg"><b>Маникюр у Веры</b><em>→</em><span>Запись к мастеру: прайс, свободные окна, выбор цвета покрытия</span></a></li>
-        <li><a href="#contact"><b>Ваш сайт</b><em>→</em><span>Следующим может быть ваше дело</span></a></li>
-      </ul>
-    </section>
 
     <section class="how" id="how" data-stage="how">
       <h2 class="rise">Как я работаю</h2>
@@ -308,7 +268,7 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
         <li class="step" data-s="1"><b>Сначала созвонимся на 20 минут.</b><p>Расскажете про дело и клиентов, я задам вопросы. Бесплатно и ни к чему не обязывает.</p>
           <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для студии маникюра, чтобы записывались сами.</div><div class="msg me">Давайте созвонимся на 20 минут.</div></div></li>
         <li class="step" data-s="2"><b>Через 5 дней покажу первую версию.</b><p>Живой сайт по ссылке: откроете с телефона, покажете близким. Правок столько, сколько нужно.</p>
-          <div class="chat" data-ui><div class="card"><img src="img/nails-phone.jpg" alt="Первая версия сайта на телефоне" width="390" height="844" loading="lazy"><div>Первая версия готова<small>посмотреть сайт</small></div></div></div></li>
+          <div class="chat" data-ui><div class="msg me">Первая версия готова, откройте с телефона:<br><u>ваш-сайт.ru</u></div></div></li>
         <li class="step" data-s="3"><b>Запускаю и подключаю заявки.</b><p>Домен, хостинг, заявки в Telegram. Покажу, как самому менять цены и фото.</p>
           <div class="chat" data-ui><div class="msg bot"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div></div></li>
       </ol>
@@ -357,12 +317,10 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
 </section>
 
 <footer>
-  <div class="pic"><img src="img/nails-desk.jpg" alt="Фрагмент сайта мастера маникюра" width="1440" height="900" loading="lazy"></div>
-  <div class="menu">
-    <span class="wm" data-fill="name">Имя Фамилия</span>
+  <p class="wm" data-fill="name">Имя Фамилия</p>
+  <div class="row">
     <nav aria-label="Разделы в подвале">
       <a href="#try">Примерка</a>
-      <a href="#work">Примеры</a>
       <a href="#how">Как работаю</a>
       <a href="#price">Цены</a>
       <a href="#contact">Обсудить сайт</a>
@@ -370,9 +328,10 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
     <div class="info">
       <a data-fill="tg" href="https://t.me/username">@username</a>
       <a data-fill="phone" href="tel:+79000000000">+7 900 000-00-00</a>
+      <span>Удалённо, по всей России</span>
     </div>
-    <p class="legal">© 2026 <span data-fill="name">Имя Фамилия</span>. Магазин и мастер в примерах вымышлены.</p>
   </div>
+  <p class="legal">© 2026 <span data-fill="name">Имя Фамилия</span></p>
 </footer>
 
 <script>
@@ -400,9 +359,9 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
     card:{label:'Визитка',title:'Рядом с вами с 9 до 21',text:'Адрес, часы работы и телефон всегда под рукой.',btn:'Позвонить',chip:'Карта',list:[['Адрес','ул. Ленина, 1'],['Телефон','+7 900 000-00-00'],['Сегодня','открыто до 21:00']]}
   };
   var TONES=[
-    {bg:'#F4F1EC',ink:'#1C1917',acc:'#9E0B2A',name:'Вишня'},
+    {bg:'#F5F5F3',ink:'#111111',acc:'#2348E8',name:'Синий'},
     {bg:'#EEF2EA',ink:'#18261C',acc:'#2F6B45',name:'Зелёный'},
-    {bg:'#EDF1F6',ink:'#121C2B',acc:'#2457A6',name:'Синий'},
+    {bg:'#F6F2F2',ink:'#1C1917',acc:'#9E0B2A',name:'Вишня'},
     {bg:'#1C1917',ink:'#F4F1EC',acc:'#E8833A',name:'Тёмный'}
   ];
   var st={kind:'book',tone:TONES[0],biz:''};
@@ -472,11 +431,6 @@ footer .legal{margin-top:auto;padding-top:48px;font-size:var(--s-small);color:va
     [].forEach.call(document.querySelectorAll('.rise'),function(el){el.classList.add('in');});
     [].forEach.call(document.querySelectorAll('.step'),function(s){s.classList.add('on');});
   }
-  var shot=document.getElementById('workShot');
-  [].forEach.call(document.querySelectorAll('[data-shot]'),function(a){
-    function show(){shot.src=a.getAttribute('data-shot');}
-    a.addEventListener('mouseenter',show);a.addEventListener('focus',show);
-  });
 
   /* ── Заявка → Cloudflare Worker → Telegram ── */
   var form=document.getElementById('lead'),status=document.getElementById('status'),send=document.getElementById('send');
