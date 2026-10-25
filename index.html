@@ -162,6 +162,19 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .f-slots .off{color:var(--muted);text-decoration:line-through}
 .f-slots .on{background:var(--ink);color:var(--bg);font-weight:600}
 .f-note{background:#17212B;color:#E9EEF3;border-radius:10px;padding:8px 12px;font-size:13px}
+.f-cmp{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--surface)}
+.f-cmp span{color:var(--muted)}
+.f-cmp b{font-weight:600}
+.f-cmp em{font-style:normal;font-weight:400;color:var(--muted);font-size:13px}
+.f-cmp.on{background:var(--ink);color:var(--bg)}
+.f-cmp.on span,.f-cmp.on em{color:#C9C9C5}
+.f-browser{justify-content:flex-start}
+.f-top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.f-top i{width:9px;height:9px;border-radius:50%;background:var(--surface-2);flex:none}
+.f-top .f-search{flex:1;margin-left:6px;padding:7px 12px}
+.f-res{display:block!important}
+.f-res small{display:block;font-size:12px;opacity:.75}
+.f-res span{display:block;font-size:13px}
 .f-item{display:flex;align-items:center;gap:10px}
 .f-item i{width:34px;height:34px;border-radius:8px;background:var(--surface-2)}
 .f-item span{flex:1;color:var(--muted)}
@@ -242,15 +255,14 @@ footer :focus-visible{outline-color:var(--on-dark)}
   <main id="top">
     <section class="hero">
       <h1><span><b>Создаю и обновляю</b></span><span><b>сайты</b></span></h1>
-      <p class="lead">Чтобы клиенты находили вас и сразу писали.</p>
+      <p class="lead">Новый сайт с нуля или свежий вид для старого.</p>
     </section>
   </main>
 </div>
 
-<div class="ticker" aria-label="Для кого делаю сайты">
+<div class="ticker" aria-label="Что можно заказать">
   <div class="ticker-track">
-    <span>кофейни</span><span>салоны красоты</span><span>автосервисы</span><span>репетиторы</span><span>магазины</span><span>фитнес-студии</span><span>мастера на дому</span><span>пекарни</span><span>фотографы</span><span>ремонт</span>
-    <span aria-hidden="true">кофейни</span><span aria-hidden="true">салоны красоты</span><span aria-hidden="true">автосервисы</span><span aria-hidden="true">репетиторы</span><span aria-hidden="true">магазины</span><span aria-hidden="true">фитнес-студии</span><span aria-hidden="true">мастера на дому</span><span aria-hidden="true">пекарни</span><span aria-hidden="true">фотографы</span><span aria-hidden="true">ремонт</span>
+    <span>сайт-визитка</span><span>онлайн-запись</span><span>каталог товаров</span><span>редизайн старого сайта</span><span>заявки в Telegram</span><span>версия для телефона</span><span>сайт для мастера</span><span>лендинг под услугу</span><span aria-hidden="true">сайт-визитка</span><span aria-hidden="true">онлайн-запись</span><span aria-hidden="true">каталог товаров</span><span aria-hidden="true">редизайн старого сайта</span><span aria-hidden="true">заявки в Telegram</span><span aria-hidden="true">версия для телефона</span><span aria-hidden="true">сайт для мастера</span><span aria-hidden="true">лендинг под услугу</span>
   </div>
 </div>
 
@@ -260,19 +272,19 @@ footer :focus-visible{outline-color:var(--on-dark)}
       <h2 class="rise">С чем помогу</h2>
       <ul class="tiles">
         <li class="tile rise">
-          <div class="frag" data-ui aria-hidden="true"><div class="f-search">кофейня рядом</div><div class="f-res on"><b>Ваше дело</b><span>Открыто до 21:00 · 4,9</span></div><div class="f-res"><b>Другая кофейня</b><span>1,2 км</span></div></div>
+          <div class="frag f-browser" data-ui aria-hidden="true"><div class="f-top"><i></i><i></i><i></i><div class="f-search">кофейня рядом</div></div><div class="f-res on"><small>zerno-coffee.ru</small><b>Кофейня «Зерно» — меню и адрес</b><span>Открыто до 21:00 · заказ навынос онлайн</span></div><div class="f-res"><small>карты</small><b>Кофейня на Садовой</b><span>Только адрес, сайта нет</span></div></div>
           <b>Клиенты ищут вас, а находят конкурентов</b><p>Сделаю сайт, где сразу видно, чем вы занимаетесь и как к вам попасть.</p>
         </li>
         <li class="tile rise">
-          <div class="frag" data-ui aria-hidden="true"><div class="f-bars"><i style="height:30%"></i><i style="height:26%"></i><i style="height:34%"></i><i class="up" style="height:58%"></i><i class="up" style="height:74%"></i><i class="up" style="height:92%"></i></div><div class="f-cap"><span>заявки</span><span>после обновления</span></div></div>
-          <b>Сайт есть, но заявок с него мало</b><p>Доработаю то, что мешает: дизайн, тексты, версию для телефона.</p>
+          <div class="frag" data-ui aria-hidden="true"><div class="f-bars"><i style="height:30%"></i><i style="height:26%"></i><i style="height:34%"></i><i class="up" style="height:58%"></i><i class="up" style="height:74%"></i><i class="up" style="height:92%"></i></div><div class="f-cap"><span>заявки до</span><span>после обновления</span></div></div>
+          <b>Сайт есть, но устарел</b><p>Обновлю дизайн, тексты и версию для телефона, чтобы с него снова писали.</p>
         </li>
         <li class="tile rise">
           <div class="frag" data-ui aria-hidden="true"><div class="f-slots"><span>10:00</span><span class="off">11:00</span><span>12:00</span><span class="off">13:00</span><span class="on">14:00</span><span>15:00</span></div><div class="f-note">Новая запись: пт, 14:00</div></div>
           <b>Запись тонет в переписке</b><p>Добавлю онлайн-запись: клиент сам выбирает время, а вам приходит уведомление.</p>
         </li>
         <li class="tile rise">
-          <div class="frag" data-ui aria-hidden="true"><div class="f-item"><i></i><span>Товар</span><b>1 290 ₽</b></div><div class="f-item"><i></i><span>Товар</span><b>890 ₽</b></div><div class="f-buy">Оформить · 2 180 ₽</div></div>
+          <div class="frag" data-ui aria-hidden="true"><div class="f-cmp"><span>Маркетплейс</span><b>1 290 ₽ <em>− комиссия</em></b></div><div class="f-cmp on"><span>Ваш сайт</span><b>1 290 ₽ <em>целиком ваши</em></b></div><div class="f-buy">Заказ приходит вам напрямую</div></div>
           <b>Хочется продавать без посредников</b><p>Каталог с ценами и заказ прямо на вашем сайте, без комиссии площадок.</p>
         </li>
       </ul>
