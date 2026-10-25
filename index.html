@@ -161,7 +161,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .f-slots span{text-align:center;padding:8px 0;background:var(--surface);border-radius:8px}
 .f-slots .off{color:var(--muted);text-decoration:line-through}
 .f-slots .on{background:var(--ink);color:var(--bg);font-weight:600}
-.f-note{background:#17212B;color:#E9EEF3;border-radius:10px;padding:8px 12px;font-size:13px}
+.f-note{background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 12px;font-size:13px}
 .f-cmp{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--surface)}
 .f-cmp span{color:var(--muted)}
 .f-cmp b{font-weight:600}
@@ -195,10 +195,10 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 @media(max-width:860px){.step{grid-template-columns:1fr}}
 .step h3{font-size:clamp(26px,1.2rem + 1.4vw,40px);margin-bottom:14px}
 .step p{color:var(--on-dark-muted);max-width:40ch}
-.chat{background:#17212B;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.35;color:#E9EEF3;max-width:460px;width:100%}
-.chat .msg{background:#182533;padding:10px 14px;border-radius:16px 16px 16px 4px;max-width:86%;align-self:flex-start}
-.chat .me{align-self:flex-end;background:#2B5278;border-radius:16px 16px 4px 16px}
-.chat .msg u{color:#A9D3FF}
+.chat{background:#1B1B1B;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.35;color:#ECECE8;max-width:460px;width:100%}
+.chat .msg{background:#2A2A2A;padding:10px 14px;border-radius:16px 16px 16px 4px;max-width:86%;align-self:flex-start}
+.chat .me{align-self:flex-end;background:#F2F2EF;color:#111;border-radius:16px 16px 4px 16px}
+.chat .msg u{color:#B8330C;text-decoration-thickness:2px}
 .js .chat .msg{opacity:0;transform:translateY(10px) scale(.98)}
 .js .step.in .chat .msg{animation:pop 500ms var(--ease) both}
 .js .step.in .chat .msg:nth-child(2){animation-delay:450ms}
@@ -284,7 +284,7 @@ footer :focus-visible{outline-color:var(--on-dark)}
           <b>Запись тонет в переписке</b><p>Добавлю онлайн-запись: клиент сам выбирает время, а вам приходит уведомление.</p>
         </li>
         <li class="tile rise">
-          <div class="frag" data-ui aria-hidden="true"><div class="f-cmp"><span>Маркетплейс</span><b>1 290 ₽ <em>− комиссия</em></b></div><div class="f-cmp on"><span>Ваш сайт</span><b>1 290 ₽ <em>целиком ваши</em></b></div><div class="f-buy">Заказ приходит вам напрямую</div></div>
+          <div class="frag" data-ui aria-hidden="true"><div class="f-cap"><span>Товар за 1 290 ₽, вам остаётся:</span></div><div class="f-cmp"><span>Маркетплейс</span><b>≈ 1 030 ₽</b></div><div class="f-cmp on"><span>Ваш сайт</span><b>1 290 ₽</b></div><div class="f-cap"><span>например, при комиссии площадки 20%</span></div></div>
           <b>Хочется продавать без посредников</b><p>Каталог с ценами и заказ прямо на вашем сайте, без комиссии площадок.</p>
         </li>
       </ul>
