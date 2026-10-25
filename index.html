@@ -9,7 +9,7 @@
 <meta property="og:description" content="Создаю и обновляю сайты">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF;
@@ -22,6 +22,7 @@
   --on-dark-muted:#A6A6A2;
   --accent:#E8481C;          /* киноварь: единственный цветной акцент, меняется здесь */
   --font:'Onest','Segoe UI',Arial,sans-serif;
+  --display:'Unbounded','Onest','Segoe UI',Arial,sans-serif;
   --s-small:15px;
   --s-body:clamp(17px,1rem + .2vw,19px);
   --s-lead:clamp(20px,1.05rem + .7vw,26px);
@@ -36,8 +37,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var
 a{color:inherit}
 ::selection{background:var(--accent);color:#fff}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.02}
-h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+h2{font-size:clamp(30px,1.2rem + 2.4vw,52px);margin-bottom:clamp(32px,5vw,64px)}
 .wrap{padding:0 var(--m);max-width:1440px;margin:0 auto}
 
 /* Кнопки */
@@ -66,15 +67,29 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 
 /* Первый экран */
 .hero{padding:clamp(24px,4vw,56px) 0 clamp(48px,6vw,96px)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,3vw,44px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(20px,2.4vw,36px)}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
-.hero h1{font-size:clamp(36px,calc((100vw - 2 * var(--m)) / 9.6),112px);line-height:.95;letter-spacing:-.05em}
+.hero h1{font-size:clamp(34px,calc((100vw - 2 * var(--m)) / 12.6),116px);line-height:1;letter-spacing:-.04em;font-weight:700}
 .hero h1 span{display:block;overflow:hidden;padding-bottom:.06em}
-.hero h1 span b{display:block;font-weight:500}
+.hero h1 span b{display:block;font-weight:700}
 .js .hero h1 span b{animation:up 900ms var(--ease) both}
 .js .hero h1 span:nth-child(2) b{animation-delay:90ms}
 @keyframes up{from{transform:translateY(105%)}to{transform:none}}
-.hero .lead{font-size:clamp(22px,1.1rem + 1.4vw,40px);line-height:1.2;letter-spacing:-.02em;max-width:24ch;margin-top:clamp(20px,2.4vw,36px);color:var(--muted)}
+.hero .lead{font-size:clamp(22px,1.1rem + 1.4vw,40px);line-height:1.2;letter-spacing:-.02em;max-width:18ch;color:var(--muted)}
+.trio{display:flex;justify-content:center;align-items:center;padding:clamp(12px,2vw,28px) 0}
+.trio .mini{width:clamp(130px,13vw,200px);flex:none;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.trio .mini:nth-child(1){transform:rotate(-7deg) translateY(14px);margin-right:-24px}
+.trio .mini:nth-child(2){position:relative;z-index:2;transform:translateY(-10px)}
+.trio .mini:nth-child(3){transform:rotate(7deg) translateY(14px);margin-left:-24px}
+.trio .pv-in{font-size:10px;padding:10px;gap:6px}
+.trio .pv-title{font-size:17px}
+.trio .pv-pic{height:48px}
+.trio .pv-slots span,.trio .pv-btn{padding:6px 0}
+.trio .pv-item i{height:28px}
+.js .trio .mini{animation:float 6s ease-in-out infinite}
+.js .trio .mini:nth-child(2){animation-delay:-2s}.js .trio .mini:nth-child(3){animation-delay:-4s}
+@keyframes float{50%{translate:0 -8px}}
+@media(max-width:960px){.trio{order:2}.trio .mini{width:31vw;max-width:180px}.trio .pv-title{font-size:12px}.trio .pv-in{font-size:8.5px}}
 .hero .acts{display:flex;gap:12px;flex-wrap:wrap}
 .js .hero .lead{animation:fade 800ms 250ms var(--ease) both}
 @keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -182,10 +197,10 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .f-item b{font-weight:600}
 .f-buy{background:var(--ink);color:var(--bg);text-align:center;border-radius:99px;padding:9px;font-weight:600}
 /* Бегущая строка */
-.ticker{overflow:hidden;padding:clamp(14px,1.6vw,20px) 0;background:var(--ink);color:var(--bg);margin-bottom:clamp(48px,6vw,96px)}
+.ticker{overflow:hidden;padding:clamp(14px,1.6vw,22px) 0;background:var(--accent);color:var(--ink);margin-bottom:clamp(48px,6vw,96px)}
 .ticker-track{display:flex;width:max-content;animation:tick 40s linear infinite}
-.ticker span{font-size:clamp(18px,1rem + .8vw,28px);letter-spacing:-.02em;padding:0 clamp(16px,2vw,28px);white-space:nowrap;display:flex;align-items:center;gap:clamp(16px,2vw,28px)}
-.ticker span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.ticker span{font-family:var(--display);font-weight:500;font-size:clamp(16px,.9rem + .7vw,26px);letter-spacing:-.02em;padding:0 clamp(16px,2vw,28px);white-space:nowrap;display:flex;align-items:center;gap:clamp(16px,2vw,28px)}
+.ticker span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink)}
 @keyframes tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto}}
 
@@ -194,7 +209,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .steps{list-style:none;display:grid;gap:clamp(48px,7vw,96px)}
 .step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px clamp(32px,5vw,80px);align-items:center}
 @media(max-width:860px){.step{grid-template-columns:1fr}}
-.step h3{font-size:clamp(26px,1.2rem + 1.4vw,40px);margin-bottom:14px}
+.step h3{font-size:clamp(22px,1rem + 1.2vw,34px);margin-bottom:14px}
 .step p{color:var(--on-dark-muted);max-width:40ch}
 .chat{background:#F2F2EF;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.35;color:#111;max-width:460px;width:100%}
 .chat .msg{background:#FFFFFF;padding:10px 14px;border-radius:16px 16px 16px 4px;max-width:86%;align-self:flex-start}
@@ -208,8 +223,8 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 
 /* Связаться */
 .contact{background:var(--dark);color:var(--on-dark);padding:0 0 clamp(72px,10vw,140px)}
-.contact-in{background:var(--bg);color:var(--ink);border-radius:clamp(24px,3vw,40px);padding:clamp(36px,7vw,112px) clamp(24px,5vw,80px);display:flex;flex-direction:column;align-items:center;text-align:center}
-.contact h2{font-size:clamp(36px,1.4rem + 3.6vw,80px);max-width:14ch;margin-bottom:20px}
+.contact-in{background:var(--accent);color:var(--ink);border-radius:clamp(24px,3vw,40px);padding:clamp(36px,7vw,112px) clamp(24px,5vw,80px);display:flex;flex-direction:column;align-items:center;text-align:center}
+.contact h2{font-size:clamp(30px,1.2rem + 3vw,68px);max-width:15ch;font-weight:700;margin-bottom:20px}
 .contact .lead{font-size:var(--s-lead);line-height:1.35;max-width:32ch;margin-bottom:36px}
 .btn-big{min-height:68px;padding:0 36px;font-size:var(--s-lead)}
 .btn-big svg{width:26px;height:26px}
@@ -255,7 +270,14 @@ footer :focus-visible{outline-color:var(--on-dark)}
   <main id="top">
     <section class="hero">
       <h1><span><b>Создаю и обновляю</b></span><span><b>сайты</b></span></h1>
-      <p class="lead">Новый сайт с нуля или свежий вид для старого.</p>
+      <div class="hero-grid">
+        <p class="lead">Новый сайт с нуля или свежий вид для старого.</p>
+        <div class="trio" aria-hidden="true">
+          <div class="phone mini" data-ui><div class="screen pv" data-preset="coffee warm"></div></div>
+          <div class="phone mini" data-ui><div class="screen pv" data-preset="auto bold"></div></div>
+          <div class="phone mini" data-ui><div class="screen pv" data-preset="shop strict"></div></div>
+        </div>
+      </div>
     </section>
   </main>
 </div>
@@ -327,16 +349,12 @@ footer :focus-visible{outline-color:var(--on-dark)}
         <div class="chat" data-ui><div class="msg">Здравствуйте! У меня студия маникюра, записываю клиентов в переписке и путаюсь во времени.</div><div class="msg">Можно, чтобы записывались сами?</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Я присылаю первую версию</h3><p>Ссылка на сайт с вашим названием и услугами. Открываете с телефона и смотрите, нравится ли.</p></div>
-        <div class="chat" data-ui><div class="msg me">Посмотрите с телефона:<br><u>ваша-студия.ru</u></div><div class="msg">Нравится! А телефоны клиентов где будут храниться?</div><div class="msg me">Только у вас: заявки приходят вам в Telegram, никому больше не передаются.</div></div>
+        <div><h3>Набросок и правки</h3><p>Присылаю ссылку на первую версию. Правим тексты, фото и цвета, пока не понравится.</p></div>
+        <div class="chat" data-ui><div class="msg me">Посмотрите с телефона:<br><u>ваша-студия.ru</u></div><div class="msg">Нравится! Только цены бы покрупнее.</div><div class="msg me">Готово, обновите страницу.</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Доделываем вместе</h3><p>Меняю тексты, фото и цвета, пока не понравится. Проверяю сайт на разных телефонах и настраиваю защиту.</p></div>
-        <div class="chat" data-ui><div class="msg">А если сайт взломают или он пропадёт?</div><div class="msg me">Подключаю защищённое соединение и защиту от спама, делаю резервные копии. Если что-то случится, восстановлю.</div></div>
-      </li>
-      <li class="step rise">
-        <div><h3>Запускаю и остаюсь на связи</h3><p>Сайт открывается по вашему адресу, домен и доступы оформлены на вас. Нужно поменять цены или фото — пишете мне.</p></div>
-        <div class="chat" data-ui><div class="msg me">Запустил. Домен и все пароли оформлены на вас, сайт ваш полностью.</div><div class="msg">Пришла первая запись с сайта!</div></div>
+        <div><h3>Запуск и поддержка</h3><p>Подключаю ваш адрес, защиту и резервные копии. Дальше помогаю, если нужно что-то поменять.</p></div>
+        <div class="chat" data-ui><div class="msg">А данные клиентов в безопасности?</div><div class="msg me">Да: сайт защищён, копии делаются, заявки приходят только вам.</div></div>
       </li>
     </ol>
   </div>
@@ -395,7 +413,7 @@ footer :focus-visible{outline-color:var(--on-dark)}
     photo:{c:'#7A5A3E',name:'Фотограф Илья',sub:'Семейные и свадебные съёмки',layout:'gallery',cta:['Узнать свободные даты','Портфолио']}
   };
   var st={kind:'coffee',style:'strict',biz:''};
-  var screen=document.querySelector('.pv');
+  var screen=document.querySelector('.trysec .pv');
   function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function rows(l){return '<div class="pv-list">'+l.map(function(r){return '<div><span>'+r[0]+'</span><b>'+r[1]+'</b></div>';}).join('')+'</div>';}
   function pic(){return '<div class="pv-pic" aria-hidden="true"><i style="width:70px;height:70px;left:62%;top:-18px"></i><i style="width:34px;height:34px;left:18%;top:30px;opacity:.5"></i></div>';}
@@ -413,6 +431,13 @@ footer :focus-visible{outline-color:var(--on-dark)}
       '<div class="pv-gal" aria-hidden="true"><i></i><i></i><i></i></div>'+
       '<span class="pv-btn pv-push">'+n.cta[0]+'</span><span class="pv-btn pv-ghost">'+n.cta[1]+'</span>';}
   };
+  function paint(el,kind,style,biz){
+    var n=NICHES[kind],title=esc(biz||n.name);
+    el.setAttribute('data-style',style);
+    el.style.setProperty('--c',n.c);
+    el.innerHTML='<div class="pv-in"><div class="pv-bar"><span>'+title+'</span><span>Меню</span></div>'+LAYOUTS[n.layout](n,title)+'</div>';
+  }
+  [].forEach.call(document.querySelectorAll('[data-preset]'),function(el){var a=el.getAttribute('data-preset').split(' ');paint(el,a[0],a[1],'');});
   function renderPreview(){
     var n=NICHES[st.kind],title=esc(st.biz||n.name);
     screen.setAttribute('data-style',st.style);
