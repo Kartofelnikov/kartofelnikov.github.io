@@ -3,376 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Марк Картофельников — сайты для малого бизнеса</title>
-<meta name="description" content="Делаю сайты для малого бизнеса: онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽, заявки приходят в Telegram.">
-<meta property="og:title" content="Марк Картофельников — сайты для малого бизнеса">
-<meta property="og:description" content="Сайты для малого бизнеса: запись, магазин, визитка. Набросок на вашем домене через 3–5 дней, от 20 000 ₽.">
-<meta property="og:image" content="https://kartofelnikov.pages.dev/img/nails-desk.jpg">
+<title>Марк Картофельников — создаю и обновляю сайты</title>
+<meta name="description" content="Создаю сайты с нуля и обновляю старые: визитки, лендинги, онлайн-запись, магазины. Напишите идею — пришлю набросок вашего сайта.">
+<meta property="og:title" content="Марк Картофельников — создаю и обновляю сайты">
+<meta property="og:description" content="Напишите идею — пришлю набросок вашего сайта, и доведём его до готового вместе.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FFFFFF;
-  --surface:#EDEDEA;
-  --surface-2:#E7E7E4;
-  --ink:#111111;
-  --muted:#4F4F4C;
-  --accent:#2348E8;
-  --accent-hover:#1A37BF;
-  --accent-ink:#FFFFFF;
+  --surface:#F2F2F0;
+  --surface-2:#E6E6E3;
+  --ink:#0E0E0E;
+  --muted:#55555A;
+  --dark:#0E0E0E;
+  --on-dark:#F4F4F2;
+  --on-dark-muted:#A6A6A2;
+  --accent:#E8481C;          /* киноварь: единственный цветной акцент, меняется здесь */
   --font:'Onest','Segoe UI',Arial,sans-serif;
-  --s-small:14px;
+  --s-small:15px;
   --s-body:clamp(17px,1rem + .2vw,19px);
-  --s-lead:clamp(21px,1.1rem + .7vw,26px);
-  --s-head:clamp(32px,1.3rem + 2.4vw,48px);
-  --s-display:clamp(64px,7.4vw,128px);
-  --m:clamp(16px,2.2vw,32px);
+  --s-lead:clamp(20px,1.05rem + .7vw,26px);
+  --s-head:clamp(34px,1.4rem + 2.6vw,56px);
+  --s-display:clamp(48px,2rem + 6.4vw,132px);
+  --m:clamp(16px,3vw,48px);
   --ease:cubic-bezier(.23,1,.32,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--s-body);line-height:1.5;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-img{display:block;max-width:100%}
-::selection{background:var(--ink);color:var(--bg)}
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-h1,h2,h3{font-weight:500;letter-spacing:-.03em;line-height:1.05}
-h2{font-size:var(--s-head);margin-bottom:32px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border:0;border-radius:0;
-  background:var(--accent);color:var(--accent-ink);font:500 var(--s-body) var(--font);text-decoration:none;cursor:pointer;
-  transition:transform 160ms var(--ease),background-color 160ms ease}
-.btn:hover{background:var(--accent-hover)}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.02}
+h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
+.wrap{padding:0 var(--m);max-width:1440px;margin:0 auto}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:0 28px;border:0;border-radius:99px;
+  background:var(--ink);color:var(--bg);font:500 var(--s-body) var(--font);text-decoration:none;cursor:pointer;
+  transition:transform 180ms var(--ease),background-color 180ms ease}
+.btn:hover{background:#2A2A2A}
 .btn:active{transform:scale(.97)}
-.muted{color:var(--muted)}
+.btn svg{width:22px;height:22px;flex:none;transition:transform 300ms var(--ease)}
+.btn:hover svg{transform:translate(2px,-2px)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
 
-/* Раскладка: слева сцена, справа текст */
-.split{display:grid;grid-template-columns:47% 1fr}
-.stage{position:sticky;top:0;height:100svh;padding:var(--m) 0 var(--m) var(--m)}
-.stage-in{position:relative;height:100%;background:var(--surface);overflow:hidden}
-.layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 400ms ease,visibility 0s 400ms}
-.stage[data-on=try] .layer[data-l=try],.stage[data-on=work] .layer[data-l=work],.stage[data-on=how] .layer[data-l=how]{opacity:1;visibility:visible;transition:opacity 400ms ease}
-.col{padding:0 var(--m) 0 clamp(32px,5vw,88px);min-width:0}
-@media(max-width:900px){
-  .split{display:block}
-  .stage{display:none}
-  .col{padding:0 var(--m)}
-}
+/* Шапка */
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0}
+.name{font-weight:600;font-size:17px;text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.name i{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.top nav{display:flex;align-items:center;gap:28px}
+.top nav a{text-decoration:none;font-size:var(--s-small);font-weight:500}
+.top nav a:hover{color:var(--accent)}
+.tg{width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--bg);display:inline-flex;align-items:center;justify-content:center;
+  transition:background-color 200ms ease,transform 200ms var(--ease)}
+.tg:hover{background:var(--accent);color:#fff;transform:rotate(-8deg)}
+.tg svg{width:22px;height:22px}
+@media(max-width:760px){.top nav .hide-m{display:none}}
 
-/* Шапка и первый экран */
-.hero{min-height:100svh;display:flex;flex-direction:column;padding-bottom:40px}
-.top{display:flex;justify-content:flex-end;gap:28px;align-items:center;padding:28px 0}
-.top a{text-decoration:none;font-size:var(--s-small);font-weight:500}
-.top a:hover{text-decoration:underline}
-.top .act{background:var(--accent);color:var(--accent-ink);padding:12px 18px}
-.top .act:hover{text-decoration:none;background:var(--accent-hover)}
-.hero-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0}
-.hero .lead{font-size:var(--s-lead);line-height:1.3;max-width:24ch}
-.hero .lead+p{margin-top:32px}
-.hero .facts{margin-top:28px;color:var(--muted);font-size:var(--s-body)}
-.wordmark{font-size:clamp(56px,6vw,108px);font-weight:500;letter-spacing:-.045em;line-height:.92;white-space:nowrap;margin-left:-9vw;position:relative;z-index:2;transform-origin:left bottom}
-.wordmark span{display:block}
-@supports (animation-timeline:scroll()){
-  @media (prefers-reduced-motion:no-preference){
-    .wordmark{animation:shrink linear both;animation-timeline:scroll(root);animation-range:0 100svh}
-    @keyframes shrink{to{transform:scale(.93)}}
-  }
-}
-@media(max-width:900px){
-  .top{justify-content:flex-end}
-  .top .hide-m{display:none}
-  .hero{min-height:auto}
-  .hero-mid{order:2;padding:24px 0 0}
-  .wordmark{order:1;margin:24px 0 0;font-size:clamp(36px,10.6vw,84px)}
-}
+/* Первый экран */
+.hero{padding:clamp(24px,4vw,56px) 0 clamp(72px,10vw,160px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,3vw,44px)}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(36px,calc((100vw - 2 * var(--m)) / 9.6),112px);line-height:.95;letter-spacing:-.05em}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 span b{display:block;font-weight:500}
+.js .hero h1 span b{animation:up 900ms var(--ease) both}
+.js .hero h1 span:nth-child(2) b{animation-delay:90ms}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+.hero .lead{font-size:var(--s-lead);line-height:1.35;max-width:30ch;margin-bottom:32px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.js .hero .lead,.js .hero .acts{animation:fade 800ms 250ms var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-/* Примерка */
-.try{padding:clamp(80px,12vw,180px) 0}
-.try .intro{max-width:44ch;margin-bottom:32px;color:var(--ink)}
-.field{display:block;margin-bottom:20px}
-.field span{display:block;font-size:var(--s-small);color:var(--muted);margin-bottom:8px}
-.field input,.field textarea{width:100%;min-height:60px;padding:0 18px;border:0;border-radius:0;background:var(--surface-2);color:var(--ink);font:400 var(--s-body) var(--font)}
-.field textarea{padding:16px 18px;min-height:110px;resize:vertical}
-.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:1}
+/* Примерка в первом экране */
+.try{background:var(--surface);border-radius:28px;padding:clamp(20px,2.4vw,32px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.js .try{animation:fade 900ms 380ms var(--ease) both}
+@media(max-width:560px){.try{grid-template-columns:1fr}}
+.try h2{font-size:22px;letter-spacing:-.02em;margin-bottom:8px}
+.try p{font-size:var(--s-small);color:var(--muted);margin-bottom:18px;max-width:30ch}
+.field{display:block;margin-bottom:14px}
+.field span{display:block;font-size:var(--s-small);color:var(--muted);margin-bottom:6px}
+.field input,.field textarea{width:100%;min-height:54px;padding:0 16px;border:0;border-radius:14px;background:var(--bg);color:var(--ink);font:400 var(--s-body) var(--font)}
+.field textarea{padding:14px 16px;min-height:110px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#8A8A8E;opacity:1}
 .field input:focus,.field textarea:focus{outline:none;box-shadow:inset 0 0 0 2px var(--ink)}
-.opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.opt{min-height:48px;padding:0 18px;border:0;border-radius:0;background:var(--surface-2);color:var(--ink);font:500 16px var(--font);cursor:pointer;transition:background-color 150ms ease,transform 150ms var(--ease)}
-.opt:hover{background:#DADAD6}
-.opt:active{transform:scale(.97)}
-.opt[aria-pressed=true]{background:var(--ink);color:var(--accent-ink)}
-.tones{display:flex;gap:10px}
-.tone{width:48px;height:48px;border:0;border-radius:50%;cursor:pointer;transition:transform 150ms var(--ease)}
-.tone:hover{transform:scale(1.08)}
-.tone[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:3px}
-.inline-phone{display:none;margin-top:40px}
-@media(max-width:900px){.inline-phone{display:flex;justify-content:center}}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{min-height:44px;padding:0 16px;border:0;border-radius:99px;background:var(--bg);color:var(--ink);font:500 15px var(--font);cursor:pointer;transition:background-color 150ms ease,transform 150ms var(--ease)}
+.opt:hover{background:var(--surface-2)}
+.opt:active{transform:scale(.96)}
+.opt[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 
-/* Телефон с превью (рамка устройства и сам сайт внутри) */
-.phone{width:min(320px,78%);aspect-ratio:9/18.5;background:#111;border-radius:44px;padding:12px;position:relative}
-.screen{height:100%;border-radius:33px;overflow:hidden;background:var(--pv-bg,#F5F5F3);color:var(--pv-ink,#1C1917);display:flex;flex-direction:column;font-family:var(--font);transition:background-color 300ms ease}
-.pv-bar{display:flex;justify-content:space-between;align-items:center;padding:22px 18px 10px;font-size:13px;font-weight:700}
-.pv-bar i{font-style:normal;background:var(--pv-acc,#2348E8);color:#fff;padding:6px 10px;font-size:11px;border-radius:99px}
-.pv-hero{padding:22px 18px 18px}
-.pv-hero b{display:block;font-size:26px;line-height:1;letter-spacing:-.04em;font-weight:700;word-break:break-word}
-.pv-hero p{font-size:13px;line-height:1.35;margin-top:12px;opacity:.8}
-.pv-btn{display:inline-block;margin-top:16px;background:var(--pv-acc,#2348E8);color:#fff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:99px}
-.pv-list{margin-top:auto;font-size:13px;background:rgba(0,0,0,.06);padding:14px 18px 22px;font-size:12px;line-height:1.3}
-.pv-list div{display:flex;justify-content:space-between;padding:7px 0}
-.pv-list div b{font-weight:700}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:33px}
+/* Телефон с наброском — интерфейс, свои скругления */
+.phone{width:210px;aspect-ratio:9/18.5;background:var(--ink);border-radius:34px;padding:9px;justify-self:center}
+.screen{height:100%;border-radius:26px;overflow:hidden;background:var(--pv-bg,#fff);color:var(--pv-ink,#111);display:flex;flex-direction:column;font-family:var(--font);transition:background-color 300ms ease}
+.pv-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:16px 14px 6px;font-size:13px;font-weight:600}
+.pv-bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-bar i{font-style:normal;background:var(--pv-acc,#B8330C);color:#fff;padding:5px 9px;font-size:13px;border-radius:99px;flex:none}
+.pv-hero{padding:16px 14px}
+.pv-hero b{display:block;font-size:21px;line-height:1.02;letter-spacing:-.04em;font-weight:600;word-break:break-word}
+.pv-hero p{font-size:13px;line-height:1.3;margin-top:10px;opacity:.75}
+.pv-btn{display:inline-block;margin-top:12px;background:var(--pv-acc,#B8330C);color:#fff;font-size:13px;font-weight:600;padding:9px 13px;border-radius:99px}
+.pv-list{margin-top:auto;background:rgba(0,0,0,.05);padding:10px 14px 16px;font-size:13px}
+.pv-list div{display:flex;justify-content:space-between;gap:6px;padding:5px 0}
+.pv-list b{font-weight:600}
 
-/* Примеры: тихий список */
-.work{padding:clamp(80px,12vw,180px) 0}
-.work .intro{max-width:44ch;margin-bottom:24px}
-.rows{list-style:none;max-width:640px}
-.rows a{display:grid;grid-template-columns:1fr auto;gap:2px 20px;padding:18px 0;text-decoration:none;transition:color 150ms ease}
-.rows a b{font-weight:500;font-size:var(--s-lead);letter-spacing:-.02em}
-.rows a span{color:var(--muted);font-size:var(--s-body);grid-column:1/-1}
-.rows a em{font-style:normal;font-size:var(--s-lead);align-self:center;transition:transform 150ms var(--ease)}
-.rows:hover a,.rows:focus-within a{color:var(--muted)}
-.rows a:hover,.rows a:focus-visible{color:var(--ink)}
-.rows a:hover em,.rows a:focus-visible em{transform:translateX(6px)}
-.rows .shot{display:none}
-@media(max-width:900px){
-  .rows .shot{display:block;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:top;width:100%;margin-top:24px;background:var(--surface)}
-  .rows li+li .shot{margin-top:40px}
-}
+/* Что делаю */
+.do{padding:clamp(72px,10vw,160px) 0}
+.do ul{list-style:none}
+.do li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;padding:clamp(20px,2.4vw,32px) 0;align-items:baseline}
 
-/* Как работаю */
-.how{padding:clamp(80px,12vw,180px) 0 clamp(40px,6vw,80px)}
-.steps{list-style:none}
-.step{min-height:70svh;display:flex;flex-direction:column;justify-content:center;max-width:30ch;transition:color 300ms ease}
-.step b{display:block;font-size:clamp(26px,1.2rem + 1vw,32px);font-weight:500;letter-spacing:-.025em;line-height:1.15}
-.step p{margin-top:16px;font-size:var(--s-body)}
-.js .step{color:var(--muted)}
-.js .step.on{color:var(--ink)}
-.step .chat{display:none}
-@media(max-width:900px){
-  .step{min-height:auto;padding:28px 0;max-width:none}
-  .js .step{color:var(--ink)}
-  .step .chat{display:flex;margin-top:20px}
-}
-/* Фрагмент Telegram — настоящий интерфейс, свои рамки */
-.chat{width:min(400px,86%);background:#0e1621;color:#e9eef3;border-radius:18px;padding:18px;flex-direction:column;gap:10px;font-size:15px;line-height:1.35;display:flex}
-.chat .who{font-size:13px;color:#7f91a4;padding:0 4px}
-.chat .msg{background:#182533;padding:10px 14px;border-radius:14px 14px 14px 4px;max-width:88%}
-.chat .me{align-self:flex-end;background:#2b5278;border-radius:14px 14px 4px 14px}
-.chat .bot{border-left:3px solid #6ab3f3}
-.chat .card{background:#2b5278;border-radius:14px 14px 4px 14px;overflow:hidden;max-width:88%;align-self:flex-end}
-.chat .card img{width:100%;height:150px;object-fit:cover;object-position:top}
-.chat .card div{padding:10px 14px}
-.chat .card small{display:block;color:#a9d3ff;font-size:13px;text-decoration:underline}
-.chat .bot b,.step .chat .bot b{display:block;margin-bottom:4px;font-size:15px;font-weight:600;letter-spacing:0;line-height:1.35}
-.chat-s{display:none}
-.layer[data-l=how] .chat[data-s="1"] .s1,.layer[data-l=how] .chat[data-s="2"] .s2,.layer[data-l=how] .chat[data-s="3"] .s3,.layer[data-l=how] .chat[data-s="4"] .s4{display:block}
+.do li b{font-size:clamp(26px,1.2rem + 1.6vw,44px);font-weight:500;letter-spacing:-.03em;line-height:1.1;transition:transform 300ms var(--ease)}
+.do li:hover b{transform:translateX(10px)}
+.do li p{font-size:var(--s-body);max-width:46ch}
+@media(max-width:760px){.do li{grid-template-columns:1fr}}
 
-/* Цены: два поля цвета встык */
-.price{display:grid;grid-template-columns:7fr 5fr}
-.plan{min-height:86svh;padding:clamp(28px,4vw,56px) var(--m);display:flex;flex-direction:column}
-.plan:first-child{background:var(--ink);color:var(--accent-ink)}
-.plan:last-child{background:var(--surface)}
-.plan h2{font-size:clamp(40px,4.6vw,76px);margin-bottom:20px}
-.plan .who{font-size:var(--s-lead);line-height:1.3;max-width:26ch}
-.plan .inc{margin-top:28px;max-width:40ch;font-size:var(--s-body)}
-.plan .foot{margin-top:auto;padding-top:48px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.plan .sum{font-size:clamp(56px,8vw,140px);letter-spacing:-.05em;line-height:.85;font-weight:400}
-.plan .sum small{font-size:var(--s-lead);letter-spacing:-.02em;margin-right:8px}
-.plan:first-child .btn{background:var(--accent-ink);color:var(--ink)}
-.plan:first-child .btn:hover{background:var(--surface-2)}
-.price-note{grid-column:1/-1;padding:28px var(--m);background:var(--bg);color:var(--muted);font-size:var(--s-body)}
-@media(max-width:900px){
-  .price{grid-template-columns:1fr}
-  .plan{min-height:70svh}
-  .plan .sum{font-size:clamp(52px,16vw,110px);white-space:nowrap}
-  .plan .btn{width:100%}
-}
+/* Как это работает — тёмная секция */
+.how{background:var(--dark);color:var(--on-dark);padding:clamp(72px,10vw,160px) 0;border-radius:clamp(24px,3vw,40px) clamp(24px,3vw,40px) 0 0}
+.steps{list-style:none;display:grid;gap:clamp(48px,7vw,96px)}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px clamp(32px,5vw,80px);align-items:center}
+@media(max-width:860px){.step{grid-template-columns:1fr}}
+.step h3{font-size:clamp(26px,1.2rem + 1.4vw,40px);margin-bottom:14px}
+.step p{color:var(--on-dark-muted);max-width:40ch}
+.chat{background:#17212B;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.35;color:#E9EEF3;max-width:460px;width:100%}
+.chat .msg{background:#182533;padding:10px 14px;border-radius:16px 16px 16px 4px;max-width:86%;align-self:flex-start}
+.chat .me{align-self:flex-end;background:#2B5278;border-radius:16px 16px 4px 16px}
+.chat .msg u{color:#A9D3FF}
+.js .chat .msg{opacity:0;transform:translateY(10px) scale(.98)}
+.js .step.in .chat .msg{animation:pop 500ms var(--ease) both}
+.js .step.in .chat .msg:nth-child(2){animation-delay:450ms}
+.js .step.in .chat .msg:nth-child(3){animation-delay:900ms}
+@keyframes pop{to{opacity:1;transform:none}}
 
-/* Связаться: одно поле */
-.contact{padding:200px var(--m) 160px;display:flex;justify-content:center}
-.contact form{width:min(560px,100%)}
-.contact h2{font-size:clamp(24px,1rem + 1vw,30px);line-height:1.25;margin-bottom:28px}
-.contact h2 span{display:block;color:var(--muted)}
+/* Связаться */
+.contact{background:var(--dark);color:var(--on-dark);padding:0 0 clamp(72px,10vw,140px)}
+.contact-in{background:var(--bg);color:var(--ink);border-radius:clamp(24px,3vw,40px);padding:clamp(28px,5vw,80px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px)}
+@media(max-width:860px){.contact-in{grid-template-columns:1fr}}
+.contact h2{margin-bottom:20px}
+.contact .lead{font-size:var(--s-lead);line-height:1.35;max-width:26ch;margin-bottom:32px}
 .one{position:relative}
-.one input{width:100%;height:64px;padding:0 76px 0 20px;border:0;border-radius:0;background:var(--ink);color:var(--accent-ink);font:500 var(--s-body) var(--font)}
-.one input::placeholder{color:#A3A3A0;opacity:1}
-.one input:focus{outline:none;box-shadow:inset 0 0 0 3px var(--accent)}
-.one button{position:absolute;right:8px;top:8px;width:48px;height:48px;border:0;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:22px;cursor:pointer;transition:transform 150ms var(--ease)}
-.one button:hover{transform:translateX(3px)}
+.one input{width:100%;height:62px;padding:0 74px 0 20px;border:0;border-radius:99px;background:var(--surface);color:var(--ink);font:500 var(--s-body) var(--font)}
+.one input::placeholder{color:#8A8A8E;opacity:1}
+.one input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--ink)}
+.one button{position:absolute;right:7px;top:7px;width:48px;height:48px;border:0;border-radius:50%;background:var(--ink);color:var(--bg);font-size:22px;cursor:pointer;transition:background-color 180ms ease,transform 180ms var(--ease)}
+.one button:hover{background:var(--accent);transform:translateX(2px)}
 .one button:disabled{opacity:.6;cursor:wait}
-.next{margin-top:16px;font-size:var(--s-small);color:var(--muted)}
+.note{margin-top:14px;font-size:var(--s-small);color:var(--muted)}
 .attached{margin-top:8px;font-size:var(--s-small)}
-details{margin-top:24px}
+details{margin-top:20px}
 summary{cursor:pointer;font-size:16px;font-weight:500;min-height:44px;display:flex;align-items:center}
-details .field{margin-top:12px}
+details .field input,details .field textarea{background:var(--surface)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.status{margin-top:20px;font-size:var(--s-body);min-height:1.5em}
+.status{margin-top:16px;font-size:var(--s-body);min-height:1.5em}
 .status.err{color:#B3261E}
-.direct{margin-top:72px;display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:var(--s-small)}
-.direct dt{color:var(--muted)}
-.direct a{font-weight:500}
-@media(max-width:600px){.contact{padding:120px var(--m) 100px}.direct{grid-template-columns:1fr;gap:2px}.direct dd{margin-bottom:14px}}
 
 /* Подвал */
-footer{background:var(--ink);color:var(--accent-ink);padding:96px var(--m) 32px}
-footer .wm{font-size:clamp(56px,7vw,120px);font-weight:500;letter-spacing:-.045em;line-height:.9;margin-bottom:64px}
-footer .row{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
-footer nav a{display:block;font-size:clamp(24px,2.4vw,36px);font-weight:500;letter-spacing:-.03em;text-decoration:none;padding:4px 0;transition:transform 150ms var(--ease),color 150ms ease}
-footer nav:hover a{color:#9A9A96}
-footer nav a:hover,footer nav a:focus-visible{color:var(--accent-ink);transform:translateX(10px)}
-footer .info{display:flex;flex-direction:column;gap:8px;font-size:var(--s-body)}
-footer .legal{margin-top:80px;font-size:var(--s-small);color:#9A9A96}
-footer :focus-visible{outline-color:var(--accent-ink)}
-@media(max-width:900px){footer{padding:64px var(--m) 28px}footer .wm{font-size:clamp(36px,10.6vw,84px)}}
+footer{background:var(--dark);color:var(--on-dark);padding:0 0 32px}
+footer .wm{font-size:clamp(32px,calc((100vw - 2 * var(--m)) / 8.4),140px);font-weight:500;letter-spacing:-.05em;line-height:.92}
+footer .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:40px;font-size:var(--s-body)}
+footer .row div{display:flex;gap:28px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+footer small{font-size:var(--s-small);color:var(--on-dark-muted)}
+footer :focus-visible{outline-color:var(--on-dark)}
 
-/* Появление частей секций */
-.js .rise{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms var(--ease)}
+/* Появление секций */
+.js .rise{opacity:0;transform:translateY(28px);transition:opacity 700ms ease,transform 700ms var(--ease)}
 .js .rise.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .js .rise{opacity:1;transform:none}
-  *{transition-duration:1ms!important}
+  *,*::before,*::after{animation:none!important;transition-duration:1ms!important}
+  .js .rise,.js .chat .msg{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 <script>document.documentElement.className='js'</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 3.2 2.9 10.4c-1.1.4-1.1 1.9 0 2.3l4.6 1.6 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.7 4.6 3.4c.8.6 1.9.1 2.1-.8l3-15.3c.2-1.1-.9-2-2.2-1.7ZM9.6 14l8-6.4-6.4 7.4-.3 3.1-1.3-4.1Z"/></symbol>
+</svg>
 
-<div class="split">
-  <aside class="stage" id="stage" data-on="try" aria-hidden="true">
-    <div class="stage-in">
-      <div class="layer" data-l="try"><div class="phone" data-ui><div class="screen pv"></div></div></div>
-      <div class="layer" data-l="work"><div class="phone" data-ui><img id="workShot" src="img/plants-phone.jpg" alt="" width="390" height="844"></div></div>
-      <div class="layer" data-l="how">
-        <div class="chat" id="stageChat" data-s="1" data-ui>
-          <span class="who">Анна</span>
-          <div class="msg chat-s s1 s2 s3 s4">Здравствуйте! Хочу сайт для студии маникюра, чтобы клиенты записывались сами.</div>
-          <div class="card chat-s s2 s3 s4"><img src="img/nails-phone.jpg" alt="" width="390" height="844"><div>Набросок готов, откройте с телефона<small>vera-nails.ru</small></div></div>
-          <div class="msg chat-s s3 s4">Можно цены покрупнее и фото кабинета?</div>
-          <div class="msg me chat-s s3 s4">Готово, обновите страницу.</div>
-          <div class="msg bot chat-s s4"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="#top"><i aria-hidden="true"></i><span data-fill="name">Марк Картофельников</span></a>
+    <nav aria-label="Разделы">
+      <a class="hide-m" href="#do">Что делаю</a>
+      <a class="hide-m" href="#how">Как работаем</a>
+      <a class="hide-m" href="#contact">Связаться</a>
+      <a class="tg" data-fill="tg-icon" href="https://t.me/garfild_u" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg><use href="#plane"/></svg></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1><span><b>Создаю и обновляю</b></span><span><b>сайты</b></span></h1>
+      <div class="hero-grid">
+      <div>
+        <p class="lead">Новый сайт с нуля или свежий вид для старого. Напишите идею — пришлю набросок вашего сайта, и доведём его до готового вместе.</p>
+        <div class="acts">
+          <a class="btn" data-fill="tg-btn" href="https://t.me/garfild_u" target="_blank" rel="noopener">Написать в Telegram <svg aria-hidden="true"><use href="#plane"/></svg></a>
+          <a class="btn btn-ghost" href="#contact">Оставить контакт</a>
         </div>
       </div>
-    </div>
-  </aside>
 
-  <div class="col">
-    <header class="hero" id="top">
-      <nav class="top" aria-label="Разделы">
-        <a class="hide-m" href="#work">Примеры</a>
-        <a class="hide-m" href="#try">Примерка</a>
-        <a class="hide-m" href="#how">Как работаю</a>
-        <a class="hide-m" href="#price">Цены</a>
-        <a class="act" href="#contact">Обсудить сайт</a>
-      </nav>
-      <div class="hero-mid">
-        <p class="lead">Делаю сайты для малого бизнеса: от наброска на вашем домене до готового сайта с заявками в Telegram.</p>
-        <p><a class="btn" href="#contact">Обсудить ваш сайт</a></p>
-        <p class="facts">От 20 000 ₽ под ключ. Набросок покажу через 3–5 дней после первого разговора.</p>
+      <div class="try" aria-labelledby="tryTitle">
+        <div>
+          <h2 id="tryTitle">Как может выглядеть ваш сайт</h2>
+          <p>Впишите название, и посмотрите первый экран будущего сайта.</p>
+          <label class="field"><span>Название</span><input id="bizName" maxlength="40" placeholder="Например, Кофейня на углу" autocomplete="organization"></label>
+          <div class="opts" id="kind" role="group" aria-label="Что должен уметь сайт">
+            <button class="opt" type="button" data-k="card" aria-pressed="true">Визитка</button>
+            <button class="opt" type="button" data-k="book" aria-pressed="false">Запись</button>
+            <button class="opt" type="button" data-k="shop" aria-pressed="false">Магазин</button>
+          </div>
+        </div>
+        <div class="phone" data-ui><div class="screen pv"></div></div>
       </div>
-      <h1 class="wordmark"><span>Марк</span> <span>Картофельников</span></h1>
-    </header>
+      </div>
+    </section>
 
-    <section class="work" id="work" data-stage="work">
-      <h2 class="rise">Примеры</h2>
-      <p class="intro rise">Два сайта, собранные для показа: всё в них нажимается и работает. Откройте с телефона.</p>
-      <ul class="rows rise">
-        <li><img class="shot" src="img/plants-phone.jpg" alt="Первый экран сайта магазина растений" width="390" height="844" loading="lazy">
-          <a href="plants/" data-shot="img/plants-phone.jpg"><b>Магазин растений</b><em>→</em><span>Каталог с фильтрами, корзина, оформление доставки</span></a></li>
-        <li><img class="shot" src="img/nails-phone.jpg" alt="Первый экран сайта мастера маникюра" width="390" height="844" loading="lazy">
-          <a href="nails/" data-shot="img/nails-phone.jpg"><b>Запись к мастеру маникюра</b><em>→</em><span>Прайс, выбор цвета покрытия, свободные окна, запись</span></a></li>
-        <li><a href="#contact"><b>Ваш сайт</b><em>→</em><span>Напишите, чем занимаетесь, и я сделаю набросок под вас</span></a></li>
+    <section class="do" id="do">
+      <h2 class="rise">Что я делаю</h2>
+      <ul>
+        <li class="rise"><b>Сайт с нуля</b><p>Визитка, лендинг под услугу или полноценный сайт с несколькими страницами.</p></li>
+        <li class="rise"><b>Редизайн</b><p>Беру ваш старый сайт и делаю его современным, быстрым и удобным с телефона.</p></li>
+        <li class="rise"><b>Запись и заявки</b><p>Клиент выбирает время или оставляет контакт, а вам сразу приходит сообщение.</p></li>
+        <li class="rise"><b>Магазин</b><p>Каталог, корзина и оформление заказа без лишних сервисов.</p></li>
+        <li class="rise"><b>Поддержка</b><p>Меняю тексты, цены и фото, когда нужно, и слежу, чтобы всё работало.</p></li>
       </ul>
     </section>
-
-    <section class="try" id="try" data-stage="try">
-      <h2 class="rise">Примерьте на своё дело</h2>
-      <p class="intro rise">Впишите название и выберите, что должен уметь сайт. Так будет выглядеть первый экран, а настоящий я соберу под ваши фото и цены.</p>
-      <div class="rise">
-        <label class="field"><span>Название вашего дела</span><input id="bizName" maxlength="40" placeholder="Например, Пекарня на Ленина" autocomplete="organization"></label>
-        <div class="opts" id="kind" role="group" aria-label="Что должен уметь сайт">
-          <button class="opt" type="button" data-k="book" aria-pressed="true">Запись клиентов</button>
-          <button class="opt" type="button" data-k="shop" aria-pressed="false">Магазин</button>
-          <button class="opt" type="button" data-k="card" aria-pressed="false">Визитка</button>
-        </div>
-        <div class="tones" id="tones" role="group" aria-label="Цвет сайта"></div>
-      </div>
-      <div class="inline-phone"><div class="phone" data-ui><div class="screen pv"></div></div></div>
-    </section>
-
-
-    <section class="how" id="how" data-stage="how">
-      <h2 class="rise">Как это работает</h2>
-      <ol class="steps">
-        <li class="step" data-s="1"><b>Вы пишете, какой сайт нужен.</b><p>В Telegram или через форму внизу: чем занимаетесь и что должен уметь сайт. Можно прислать сайт, который нравится.</p>
-          <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для студии маникюра, чтобы клиенты записывались сами.</div></div></li>
-        <li class="step" data-s="2"><b>Через 3–5 дней показываю набросок.</b><p>Подбираем адрес вроде vera-nails.ru, и я выкладываю туда первую версию. Её можно открыть с телефона и показать близким.</p>
-          <div class="chat" data-ui><div class="card"><img src="img/nails-phone.jpg" alt="Набросок сайта на телефоне" width="390" height="844" loading="lazy"><div>Набросок готов, откройте с телефона<small>vera-nails.ru</small></div></div></div></li>
-        <li class="step" data-s="3"><b>Дорабатываем вместе.</b><p>Тексты, фото, цены, кнопки. Правим, пока вам не понравится.</p>
-          <div class="chat" data-ui><div class="msg">Можно цены покрупнее и фото кабинета?</div><div class="msg me">Готово, обновите страницу.</div></div></li>
-        <li class="step" data-s="4"><b>Запускаем.</b><p>Подключаю заявки в Telegram и показываю, как самому менять цены и фото.</p>
-          <div class="chat" data-ui><div class="msg bot"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div></div></li>
-      </ol>
-    </section>
-  </div>
+  </main>
 </div>
 
-<section class="price" id="price" aria-label="Цены">
-  <div class="plan">
-    <h2>Запись или визитка</h2>
-    <p class="who">Мастерам, студиям, репетиторам, сервисам: всем, к кому записываются.</p>
-    <p class="inc">Одна страница с вашими услугами, ценами и фото, онлайн-запись или форма заявки, карта и контакты. Тексты помогу написать. Заявки приходят в Telegram.</p>
-    <div class="foot"><p class="sum"><small>от</small>20 000 ₽</p><a class="btn" href="#contact">Обсудить</a></div>
+<section class="how" id="how">
+  <div class="wrap">
+    <h2 class="rise">Как работаем</h2>
+    <ol class="steps">
+      <li class="step rise">
+        <div><h3>Вы пишете идею</h3><p>Чем занимаетесь и что хотите от сайта. Можно прислать ссылку на старый сайт или на тот, что нравится.</p></div>
+        <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для своей студии, чтобы клиенты записывались сами.</div><div class="msg">Вот наш старый сайт, он совсем устарел.</div></div>
+      </li>
+      <li class="step rise">
+        <div><h3>Я присылаю набросок</h3><p>Живую страницу по ссылке, которую можно открыть с телефона и показать близким.</p></div>
+        <div class="chat" data-ui><div class="msg me">Набросок готов, посмотрите:<br><u>ваша-студия.ru</u></div><div class="msg">Ого, нравится! Только цвет потеплее.</div></div>
+      </li>
+      <li class="step rise">
+        <div><h3>Доводим до готового</h3><p>Правим тексты, фото и детали, подключаем заявки и запускаем.</p></div>
+        <div class="chat" data-ui><div class="msg me">Сделал теплее и запустил.</div><div class="msg">Первая запись уже пришла!</div></div>
+      </li>
+    </ol>
   </div>
-  <div class="plan">
-    <h2>Магазин</h2>
-    <p class="who">Тем, кто продаёт товары: каталог и заказ без маркетплейса.</p>
-    <p class="inc">Каталог с фильтрами, корзина, оформление заказа с доставкой или самовывозом. Заказы приходят в Telegram.</p>
-    <div class="foot"><p class="sum"><small>от</small>35 000 ₽</p><a class="btn" href="#contact">Обсудить</a></div>
-  </div>
-  <p class="price-note">Точную цену назову после разговора. Домен оформляю на ваше имя, это около 1 000 ₽ в год. Хостинг бесплатный.</p>
 </section>
 
 <section class="contact" id="contact">
-  <form id="lead" novalidate>
-    <h2><span>Расскажите про своё дело.</span>Отвечу в течение дня.</h2>
-    <label class="hp" aria-hidden="true">Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
-    <div class="one">
-      <input id="contactIn" name="contact" required placeholder="Телефон или @telegram" autocomplete="tel" aria-label="Телефон или Telegram для связи">
-      <button type="submit" id="send" aria-label="Отправить">→</button>
+  <div class="wrap">
+    <div class="contact-in rise">
+      <div>
+        <h2>Напишите мне</h2>
+        <p class="lead">Расскажите про идею своими словами. Отвечу, как только увижу сообщение.</p>
+        <a class="btn" data-fill="tg-btn" href="https://t.me/garfild_u" target="_blank" rel="noopener">Написать в Telegram <svg aria-hidden="true"><use href="#plane"/></svg></a>
+      </div>
+      <form id="lead" novalidate>
+        <p style="font-weight:500;margin-bottom:14px">Или оставьте контакт, я напишу сам</p>
+        <label class="hp" aria-hidden="true">Сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="one">
+          <input id="contactIn" name="contact" required placeholder="Телефон или @telegram" autocomplete="tel" aria-label="Телефон или Telegram для связи">
+          <button type="submit" id="send" aria-label="Отправить">→</button>
+        </div>
+        <p class="note">Контакт нужен только чтобы ответить вам.</p>
+        <p class="attached" id="attached" hidden></p>
+        <details>
+          <summary>Добавить имя и пару слов об идее</summary>
+          <label class="field"><span>Как к вам обращаться</span><input id="nameIn" name="name" maxlength="60" autocomplete="name"></label>
+          <label class="field"><span>Что за сайт нужен</span><textarea id="msgIn" name="message" maxlength="1000"></textarea></label>
+        </details>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
     </div>
-    <p class="next">Отправляя, вы соглашаетесь, что я вам напишу. Никакой рассылки.</p>
-    <p class="attached" id="attached" hidden></p>
-    <details>
-      <summary>Добавить имя и пару слов</summary>
-      <label class="field"><span>Как к вам обращаться</span><input id="nameIn" name="name" maxlength="60" autocomplete="name"></label>
-      <label class="field"><span>Чем занимаетесь и что нужно от сайта</span><textarea id="msgIn" name="message" maxlength="1000"></textarea></label>
-    </details>
-    <p class="status" id="status" role="status" aria-live="polite"></p>
-    <dl class="direct">
-      <dt>Telegram</dt><dd><a data-fill="tg" href="https://t.me/garfild_u">@garfild_u</a></dd>
-      <dt>Телефон</dt><dd><a data-fill="phone" href="tel:+79653770825">+7 965 377-08-25</a></dd>
-      <dt>Где работаю</dt><dd>Удалённо, по всей России</dd>
-    </dl>
-  </form>
+  </div>
 </section>
 
 <footer>
-  <p class="wm">Марк<br>Картофельников</p>
-  <div class="row">
-    <nav aria-label="Разделы в подвале">
-      <a href="#work">Примеры</a>
-      <a href="#try">Примерка</a>
-      <a href="#how">Как работаю</a>
-      <a href="#price">Цены</a>
-      <a href="#contact">Обсудить сайт</a>
-    </nav>
-    <div class="info">
-      <a data-fill="tg" href="https://t.me/garfild_u">@garfild_u</a>
-      <a data-fill="phone" href="tel:+79653770825">+7 965 377-08-25</a>
-      <span>Удалённо, по всей России</span>
+  <div class="wrap">
+    <p class="wm">Марк<br>Картофельников</p>
+    <div class="row">
+      <div>
+        <a data-fill="tg" href="https://t.me/garfild_u" target="_blank" rel="noopener">@garfild_u</a>
+        <a data-fill="phone" href="tel:+79653770825">+7 965 377-08-25</a>
+      </div>
+      <small>© 2026 <span data-fill="name">Марк Картофельников</span></small>
     </div>
   </div>
-  <p class="legal">© 2026 <span data-fill="name">Марк Картофельников</span></p>
 </footer>
 
 <script>
@@ -386,47 +310,40 @@ footer :focus-visible{outline-color:var(--accent-ink)}
     phoneText:'+7 965 377-08-25',
     worker:'https://leads.minikartoxa2105.workers.dev'
   };
+  var TG='https://t.me/'+CONFIG.tg;
   [].forEach.call(document.querySelectorAll('[data-fill]'),function(el){
     var k=el.getAttribute('data-fill');
     if(k==='name')el.textContent=CONFIG.name;
-    if(k==='tg'){el.textContent='@'+CONFIG.tg;el.href='https://t.me/'+CONFIG.tg;}
+    if(k==='tg'){el.textContent='@'+CONFIG.tg;el.href=TG;}
+    if(k==='tg-icon'||k==='tg-btn')el.href=TG;
     if(k==='phone'){el.textContent=CONFIG.phoneText;el.href='tel:'+CONFIG.phone;}
   });
 
-  /* ── Примерка ── */
+  /* ── Примерка: первый экран сайта посетителя ── */
   var KINDS={
-    book:{label:'Запись клиентов',title:'Запись онлайн за минуту',text:'Выберите услугу и свободное время, напомним за день.',btn:'Записаться',chip:'Запись',list:[['Стрижка','1 500 ₽'],['Окрашивание','от 3 000 ₽'],['Ближайшее окно','завтра, 12:00']]},
-    shop:{label:'Магазин',title:'Закажите с доставкой завтра',text:'Каталог, корзина и оплата при получении.',btn:'Открыть каталог',chip:'Корзина · 0',list:[['Хит недели','1 290 ₽'],['Новинка','890 ₽'],['Доставка','бесплатно от 3 000 ₽']]},
-    card:{label:'Визитка',title:'Рядом с вами с 9 до 21',text:'Адрес, часы работы и телефон всегда под рукой.',btn:'Позвонить',chip:'Карта',list:[['Адрес','ул. Ленина, 1'],['Телефон','+7 900 000-00-00'],['Сегодня','открыто до 21:00']]}
+    card:{label:'визитка',title:'Рядом с вами каждый день',text:'Адрес, часы работы и телефон всегда под рукой.',btn:'Позвонить',chip:'Контакты',list:[['Сегодня','до 21:00'],['Адрес','на карте'],['Отзывы','4,9']]},
+    book:{label:'онлайн-запись',title:'Запись онлайн за минуту',text:'Выберите услугу и время, напомним за день.',btn:'Записаться',chip:'Запись',list:[['Услуга','от 1 500 ₽'],['Мастер','любой'],['Окно','завтра, 12:00']]},
+    shop:{label:'магазин',title:'Закажите с доставкой',text:'Каталог, корзина и оплата при получении.',btn:'В каталог',chip:'Корзина',list:[['Хит недели','1 290 ₽'],['Новинка','890 ₽'],['Доставка','завтра']]}
   };
-  var TONES=[
-    {bg:'#F5F5F3',ink:'#111111',acc:'#2348E8',name:'Синий'},
-    {bg:'#EEF2EA',ink:'#18261C',acc:'#2F6B45',name:'Зелёный'},
-    {bg:'#F6F2F2',ink:'#1C1917',acc:'#9E0B2A',name:'Вишня'},
-    {bg:'#1C1917',ink:'#F4F1EC',acc:'#E8833A',name:'Тёмный'}
-  ];
-  var st={kind:'book',tone:TONES[0],biz:''};
+  var st={kind:'card',biz:''};
   var screens=document.querySelectorAll('.pv');
   var tpl='<div class="pv-bar"><span class="pv-name"></span><i class="pv-chip"></i></div>'+
     '<div class="pv-hero"><b class="pv-title"></b><p class="pv-text"></p><span class="pv-btn"></span></div>'+
     '<div class="pv-list"><div><span class="a1"></span><b class="b1"></b></div><div><span class="a2"></span><b class="b2"></b></div><div><span class="a3"></span><b class="b3"></b></div></div>';
   [].forEach.call(screens,function(s){s.innerHTML=tpl;});
   function renderPreview(){
-    var k=KINDS[st.kind],name=st.biz||'Ваше дело';
+    var k=KINDS[st.kind],name=st.biz||'Ваш сайт';
     [].forEach.call(screens,function(s){
-      s.style.setProperty('--pv-bg',st.tone.bg);s.style.setProperty('--pv-ink',st.tone.ink);s.style.setProperty('--pv-acc',st.tone.acc);
       s.querySelector('.pv-name').textContent=name;
       s.querySelector('.pv-chip').textContent=k.chip;
       s.querySelector('.pv-title').textContent=st.biz?name:k.title;
       s.querySelector('.pv-text').textContent=st.biz?k.title+'. '+k.text:k.text;
       s.querySelector('.pv-btn').textContent=k.btn;
-      s.querySelector('.a1').textContent=k.list[0][0];s.querySelector('.b1').textContent=k.list[0][1];
-      s.querySelector('.a2').textContent=k.list[1][0];s.querySelector('.b2').textContent=k.list[1][1];
-      s.querySelector('.a3').textContent=k.list[2][0];s.querySelector('.b3').textContent=k.list[2][1];
+      for(var i=0;i<3;i++){s.querySelector('.a'+(i+1)).textContent=k.list[i][0];s.querySelector('.b'+(i+1)).textContent=k.list[i][1];}
     });
     var att=document.getElementById('attached');
     att.hidden=!st.biz;
-    att.textContent=st.biz?'Вместе с контактом отправлю примерку: «'+st.biz+'», '+k.label.toLowerCase()+'.':'';
+    att.textContent=st.biz?'Вместе с контактом отправлю: «'+st.biz+'», '+k.label+'.':'';
   }
   document.getElementById('bizName').addEventListener('input',function(){st.biz=this.value.trim();renderPreview();});
   var kindBox=document.getElementById('kind');
@@ -436,48 +353,18 @@ footer :focus-visible{outline-color:var(--accent-ink)}
     [].forEach.call(kindBox.children,function(c){c.setAttribute('aria-pressed',String(c===b));});
     renderPreview();
   });
-  var toneBox=document.getElementById('tones');
-  TONES.forEach(function(t){
-    var b=document.createElement('button');
-    b.type='button';b.className='tone';b.style.background=t.acc;
-    b.setAttribute('aria-label','Цвет: '+t.name);b.setAttribute('aria-pressed',String(t===st.tone));
-    b.addEventListener('click',function(){
-      st.tone=t;[].forEach.call(toneBox.children,function(c){c.setAttribute('aria-pressed',String(c===b));});renderPreview();
-    });
-    toneBox.appendChild(b);
-  });
   renderPreview();
 
-  /* ── Сцена слева следует за разделом ── */
-  var stage=document.getElementById('stage'),chat=document.getElementById('stageChat');
+  /* ── Появление при прокрутке ── */
+  var rise=document.querySelectorAll('.rise');
   if('IntersectionObserver' in window){
-    var secObs=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting)stage.setAttribute('data-on',e.target.getAttribute('data-stage'));});
-    },{rootMargin:'-45% 0px -45% 0px'});
-    [].forEach.call(document.querySelectorAll('[data-stage]'),function(s){secObs.observe(s);});
-    var steps=document.querySelectorAll('.step');
-    var stepObs=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(!e.isIntersecting)return;
-        [].forEach.call(steps,function(s){s.classList.toggle('on',s===e.target);});
-        chat.setAttribute('data-s',e.target.getAttribute('data-s'));
-      });
-    },{rootMargin:'-45% 0px -45% 0px'});
-    [].forEach.call(steps,function(s){stepObs.observe(s);});
-    var riseObs=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');riseObs.unobserve(e.target);}});
-    },{rootMargin:'0px 0px -10% 0px'});
-    [].forEach.call(document.querySelectorAll('.rise'),function(el,i){el.style.transitionDelay=(i%3)*80+'ms';riseObs.observe(el);});
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -12% 0px'});
+    [].forEach.call(rise,function(el){obs.observe(el);});
   }else{
-    [].forEach.call(document.querySelectorAll('.rise'),function(el){el.classList.add('in');});
-    [].forEach.call(document.querySelectorAll('.step'),function(s){s.classList.add('on');});
+    [].forEach.call(rise,function(el){el.classList.add('in');});
   }
-
-  var shot=document.getElementById('workShot');
-  [].forEach.call(document.querySelectorAll('[data-shot]'),function(a){
-    function show(){shot.src=a.getAttribute('data-shot');}
-    a.addEventListener('mouseenter',show);a.addEventListener('focus',show);
-  });
 
   /* ── Заявка → Cloudflare Worker → Telegram ── */
   var form=document.getElementById('lead'),status=document.getElementById('status'),send=document.getElementById('send');
@@ -493,15 +380,14 @@ footer :focus-visible{outline-color:var(--accent-ink)}
       contact:contact,
       name:document.getElementById('nameIn').value.trim(),
       message:document.getElementById('msgIn').value.trim(),
-      business:st.biz,kind:KINDS[st.kind].label,
+      business:st.biz,kind:st.biz?KINDS[st.kind].label:'',
       website:form.website.value,
       page:location.href
     };
-    if(!CONFIG.worker){say('Форма пока не подключена. Напишите мне в Telegram: @'+CONFIG.tg,true);return;}
     send.disabled=true;say('Отправляю…');
     fetch(CONFIG.worker,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){if(!r.ok)throw new Error(r.status);say('Спасибо! Заявка у меня, напишу вам в течение дня.');form.reset();})
-      .catch(function(){say('Не получилось отправить. Напишите мне напрямую в Telegram: @'+CONFIG.tg,true);})
+      .then(function(r){if(!r.ok)throw new Error(r.status);say('Спасибо! Контакт у меня, скоро напишу.');form.reset();})
+      .catch(function(){say('Не получилось отправить. Напишите мне в Telegram: @'+CONFIG.tg,true);})
       .then(function(){send.disabled=false;});
   });
 })();
