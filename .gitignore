@@ -4,3 +4,4 @@ node_modules/
 .shots/
 .detect*.json
 .fix*.js
+.taste-skill/

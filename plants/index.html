@@ -69,7 +69,7 @@ header{position:sticky;top:0;z-index:50;background:var(--green);color:var(--pape
 .hero h1{
   font-family:var(--display);font-weight:400;
   font-size:clamp(38px,6vw,68px);line-height:1.12;letter-spacing:.005em;
-  margin:18px 0 20px;max-width:16ch;
+  margin:18px 0 20px;max-width:18ch;
 }
 .hero p{max-width:50ch;color:rgba(245,240,228,.78);font-size:clamp(16px,1.5vw,18px);margin-bottom:30px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -266,7 +266,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
     </a>
     <ul class="nav-links">
       <li><a href="#catalog">Каталог</a></li>
-      <li><a href="#care">Паспорт ухода</a></li>
+      <li><a href="#care">Уход</a></li>
       <li><a href="#delivery">Доставка</a></li>
     </ul>
     <button class="cart-btn" id="cartOpen" aria-haspopup="dialog">
@@ -285,17 +285,17 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Растения с характером и паспортом ухода</h1>
-        <p>Каждое приезжает из питомника в своём горшке, с ярлыком гербария: латынь, родина, режим света и полива на отдельной карточке. Если растению не подойдёт ваш подоконник, скажем честно и предложим другое.</p>
+        <h1>Растения с доставкой на дом</h1>
+        <p>Привозим в среду и пятницу. В каждом горшке карточка: куда поставить и как поливать. Не прижилось за 30 дней — заменим.</p>
         <div class="hero-actions">
           <a class="btn btn-ochre" href="#catalog">Выбрать растение</a>
-          <a class="btn btn-ghost" href="#care">Как мы их держим</a>
+          <a class="btn btn-ghost" href="#delivery">Доставка и гарантия</a>
         </div>
       </div>
       <div class="shelf" aria-hidden="true">
         <div class="pot-row" id="shelfRow"></div>
         <div class="shelf-base"></div>
-        <div class="shelf-caption"><span>Витрина недели</span><span>с 2021 года · питомник, Калужская обл.</span></div>
+        <div class="shelf-caption"><span>Хиты недели</span><span>из питомника в Калужской обл.</span></div>
       </div>
     </div>
   </div>
@@ -304,7 +304,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
   <section id="catalog">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title">Листы каталога</h2>
+        <h2 class="sec-title">Каталог</h2>
         <p class="sec-note">8 растений, от простых к капризным</p>
       </div>
       <div class="filters" id="filters" role="group" aria-label="Фильтр по сложности">
@@ -321,8 +321,8 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
   <section id="care" class="care-sec">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title">Паспорт ухода — на каждом горшке</h2>
-        <p class="sec-note">выдержка из ярлыка монстеры</p>
+        <h2 class="sec-title">Карточка ухода в каждом горшке</h2>
+        <p class="sec-note">пример: монстера</p>
       </div>
       <table class="care-table">
         <thead>
@@ -366,7 +366,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
 <footer>
   <div class="wrap foot">
     <p>© 2026 ГЕРБАРИЙ · магазин растений · ул. Мастеровая, 14</p>
-    <span class="demo-tag">Демонстрационный макет</span>
+    <a class="demo-tag" href="../" style="text-decoration:none">Демо-сайт · хочу такой →</a>
   </div>
 </footer>
 
@@ -374,7 +374,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
 <div class="drawer-veil" id="veil"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
   <div class="drawer-head">
-    <h2>Ваш сад</h2>
+    <h2>Корзина</h2>
     <button class="drawer-close" id="cartClose" aria-label="Закрыть корзину">✕</button>
   </div>
   <div class="drawer-body" id="cartBody"></div>
@@ -387,7 +387,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
         <input type="tel" id="cPhone" placeholder="Телефон" autocomplete="tel">
       </div>
       <input type="text" id="cAddr" placeholder="Адрес или «самовывоз»" style="width:100%;margin-bottom:10px">
-      <p class="ferr">Заполните имя, телефон и адрес — без них курьер не найдёт ваш сад</p>
+      <p class="ferr">Заполните имя, телефон и адрес</p>
       <button class="btn btn-ochre" type="submit">Оформить заказ</button>
     </form>
   </div>
@@ -451,7 +451,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
           '<h3>'+p.name+'</h3><p class="latin">'+p.latin+'</p>'+
           '<div class="tags"><span>'+p.light+'</span><span>'+p.water+'</span></div>'+
           '<div class="buy"><span class="price">'+p.price.toLocaleString('ru-RU')+' ₽</span>'+
-          '<button class="add-btn" type="button" data-add="'+p.id+'">В сад</button></div>'+
+          '<button class="add-btn" type="button" data-add="'+p.id+'">В корзину</button></div>'+
         '</div></article>';
     }).join('');
     if(!shown)grid.innerHTML='<p class="catalog-empty">В этой категории пока пусто, загляните в «Все».</p>';
@@ -491,7 +491,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
     document.getElementById('cartCount').textContent=count;
     var body=document.getElementById('cartBody');
     if(!list.length){
-      body.innerHTML='<p class="cart-empty">Сад пока пуст.<br>Добавьте растение из каталога, кнопка «В сад».</p>';
+      body.innerHTML='<p class="cart-empty">Корзина пуста.<br>Добавьте растение из каталога.</p>';
       document.getElementById('cartFoot').style.display='none';
       return;
     }
@@ -530,7 +530,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
     cart[id]=(cart[id]||0)+1;
     renderCart();
     var p=PLANTS.filter(function(x){return x.id===id;})[0];
-    showToast(p.name+' — в саду','В корзине '+items().reduce(function(a,x){return a+x.qty;},0)+' шт.');
+    showToast(p.name+' — в корзине','В корзине '+items().reduce(function(a,x){return a+x.qty;},0)+' шт.');
   }
   document.addEventListener('click',function(e){
     var add=e.target.closest('[data-add]');
@@ -556,7 +556,7 @@ footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
     if(bad)return;
     var list=items();
     var sum=list.reduce(function(a,x){return a+x.p.price*x.qty;},0);
-    var when=(new Date().getDay()===2||new Date().getDay()===4)?'завтра':'в среду';
+    var dow=new Date().getDay(),when=(dow===2||dow===4)?'завтра':(dow===3?'в пятницу':'в среду'); // курьер ездит в ср и пт
     showToast('Заказ оформлен, '+name.value.trim()+'!','Курьер приедет '+when+' · '+money(sum)+' · позвоним заранее');
     cart={};renderCart();f.reset();closeCart();
   });
