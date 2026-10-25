@@ -219,8 +219,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 
 /* Подвал */
 footer{background:var(--dark);color:var(--on-dark);padding:0 0 32px}
-footer .wm{font-size:clamp(32px,calc((100vw - 2 * var(--m)) / 8.4),140px);font-weight:500;letter-spacing:-.05em;line-height:.92}
-footer .row{display:flex;justify-content:flex-end;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:40px;font-size:var(--s-body)}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:var(--s-small)}
 footer .row div{display:flex;gap:28px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{color:var(--accent)}
@@ -355,9 +354,9 @@ footer :focus-visible{outline-color:var(--on-dark)}
 
 <footer>
   <div class="wrap">
-    <p class="wm">Марк<br>Картофельников</p>
     <div class="row">
       <small>© 2026 <span data-fill="name">Марк Картофельников</span></small>
+      <a href="#top">Наверх ↑</a>
     </div>
   </div>
 </footer>
