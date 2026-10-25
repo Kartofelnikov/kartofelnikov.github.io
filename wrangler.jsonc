@@ -1,0 +1,11 @@
+// Настройки Cloudflare Worker для заявок. Cloudflare деплоит его сам при каждом пуше в main.
+// Секреты BOT_TOKEN и CHAT_ID задаются в панели Cloudflare и сюда не пишутся.
+{
+  "name": "leads",
+  "main": "worker/worker.js",
+  "compatibility_date": "2026-10-01",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://nnmhj8hw8r-crypto.github.io"
+  },
+  "observability": { "enabled": true }
+}
