@@ -138,7 +138,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .do ul{list-style:none}
 .do li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;padding:clamp(20px,2.4vw,32px) 0;align-items:baseline}
 
-.do li b{font-size:clamp(26px,1.2rem + 1.6vw,44px);font-weight:500;letter-spacing:-.03em;line-height:1.1;transition:transform 300ms var(--ease)}
+.do li b{font-size:clamp(24px,1.1rem + 1.2vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.1;transition:transform 300ms var(--ease)}
 .do li:hover b{transform:translateX(10px)}
 .do li p{font-size:var(--s-body);max-width:46ch}
 @media(max-width:760px){.do li{grid-template-columns:1fr}}
@@ -163,7 +163,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 /* Связаться */
 .contact{background:var(--dark);color:var(--on-dark);padding:0 0 clamp(72px,10vw,140px)}
 .contact-in{background:var(--bg);color:var(--ink);border-radius:clamp(24px,3vw,40px);padding:clamp(36px,7vw,112px) clamp(24px,5vw,80px);display:flex;flex-direction:column;align-items:center;text-align:center}
-.contact h2{font-size:clamp(40px,1.6rem + 4.4vw,96px);margin-bottom:20px}
+.contact h2{font-size:clamp(36px,1.4rem + 3.6vw,80px);max-width:14ch;margin-bottom:20px}
 .contact .lead{font-size:var(--s-lead);line-height:1.35;max-width:32ch;margin-bottom:36px}
 .btn-big{min-height:68px;padding:0 36px;font-size:var(--s-lead)}
 .btn-big svg{width:26px;height:26px}
@@ -201,7 +201,7 @@ footer :focus-visible{outline-color:var(--on-dark)}
   <header class="top">
     <a class="name" href="#top"><i aria-hidden="true"></i><span data-fill="name">Марк Картофельников</span></a>
     <nav aria-label="Разделы">
-      <a class="hide-m" href="#do">Что делаю</a>
+      <a class="hide-m" href="#do">С чем помогу</a>
       <a class="hide-m" href="#how">Как работаем</a>
       <a class="tg" data-fill="tg-icon" href="https://t.me/garfild_u" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg><use href="#plane"/></svg></a>
     </nav>
@@ -212,16 +212,16 @@ footer :focus-visible{outline-color:var(--on-dark)}
       <h1><span><b>Создаю и обновляю</b></span><span><b>сайты</b></span></h1>
       <div class="hero-grid">
       <div>
-        <p class="lead">Новый сайт с нуля или свежий вид для старого. Напишите идею — пришлю набросок вашего сайта, и доведём его до готового вместе.</p>
+        <p class="lead">Сайты, которые понятны с первого экрана и удобны с телефона, поэтому по ним пишут и звонят. Сначала покажу набросок вашего сайта, а решите, когда увидите.</p>
         <div class="acts">
-          <a class="btn" data-fill="tg-btn" href="https://t.me/garfild_u" target="_blank" rel="noopener">Написать в Telegram <svg aria-hidden="true"><use href="#plane"/></svg></a>
+          <a class="btn btn-ghost" href="#how">Как это работает <span aria-hidden="true">↓</span></a>
         </div>
       </div>
 
       <div class="try" aria-labelledby="tryTitle">
         <div>
-          <h2 id="tryTitle">Как может выглядеть ваш сайт</h2>
-          <p>Впишите название, выберите тип и стиль — экран соберётся заново.</p>
+          <h2 id="tryTitle">Примерьте сайт на своё дело</h2>
+          <p>Впишите название, выберите тип и стиль. Это быстрый эскиз, а настоящий набросок я сделаю под ваши фото, цены и задачи.</p>
           <label class="field"><span>Название</span><input id="bizName" maxlength="40" placeholder="Например, Кофейня на углу" autocomplete="organization"></label>
           <div class="opts" id="kind" role="group" aria-label="Что должен уметь сайт">
             <button class="opt" type="button" data-k="card" aria-pressed="true">Визитка</button>
@@ -240,13 +240,12 @@ footer :focus-visible{outline-color:var(--on-dark)}
     </section>
 
     <section class="do" id="do">
-      <h2 class="rise">Что я делаю</h2>
+      <h2 class="rise">С чем помогу</h2>
       <ul>
-        <li class="rise"><b>Сайт с нуля</b><p>Визитка, лендинг под услугу или полноценный сайт с несколькими страницами.</p></li>
-        <li class="rise"><b>Редизайн</b><p>Беру ваш старый сайт и делаю его современным, быстрым и удобным с телефона.</p></li>
-        <li class="rise"><b>Запись и заявки</b><p>Клиент выбирает время или оставляет контакт, а вам сразу приходит сообщение.</p></li>
-        <li class="rise"><b>Магазин</b><p>Каталог, корзина и оформление заказа без лишних сервисов.</p></li>
-        <li class="rise"><b>Поддержка</b><p>Меняю тексты, цены и фото, когда нужно, и слежу, чтобы всё работало.</p></li>
+        <li class="rise"><b>Сайта нет, а клиенты ищут вас в интернете</b><p>Сделаю сайт с нуля: от одной страницы с услугами и контактами до сайта с несколькими разделами.</p></li>
+        <li class="rise"><b>Старый сайт стыдно показывать</b><p>Обновлю дизайн, тексты и версию для телефона, сохраню то, что уже работает.</p></li>
+        <li class="rise"><b>Запись тонет в переписке</b><p>Добавлю онлайн-запись или заявку: клиент сам выбирает время, а вам сразу приходит уведомление.</p></li>
+        <li class="rise"><b>Хочется продавать без посредников</b><p>Каталог с ценами и заказ прямо на вашем сайте, без комиссии площадок.</p></li>
       </ul>
     </section>
   </main>
@@ -257,16 +256,20 @@ footer :focus-visible{outline-color:var(--on-dark)}
     <h2 class="rise">Как работаем</h2>
     <ol class="steps">
       <li class="step rise">
-        <div><h3>Вы пишете идею</h3><p>Чем занимаетесь и что хотите от сайта. Можно прислать ссылку на старый сайт или на тот, что нравится.</p></div>
-        <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для своей студии, чтобы клиенты записывались сами.</div><div class="msg">Вот наш старый сайт, он совсем устарел.</div></div>
+        <div><h3>Рассказываете, что нужно</h3><p>Пара сообщений своими словами или ссылка на сайт, который нравится. Писать техническое задание не нужно: вопросы задам я.</p></div>
+        <div class="chat" data-ui><div class="msg">Здравствуйте! У меня студия маникюра, записываю клиентов в переписке и путаюсь во времени.</div><div class="msg">Можно, чтобы записывались сами?</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Я присылаю набросок</h3><p>Живую страницу по ссылке, которую можно открыть с телефона и показать близким.</p></div>
-        <div class="chat" data-ui><div class="msg me">Набросок готов, посмотрите:<br><u>ваша-студия.ru</u></div><div class="msg">Ого, нравится! Только цвет потеплее.</div></div>
+        <div><h3>Видите набросок своего сайта</h3><p>Живая страница по ссылке, с вашим названием и услугами. Открываете с телефона и сразу понимаете, нравится или нет.</p></div>
+        <div class="chat" data-ui><div class="msg me">Посмотрите с телефона:<br><u>ваша-студия.ru</u></div><div class="msg">Здорово! А цены можно видеть сразу?</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Доводим до готового</h3><p>Правим тексты, фото и детали, подключаем заявки и запускаем.</p></div>
-        <div class="chat" data-ui><div class="msg me">Сделал теплее и запустил.</div><div class="msg">Первая запись уже пришла!</div></div>
+        <div><h3>Доводим до результата</h3><p>Правлю всё, что важно для вас: тексты, фото, цвета. Проверяю сайт на разных телефонах, чтобы ничего не съезжало.</p></div>
+        <div class="chat" data-ui><div class="msg me">Цены вынес на первый экран, проверил на iPhone и Android.</div><div class="msg">Отлично, запускаем!</div></div>
+      </li>
+      <li class="step rise">
+        <div><h3>Запускаю и остаюсь на связи</h3><p>Подключаю адрес сайта и уведомления о заявках. Нужно поменять цены или фото — пишете, и я обновлю.</p></div>
+        <div class="chat" data-ui><div class="msg">Пришла первая запись с сайта!</div><div class="msg">Поменяете цену на педикюр?</div><div class="msg me">Уже обновил.</div></div>
       </li>
     </ol>
   </div>
@@ -275,8 +278,8 @@ footer :focus-visible{outline-color:var(--on-dark)}
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-in rise">
-      <h2>Напишите мне</h2>
-      <p class="lead">Расскажите идею своими словами или пришлите ссылку на старый сайт. Отвечу, как только увижу сообщение.</p>
+      <h2>Расскажите про ваш сайт</h2>
+      <p class="lead">Пары сообщений хватит, чтобы начать, дальше вопросы задам я. Можно сразу прислать ссылку на старый сайт или на тот, что нравится.</p>
       <a class="btn btn-big" data-fill="tg-btn" href="https://t.me/garfild_u" target="_blank" rel="noopener">Написать в Telegram <svg aria-hidden="true"><use href="#plane"/></svg></a>
       <p class="note">или позвоните: <a data-fill="phone" href="tel:+79653770825">+7 965 377-08-25</a></p>
     </div>
