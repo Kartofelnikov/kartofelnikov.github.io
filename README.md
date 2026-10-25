@@ -15,11 +15,10 @@
 
 ```js
 var CONFIG={
-  name:'Имя Фамилия',
-  tg:'username',            // ник в Telegram без @
-  phone:'+79000000000',
-  phoneText:'+7 900 000-00-00',
-  worker:''                 // адрес Worker после настройки
+  name:'Марк Картофельников',
+  tg:'garfild_u',            // ник в Telegram без @
+  phone:'+79653770825',      // на странице не показывается
+  phoneText:'+7 965 377-08-25'
 };
 ```
 
