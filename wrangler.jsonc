@@ -5,7 +5,7 @@
   "main": "worker/worker.js",
   "compatibility_date": "2026-10-01",
   "vars": {
-    "ALLOWED_ORIGIN": "https://kartofelnikov.pages.dev,https://nnmhj8hw8r-crypto.github.io"
+    "ALLOWED_ORIGIN": "https://kartofelnikov.github.io,https://kartofelnikov.pages.dev"
   },
   "observability": { "enabled": true }
 }
