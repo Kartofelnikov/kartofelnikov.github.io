@@ -1,4 +1,5 @@
 # Витрина: сайты для малого бизнеса
+nАдрес: **https://kartofelnikov.pages.dev** (Cloudflare Pages, обновляется сам при пуше в main). Старый адрес на github.io тоже работает.
 
 Одна страница-витрина от имени владельца. Демо под конкретного заказчика делаются отдельно. Всё — самодостаточные HTML-файлы без сборки, открываются где угодно, в том числе во встроенном браузере мессенджеров.
 
@@ -34,7 +35,7 @@ var CONFIG={
 5. В Worker: Settings → Variables and Secrets → добавьте
    - `BOT_TOKEN` (тип Secret) — токен из шага 1;
    - `CHAT_ID` (тип Secret) — число из шага 3;
-   - `ALLOWED_ORIGIN` (тип Text) — `https://nnmhj8hw8r-crypto.github.io`.
+   - `ALLOWED_ORIGIN` (тип Text) — адреса сайта через запятую (сейчас задаётся в `wrangler.jsonc`).
 6. Адрес Worker уже вписан в `CONFIG.worker`: `https://leads.minikartoxa2105.workers.dev`. Worker привязан к GitHub и обновляется сам при пуше (настройки в `wrangler.jsonc`).
 
 Проверка кода Worker без сети: `node worker/test.mjs`.
