@@ -120,7 +120,7 @@ h2{font-size:clamp(30px,1.2rem + 2.4vw,52px);margin-bottom:clamp(32px,5vw,64px)}
 .phone{width:clamp(220px,21vw,270px);aspect-ratio:9/18.5;background:var(--ink);border-radius:36px;padding:9px;justify-self:center}
 .screen{height:100%;border-radius:28px;overflow:hidden;background:var(--pv-bg);color:var(--pv-ink);font-family:var(--pv-body);display:flex;flex-direction:column;transition:background-color 350ms ease,color 350ms ease}
 .pv{--c:#6B4226;--pv-bg:#FFFFFF;--pv-ink:#141414;--pv-soft:rgba(0,0,0,.06);--pv-acc:var(--c);--pv-on-acc:#fff;--pv-body:var(--font);--pv-head:Georgia,'Times New Roman',serif;--pv-hw:400;--pv-case:none;--pv-r:4px}
-.pv[data-style=warm]{--pv-bg:#F3ECE3;--pv-ink:#2B211A;--pv-soft:rgba(43,33,26,.08);--pv-head:var(--font);--pv-hw:600;--pv-r:18px}
+.pv[data-style=dark]{--pv-bg:#121212;--pv-ink:#F2F2EE;--pv-soft:rgba(255,255,255,.09);--pv-acc:color-mix(in srgb,var(--c) 45%,#fff);--pv-on-acc:#111;--pv-head:var(--display);--pv-hw:600;--pv-r:12px}
 .pv[data-style=bold]{--pv-bg:var(--c);--pv-ink:#FFFFFF;--pv-soft:rgba(255,255,255,.16);--pv-acc:#FFFFFF;--pv-on-acc:var(--c);--pv-head:var(--font);--pv-hw:700;--pv-case:uppercase;--pv-r:0}
 .pv-in{display:flex;flex-direction:column;height:100%;padding:14px;gap:9px;font-size:12.5px;line-height:1.3}
 .js .pv-in{animation:fade 450ms var(--ease) both}
@@ -219,6 +219,7 @@ h2{font-size:clamp(30px,1.2rem + 2.4vw,52px);margin-bottom:clamp(32px,5vw,64px)}
 .js .step.in .chat .msg{animation:pop 500ms var(--ease) both}
 .js .step.in .chat .msg:nth-child(2){animation-delay:450ms}
 .js .step.in .chat .msg:nth-child(3){animation-delay:900ms}
+.js .step.in .chat .msg:nth-child(4){animation-delay:1350ms}
 @keyframes pop{to{opacity:1;transform:none}}
 
 /* Связаться */
@@ -273,9 +274,9 @@ footer :focus-visible{outline-color:var(--on-dark)}
       <div class="hero-grid">
         <p class="lead">Новый сайт с нуля или свежий вид для старого.</p>
         <div class="trio" aria-hidden="true">
-          <div class="phone mini" data-ui><div class="screen pv" data-preset="coffee warm"></div></div>
+          <div class="phone mini" data-ui><div class="screen pv" data-preset="coffee dark"></div></div>
           <div class="phone mini" data-ui><div class="screen pv" data-preset="auto bold"></div></div>
-          <div class="phone mini" data-ui><div class="screen pv" data-preset="shop strict"></div></div>
+          <div class="phone mini" data-ui><div class="screen pv" data-preset="shop light"></div></div>
         </div>
       </div>
     </section>
@@ -295,11 +296,11 @@ footer :focus-visible{outline-color:var(--on-dark)}
       <ul class="tiles">
         <li class="tile rise">
           <div class="frag f-browser" data-ui aria-hidden="true"><div class="f-top"><i></i><i></i><i></i><div class="f-search">кофейня рядом</div></div><div class="f-res on"><small>zerno-coffee.ru</small><b>Кофейня «Зерно» — меню и адрес</b><span>Открыто до 21:00 · заказ навынос онлайн</span></div><div class="f-res"><small>карты</small><b>Кофейня на Садовой</b><span>Только адрес, сайта нет</span></div></div>
-          <b>Клиенты ищут вас, а находят конкурентов</b><p>Сделаю сайт, где сразу видно, чем вы занимаетесь и как к вам попасть.</p>
+          <b>Нет сайта — клиенты уходят к конкурентам</b><p>Сделаю сайт с услугами, ценами и контактами, который можно найти в поиске и отправить клиенту ссылкой.</p>
         </li>
         <li class="tile rise">
           <div class="frag" data-ui aria-hidden="true"><div class="f-bars"><i style="height:30%"></i><i style="height:26%"></i><i style="height:34%"></i><i class="up" style="height:58%"></i><i class="up" style="height:74%"></i><i class="up" style="height:92%"></i></div><div class="f-cap"><span>заявки до</span><span>после обновления</span></div></div>
-          <b>Сайт есть, но устарел</b><p>Обновлю дизайн, тексты и версию для телефона, чтобы с него снова писали.</p>
+          <b>Сайт есть, но устарел</b><p>Сделаю новый дизайн и удобную версию для телефона, всё нужное со старого сайта перенесу.</p>
         </li>
         <li class="tile rise">
           <div class="frag" data-ui aria-hidden="true"><div class="f-slots"><span>10:00</span><span class="off">11:00</span><span>12:00</span><span class="off">13:00</span><span class="on">14:00</span><span>15:00</span></div><div class="f-note">Новая запись: пт, 14:00</div></div>
@@ -315,8 +316,8 @@ footer :focus-visible{outline-color:var(--on-dark)}
     <section class="trysec" id="try">
       <div class="try rise" aria-labelledby="tryTitle">
       <div>
-        <h2 id="tryTitle">Примерьте сайт на свой бизнес</h2>
-        <p>Впишите название и посмотрите, каким может быть ваш сайт. Настоящий сделаю под ваши фото и цены.</p>
+        <h2 id="tryTitle">Каким может быть ваш сайт</h2>
+        <p>Впишите название, выберите сферу и оформление. Настоящий сайт сделаю под ваши фото, цены и задачи.</p>
         <label class="field"><span>Название</span><input id="bizName" maxlength="40" placeholder="Например, Зерно" autocomplete="organization"></label>
         <p class="lbl">Сфера</p>
         <div class="opts" id="kind" role="group" aria-label="Сфера бизнеса">
@@ -327,11 +328,11 @@ footer :focus-visible{outline-color:var(--on-dark)}
           <button class="opt" type="button" data-k="shop" aria-pressed="false">Магазин одежды</button>
           <button class="opt" type="button" data-k="photo" aria-pressed="false">Фотограф</button>
         </div>
-        <p class="lbl">Настроение</p>
-        <div class="opts" id="style" role="group" aria-label="Настроение сайта">
-          <button class="opt" type="button" data-s="strict" aria-pressed="true">Строгое</button>
-          <button class="opt" type="button" data-s="warm" aria-pressed="false">Тёплое</button>
-          <button class="opt" type="button" data-s="bold" aria-pressed="false">Смелое</button>
+        <p class="lbl">Оформление</p>
+        <div class="opts" id="style" role="group" aria-label="Оформление сайта">
+          <button class="opt" type="button" data-s="light" aria-pressed="true">Светлое</button>
+          <button class="opt" type="button" data-s="dark" aria-pressed="false">Тёмное</button>
+          <button class="opt" type="button" data-s="bold" aria-pressed="false">Цветное</button>
         </div>
       </div>
       <div class="phone" data-ui><div class="screen pv"></div></div>
@@ -345,16 +346,16 @@ footer :focus-visible{outline-color:var(--on-dark)}
     <h2 class="rise">Как работаем</h2>
     <ol class="steps">
       <li class="step rise">
-        <div><h3>Вы пишете, что нужно</h3><p>Пары сообщений о вашем бизнесе достаточно. Техническое задание не нужно.</p></div>
-        <div class="chat" data-ui><div class="msg">Здравствуйте! У меня студия маникюра, записываю клиентов в переписке и путаюсь во времени.</div><div class="msg">Можно, чтобы записывались сами?</div></div>
+        <div><h3>Разбираем ваш бизнес</h3><p>Переписываемся или созваниваемся: кто ваши клиенты, что они ищут, чем вы отличаетесь от конкурентов, какие нужны разделы и функции. Чем подробнее разберём, тем точнее получится сайт.</p></div>
+        <div class="chat" data-ui><div class="msg">Здравствуйте! У меня студия маникюра, записываю клиентов в переписке и путаюсь во времени.</div><div class="msg me">Понял. Сколько у вас мастеров и какие услуги чаще всего заказывают?</div><div class="msg">Два мастера, чаще всего маникюр с покрытием.</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Смотрите набросок</h3><p>Присылаю набросок, чтобы вы увидели, как будет выглядеть сайт. Говорите, что нравится, а что поменять.</p></div>
+        <div><h3>Смотрите набросок</h3><p>По итогам разговора присылаю набросок: как будет выглядеть сайт и что на нём будет. Вы говорите, что оставить, а что поменять.</p></div>
         <div class="chat" data-ui><div class="msg me">Посмотрите с телефона:<br><u>ваша-студия.ru</u></div><div class="msg">Нравится! Только цвета потеплее и цены сразу на первом экране.</div><div class="msg me">Учту в полной версии.</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Готовый сайт и запуск</h3><p>По вашим комментариям делаю полноценный сайт, вместе доводим его и запускаем. Подключаю защиту и резервные копии, дальше помогаю с правками.</p></div>
-        <div class="chat" data-ui><div class="msg">А данные клиентов в безопасности?</div><div class="msg me">Да: сайт защищён, копии делаются, заявки приходят только вам.</div></div>
+        <div><h3>Делаю сайт и остаюсь на связи</h3><p>По вашим комментариям собираю полноценный сайт, дорабатываем его вместе и запускаем. Подключаю защиту и резервные копии. После запуска меняю цены, фото и услуги, когда понадобится.</p></div>
+        <div class="chat" data-ui><div class="msg">А данные клиентов в безопасности?</div><div class="msg me">Да: сайт защищён, копии делаются, заявки приходят только вам.</div><div class="msg">А через месяц цены поменять можно?</div><div class="msg me">Конечно, пишите — обновлю.</div></div>
       </li>
     </ol>
   </div>
@@ -412,7 +413,7 @@ footer :focus-visible{outline-color:var(--on-dark)}
       items:[['Худи','3 490 ₽'],['Футболка','1 290 ₽'],['Кепка','990 ₽'],['Шоппер','790 ₽']],btn:'Корзина · 2 · 4 780 ₽'},
     photo:{c:'#7A5A3E',name:'Фотограф Илья',sub:'Семейные и свадебные съёмки',layout:'gallery',cta:['Узнать свободные даты','Портфолио']}
   };
-  var st={kind:'coffee',style:'strict',biz:''};
+  var st={kind:'coffee',style:'light',biz:''};
   var screen=document.querySelector('.trysec .pv');
   function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function rows(l){return '<div class="pv-list">'+l.map(function(r){return '<div><span>'+r[0]+'</span><b>'+r[1]+'</b></div>';}).join('')+'</div>';}
