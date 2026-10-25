@@ -33,7 +33,7 @@ var CONFIG={
    - `BOT_TOKEN` (тип Secret) — токен из шага 1;
    - `CHAT_ID` (тип Secret) — число из шага 3;
    - `ALLOWED_ORIGIN` (тип Text) — `https://nnmhj8hw8r-crypto.github.io`.
-6. Скопируйте адрес Worker (`https://leads.<ваше-имя>.workers.dev`) в `CONFIG.worker`.
+6. Адрес Worker уже вписан в `CONFIG.worker`: `https://leads.minikartoxa2105.workers.dev`. Worker привязан к GitHub и обновляется сам при пуше (настройки в `wrangler.jsonc`).
 
 Проверка кода Worker без сети: `node worker/test.mjs`.
 
