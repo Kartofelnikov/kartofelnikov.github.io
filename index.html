@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Марк — сайты для малого бизнеса</title>
+<title>Марк Картофельников — сайты для малого бизнеса</title>
 <meta name="description" content="Делаю сайты для малого бизнеса: онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽, заявки приходят в Telegram.">
-<meta property="og:title" content="Марк — сайты для малого бизнеса">
-<meta property="og:description" content="Онлайн-запись, магазин, визитка. Под ключ, от 20 000 ₽. Примерьте сайт на своё дело прямо на странице.">
+<meta property="og:title" content="Марк Картофельников — сайты для малого бизнеса">
+<meta property="og:description" content="Сайты для малого бизнеса: запись, магазин, визитка. Набросок на вашем домене через 3–5 дней, от 20 000 ₽.">
+<meta property="og:image" content="https://nnmhj8hw8r-crypto.github.io/sites-demo/img/nails-desk.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
@@ -50,7 +51,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .stage{position:sticky;top:0;height:100svh;padding:var(--m) 0 var(--m) var(--m)}
 .stage-in{position:relative;height:100%;background:var(--surface);overflow:hidden}
 .layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 400ms ease,visibility 0s 400ms}
-.stage[data-on=try] .layer[data-l=try],.stage[data-on=how] .layer[data-l=how]{opacity:1;visibility:visible;transition:opacity 400ms ease}
+.stage[data-on=try] .layer[data-l=try],.stage[data-on=work] .layer[data-l=work],.stage[data-on=how] .layer[data-l=how]{opacity:1;visibility:visible;transition:opacity 400ms ease}
 .col{padding:0 var(--m) 0 clamp(32px,5vw,88px);min-width:0}
 @media(max-width:900px){
   .split{display:block}
@@ -69,7 +70,8 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .hero .lead{font-size:var(--s-lead);line-height:1.3;max-width:24ch}
 .hero .lead+p{margin-top:32px}
 .hero .facts{margin-top:28px;color:var(--muted);font-size:var(--s-body)}
-.wordmark{font-size:var(--s-display);font-weight:500;letter-spacing:-.045em;line-height:.9;white-space:nowrap;margin-left:-9vw;position:relative;z-index:2;transform-origin:left bottom}
+.wordmark{font-size:clamp(56px,6vw,108px);font-weight:500;letter-spacing:-.045em;line-height:.92;white-space:nowrap;margin-left:-9vw;position:relative;z-index:2;transform-origin:left bottom}
+.wordmark span{display:block}
 @supports (animation-timeline:scroll()){
   @media (prefers-reduced-motion:no-preference){
     .wordmark{animation:shrink linear both;animation-timeline:scroll(root);animation-range:0 100svh}
@@ -81,7 +83,7 @@ h2{font-size:var(--s-head);margin-bottom:32px}
   .top .hide-m{display:none}
   .hero{min-height:auto}
   .hero-mid{order:2;padding:24px 0 0}
-  .wordmark{order:1;margin:24px 0 0;font-size:clamp(44px,13vw,96px);white-space:normal}
+  .wordmark{order:1;margin:24px 0 0;font-size:clamp(36px,10.6vw,84px)}
 }
 
 /* Примерка */
@@ -119,6 +121,23 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .pv-list div b{font-weight:700}
 .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:33px}
 
+/* Примеры: тихий список */
+.work{padding:clamp(80px,12vw,180px) 0}
+.work .intro{max-width:44ch;margin-bottom:24px}
+.rows{list-style:none;max-width:640px}
+.rows a{display:grid;grid-template-columns:1fr auto;gap:2px 20px;padding:18px 0;text-decoration:none;transition:color 150ms ease}
+.rows a b{font-weight:500;font-size:var(--s-lead);letter-spacing:-.02em}
+.rows a span{color:var(--muted);font-size:var(--s-body);grid-column:1/-1}
+.rows a em{font-style:normal;font-size:var(--s-lead);align-self:center;transition:transform 150ms var(--ease)}
+.rows:hover a,.rows:focus-within a{color:var(--muted)}
+.rows a:hover,.rows a:focus-visible{color:var(--ink)}
+.rows a:hover em,.rows a:focus-visible em{transform:translateX(6px)}
+.rows .shot{display:none}
+@media(max-width:900px){
+  .rows .shot{display:block;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:top;width:100%;margin-top:24px;background:var(--surface)}
+  .rows li+li .shot{margin-top:40px}
+}
+
 /* Как работаю */
 .how{padding:clamp(80px,12vw,180px) 0 clamp(40px,6vw,80px)}
 .steps{list-style:none}
@@ -139,9 +158,13 @@ h2{font-size:var(--s-head);margin-bottom:32px}
 .chat .msg{background:#182533;padding:10px 14px;border-radius:14px 14px 14px 4px;max-width:88%}
 .chat .me{align-self:flex-end;background:#2b5278;border-radius:14px 14px 4px 14px}
 .chat .bot{border-left:3px solid #6ab3f3}
+.chat .card{background:#2b5278;border-radius:14px 14px 4px 14px;overflow:hidden;max-width:88%;align-self:flex-end}
+.chat .card img{width:100%;height:150px;object-fit:cover;object-position:top}
+.chat .card div{padding:10px 14px}
+.chat .card small{display:block;color:#a9d3ff;font-size:13px;text-decoration:underline}
 .chat .bot b,.step .chat .bot b{display:block;margin-bottom:4px;font-size:15px;font-weight:600;letter-spacing:0;line-height:1.35}
 .chat-s{display:none}
-.layer[data-l=how] .chat[data-s="1"] .s1,.layer[data-l=how] .chat[data-s="2"] .s2,.layer[data-l=how] .chat[data-s="3"] .s3{display:block}
+.layer[data-l=how] .chat[data-s="1"] .s1,.layer[data-l=how] .chat[data-s="2"] .s2,.layer[data-l=how] .chat[data-s="3"] .s3,.layer[data-l=how] .chat[data-s="4"] .s4{display:block}
 
 /* Цены: два поля цвета встык */
 .price{display:grid;grid-template-columns:7fr 5fr}
@@ -191,7 +214,7 @@ details .field{margin-top:12px}
 
 /* Подвал */
 footer{background:var(--ink);color:var(--accent-ink);padding:96px var(--m) 32px}
-footer .wm{font-size:var(--s-display);font-weight:500;letter-spacing:-.045em;line-height:.9;margin-bottom:64px}
+footer .wm{font-size:clamp(56px,7vw,120px);font-weight:500;letter-spacing:-.045em;line-height:.9;margin-bottom:64px}
 footer .row{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
 footer nav a{display:block;font-size:clamp(24px,2.4vw,36px);font-weight:500;letter-spacing:-.03em;text-decoration:none;padding:4px 0;transition:transform 150ms var(--ease),color 150ms ease}
 footer nav:hover a{color:#9A9A96}
@@ -199,7 +222,7 @@ footer nav a:hover,footer nav a:focus-visible{color:var(--accent-ink);transform:
 footer .info{display:flex;flex-direction:column;gap:8px;font-size:var(--s-body)}
 footer .legal{margin-top:80px;font-size:var(--s-small);color:#9A9A96}
 footer :focus-visible{outline-color:var(--accent-ink)}
-@media(max-width:900px){footer{padding:64px var(--m) 28px}footer .wm{font-size:clamp(44px,13vw,96px)}}
+@media(max-width:900px){footer{padding:64px var(--m) 28px}footer .wm{font-size:clamp(36px,10.6vw,84px)}}
 
 /* Появление частей секций */
 .js .rise{opacity:0;transform:translateY(24px);transition:opacity 600ms ease,transform 600ms var(--ease)}
@@ -218,13 +241,15 @@ footer :focus-visible{outline-color:var(--accent-ink)}
   <aside class="stage" id="stage" data-on="try" aria-hidden="true">
     <div class="stage-in">
       <div class="layer" data-l="try"><div class="phone" data-ui><div class="screen pv"></div></div></div>
+      <div class="layer" data-l="work"><div class="phone" data-ui><img id="workShot" src="img/plants-phone.jpg" alt="" width="390" height="844"></div></div>
       <div class="layer" data-l="how">
         <div class="chat" id="stageChat" data-s="1" data-ui>
           <span class="who">Анна</span>
-          <div class="msg chat-s s1 s2 s3">Здравствуйте! Хочу сайт для студии маникюра, чтобы записывались сами.</div>
-          <div class="msg me chat-s s1 s2 s3">Давайте созвонимся на 20 минут, расскажете про клиентов и цены.</div>
-          <div class="msg me chat-s s2 s3">Первая версия готова, откройте с телефона:<br><u>ваш-сайт.ru</u></div>
-          <div class="msg bot chat-s s3"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div>
+          <div class="msg chat-s s1 s2 s3 s4">Здравствуйте! Хочу сайт для студии маникюра, чтобы клиенты записывались сами.</div>
+          <div class="card chat-s s2 s3 s4"><img src="img/nails-phone.jpg" alt="" width="390" height="844"><div>Набросок готов, откройте с телефона<small>vera-nails.ru</small></div></div>
+          <div class="msg chat-s s3 s4">Можно цены покрупнее и фото кабинета?</div>
+          <div class="msg me chat-s s3 s4">Готово, обновите страницу.</div>
+          <div class="msg bot chat-s s4"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div>
         </div>
       </div>
     </div>
@@ -233,18 +258,31 @@ footer :focus-visible{outline-color:var(--accent-ink)}
   <div class="col">
     <header class="hero" id="top">
       <nav class="top" aria-label="Разделы">
+        <a class="hide-m" href="#work">Примеры</a>
         <a class="hide-m" href="#try">Примерка</a>
         <a class="hide-m" href="#how">Как работаю</a>
         <a class="hide-m" href="#price">Цены</a>
         <a class="act" href="#contact">Обсудить сайт</a>
       </nav>
       <div class="hero-mid">
-        <p class="lead">Делаю сайты для малого бизнеса: запись клиентов, магазин или просто визитка.</p>
+        <p class="lead">Делаю сайты для малого бизнеса: от наброска на вашем домене до готового сайта с заявками в Telegram.</p>
         <p><a class="btn" href="#contact">Обсудить ваш сайт</a></p>
-        <p class="facts">От 20 000 ₽ под ключ. Первая версия через 5 дней. Заявки с сайта приходят вам в Telegram.</p>
+        <p class="facts">От 20 000 ₽ под ключ. Набросок покажу через 3–5 дней после первого разговора.</p>
       </div>
-      <h1 class="wordmark" data-fill="name">Марк</h1>
+      <h1 class="wordmark"><span>Марк</span> <span>Картофельников</span></h1>
     </header>
+
+    <section class="work" id="work" data-stage="work">
+      <h2 class="rise">Примеры</h2>
+      <p class="intro rise">Два сайта, собранные для показа: всё в них нажимается и работает. Откройте с телефона.</p>
+      <ul class="rows rise">
+        <li><img class="shot" src="img/plants-phone.jpg" alt="Первый экран сайта магазина растений" width="390" height="844" loading="lazy">
+          <a href="plants/" data-shot="img/plants-phone.jpg"><b>Магазин растений</b><em>→</em><span>Каталог с фильтрами, корзина, оформление доставки</span></a></li>
+        <li><img class="shot" src="img/nails-phone.jpg" alt="Первый экран сайта мастера маникюра" width="390" height="844" loading="lazy">
+          <a href="nails/" data-shot="img/nails-phone.jpg"><b>Запись к мастеру маникюра</b><em>→</em><span>Прайс, выбор цвета покрытия, свободные окна, запись</span></a></li>
+        <li><a href="#contact"><b>Ваш сайт</b><em>→</em><span>Напишите, чем занимаетесь, и я сделаю набросок под вас</span></a></li>
+      </ul>
+    </section>
 
     <section class="try" id="try" data-stage="try">
       <h2 class="rise">Примерьте на своё дело</h2>
@@ -263,13 +301,15 @@ footer :focus-visible{outline-color:var(--accent-ink)}
 
 
     <section class="how" id="how" data-stage="how">
-      <h2 class="rise">Как я работаю</h2>
+      <h2 class="rise">Как это работает</h2>
       <ol class="steps">
-        <li class="step" data-s="1"><b>Сначала созвонимся на 20 минут.</b><p>Расскажете про дело и клиентов, я задам вопросы. Бесплатно и ни к чему не обязывает.</p>
-          <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для студии маникюра, чтобы записывались сами.</div><div class="msg me">Давайте созвонимся на 20 минут.</div></div></li>
-        <li class="step" data-s="2"><b>Через 5 дней покажу первую версию.</b><p>Живой сайт по ссылке: откроете с телефона, покажете близким. Правок столько, сколько нужно.</p>
-          <div class="chat" data-ui><div class="msg me">Первая версия готова, откройте с телефона:<br><u>ваш-сайт.ru</u></div></div></li>
-        <li class="step" data-s="3"><b>Запускаю и подключаю заявки.</b><p>Домен, хостинг, заявки в Telegram. Покажу, как самому менять цены и фото.</p>
+        <li class="step" data-s="1"><b>Вы пишете, какой сайт нужен.</b><p>В Telegram или через форму внизу: чем занимаетесь и что должен уметь сайт. Можно прислать сайт, который нравится.</p>
+          <div class="chat" data-ui><div class="msg">Здравствуйте! Хочу сайт для студии маникюра, чтобы клиенты записывались сами.</div></div></li>
+        <li class="step" data-s="2"><b>Через 3–5 дней показываю набросок.</b><p>Подбираем адрес вроде vera-nails.ru, и я выкладываю туда первую версию. Её можно открыть с телефона и показать близким.</p>
+          <div class="chat" data-ui><div class="card"><img src="img/nails-phone.jpg" alt="Набросок сайта на телефоне" width="390" height="844" loading="lazy"><div>Набросок готов, откройте с телефона<small>vera-nails.ru</small></div></div></div></li>
+        <li class="step" data-s="3"><b>Дорабатываем вместе.</b><p>Тексты, фото, цены, кнопки. Правим, пока вам не понравится.</p>
+          <div class="chat" data-ui><div class="msg">Можно цены покрупнее и фото кабинета?</div><div class="msg me">Готово, обновите страницу.</div></div></li>
+        <li class="step" data-s="4"><b>Запускаем.</b><p>Подключаю заявки в Telegram и показываю, как самому менять цены и фото.</p>
           <div class="chat" data-ui><div class="msg bot"><b>Новая заявка с сайта</b>Мария, +7 900 000-00-00<br>Маникюр с покрытием, пт 14:00</div></div></li>
       </ol>
     </section>
@@ -317,9 +357,10 @@ footer :focus-visible{outline-color:var(--accent-ink)}
 </section>
 
 <footer>
-  <p class="wm" data-fill="name">Марк</p>
+  <p class="wm">Марк<br>Картофельников</p>
   <div class="row">
     <nav aria-label="Разделы в подвале">
+      <a href="#work">Примеры</a>
       <a href="#try">Примерка</a>
       <a href="#how">Как работаю</a>
       <a href="#price">Цены</a>
@@ -331,7 +372,7 @@ footer :focus-visible{outline-color:var(--accent-ink)}
       <span>Удалённо, по всей России</span>
     </div>
   </div>
-  <p class="legal">© 2026 <span data-fill="name">Марк</span></p>
+  <p class="legal">© 2026 <span data-fill="name">Марк Картофельников</span></p>
 </footer>
 
 <script>
@@ -339,7 +380,7 @@ footer :focus-visible{outline-color:var(--accent-ink)}
   'use strict';
   /* Всё, что меняется под владельца, здесь */
   var CONFIG={
-    name:'Марк',
+    name:'Марк Картофельников',
     tg:'garfild_u',                // ник в Telegram без @
     phone:'+79653770825',
     phoneText:'+7 965 377-08-25',
@@ -431,6 +472,12 @@ footer :focus-visible{outline-color:var(--accent-ink)}
     [].forEach.call(document.querySelectorAll('.rise'),function(el){el.classList.add('in');});
     [].forEach.call(document.querySelectorAll('.step'),function(s){s.classList.add('on');});
   }
+
+  var shot=document.getElementById('workShot');
+  [].forEach.call(document.querySelectorAll('[data-shot]'),function(a){
+    function show(){shot.src=a.getAttribute('data-shot');}
+    a.addEventListener('mouseenter',show);a.addEventListener('focus',show);
+  });
 
   /* ── Заявка → Cloudflare Worker → Telegram ── */
   var form=document.getElementById('lead'),status=document.getElementById('status'),send=document.getElementById('send');

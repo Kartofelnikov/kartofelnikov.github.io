@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ГЕРБАРИЙ — магазин растений</title>
+<meta name="description" content="Магазин растений ГЕРБАРИЙ: каждое растение с паспортом ухода, керамикой и доставкой. Корзина прямо на странице.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1C3A2A;
+  --green-deep:#12271B;
+  --green-line:rgba(28,58,42,.22);
+  --paper:#F0F1E6;
+  --paper-2:#E7EADA;
+  --ink:#1E2B22;
+  --ink-70:rgba(30,43,34,.72);
+  --ink-50:rgba(30,43,34,.68);
+  --ochre:#B98A2F;
+  --ochre-ink:#7E5B10;
+  --terra:#9A4F26;
+  --display:'Prata',Georgia,serif;
+  --text:'IBM Plex Sans','Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--green);color:var(--paper)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--paper-2)}
+::-webkit-scrollbar-thumb{background:#B9AE8F;border-radius:5px}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+a{color:inherit}
+
+header{position:sticky;top:0;z-index:50;background:var(--green);color:var(--paper);border-bottom:3px solid var(--green-deep)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:18px}
+.logo{font-family:var(--display);font-size:23px;text-decoration:none;display:flex;align-items:center;gap:11px;letter-spacing:.02em}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  font-size:14.5px;font-weight:500;text-decoration:none;color:rgba(245,240,228,.75);
+  padding:6px 2px;border-bottom:2px solid transparent;transition:color 150ms ease-out,border-color 150ms ease-out;
+}
+.nav-links a:hover{color:var(--paper);border-color:var(--ochre)}
+@media(max-width:860px){.nav-links{display:none}}
+.cart-btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  background:transparent;border:1.5px solid rgba(245,240,228,.45);color:var(--paper);
+  font-family:var(--text);font-size:14.5px;font-weight:500;padding:10px 16px;border-radius:99px;cursor:pointer;
+  transition:border-color 160ms ease-out,background-color 160ms ease-out,transform 160ms var(--ease-out);
+}
+.cart-btn:hover{border-color:var(--paper)}
+.cart-btn:active{transform:scale(.97)}
+.cart-count{
+  background:var(--ochre);color:var(--green-deep);font-weight:600;font-size:13px;
+  min-width:22px;height:22px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;
+  font-variant-numeric:tabular-nums;padding:0 6px;
+}
+
+/* Hero */
+.hero{background:var(--green);color:var(--paper);padding:76px 0 0;padding:clamp(48px,7vw,88px) 0 0;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,1fr);gap:clamp(30px,5vw,64px);align-items:end;padding-bottom:clamp(40px,6vw,72px)}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+.hero .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre)}
+.hero h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(38px,6vw,68px);line-height:1.12;letter-spacing:.005em;
+  margin:18px 0 20px;max-width:18ch;
+}
+.hero p{max-width:50ch;color:rgba(245,240,228,.78);font-size:clamp(16px,1.5vw,18px);margin-bottom:30px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-size:15px;font-weight:600;padding:14px 26px;border-radius:99px;border:1.5px solid transparent;
+  cursor:pointer;text-decoration:none;font-family:var(--text);
+  transition:transform 160ms var(--ease-out),background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out;
+}
+.btn:active{transform:scale(.97)}
+.btn-ochre{background:var(--ochre);color:var(--green-deep)}
+.btn-ochre:hover{background:#C99B3F}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(245,240,228,.45)}
+.btn-ghost:hover{border-color:var(--paper)}
+/* витринная полка */
+.shelf{position:relative}
+.shelf .pot-row{display:flex;justify-content:center;gap:6px;align-items:flex-end}
+.shelf svg{display:block}
+.shelf-base{
+  height:10px;background:var(--green-deep);border-radius:3px 3px 0 0;
+  box-shadow:0 -6px 0 -3px rgba(245,240,228,.14);
+  position:relative;
+}
+.shelf-caption{
+  display:flex;justify-content:space-between;gap:10px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,228,.72);
+}
+
+/* Секции */
+section{padding:84px 0;padding:clamp(54px,8vw,100px) 0}
+.sec-head{margin-bottom:clamp(24px,4vw,40px);display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.sec-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,4.4vw,50px);line-height:1.12}
+.sec-note{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);letter-spacing:.05em}
+
+/* Фильтры */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.filter{
+  font-family:var(--mono);font-size:13px;padding:9px 15px;background:var(--paper);
+  border:1.5px solid var(--green-line);border-radius:99px;cursor:pointer;color:var(--ink-70);
+  transition:border-color 150ms ease-out,color 150ms ease-out,background-color 150ms ease-out;
+}
+.filter:hover{border-color:var(--green)}
+.filter[aria-pressed=true]{background:var(--green);border-color:var(--green);color:var(--paper)}
+
+/* Каталог — листы гербария */
+.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px}
+.specimen{
+  background:var(--paper);border:1.5px solid var(--green-line);border-radius:6px;overflow:hidden;
+  display:flex;flex-direction:column;position:relative;
+  transition:border-color 200ms ease-out,transform 200ms var(--ease-out),box-shadow 200ms ease-out;
+}
+@media(hover:hover) and (pointer:fine){
+  .specimen:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 14px 30px rgba(18,39,27,.12)}
+}
+.specimen .plate{
+  background:var(--paper-2);border-bottom:1.5px solid var(--green-line);
+  display:flex;align-items:flex-end;justify-content:center;padding:18px 12px 0;position:relative;
+}
+.specimen .plate svg{display:block;width:100%;height:auto;max-height:230px}
+.specimen .no{
+  position:absolute;top:10px;left:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  color:var(--ink-50);border:1px solid var(--green-line);border-radius:3px;padding:3px 7px;background:var(--paper);
+}
+.specimen .care-mark{
+  position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--paper);background:var(--green);border-radius:3px;padding:3px 7px;
+}
+.specimen .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.specimen h3{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2}
+.specimen .latin{font-family:var(--mono);font-size:11.5px;color:var(--ink-50);font-style:italic;letter-spacing:.03em}
+.specimen .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.specimen .tags span{
+  font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-70);
+  border:1px solid var(--green-line);border-radius:3px;padding:3px 7px;
+}
+.specimen .buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px}
+.specimen .price{font-family:var(--display);font-size:21px;font-variant-numeric:tabular-nums}
+.add-btn{
+  font-family:var(--text);font-size:14px;font-weight:600;background:var(--green);color:var(--paper);
+  border:none;border-radius:99px;padding:10px 18px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform 150ms var(--ease-out),background-color 150ms ease-out;
+}
+.add-btn:hover{background:var(--green-deep)}
+.add-btn:active{transform:scale(.95)}
+.catalog-empty{grid-column:1/-1;text-align:center;color:var(--ink-50);padding:40px 0;font-size:15px}
+
+/* Уход-паспорт */
+.care-sec{background:var(--paper-2);border-top:1.5px solid var(--green-line);border-bottom:1.5px solid var(--green-line)}
+.care-table{width:100%;border-collapse:collapse;background:var(--paper);border:1.5px solid var(--green-line);border-radius:6px;overflow:hidden}
+.care-table th,.care-table td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--green-line);font-size:15px;vertical-align:top}
+.care-table th{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);font-weight:500}
+.care-table td:first-child{font-weight:600}
+.care-table tr:last-child th,.care-table tr:last-child td{border-bottom:none}
+@media(max-width:640px){
+  .care-table th,.care-table td{padding:11px 12px;font-size:14px}
+  .care-table th:nth-child(3),.care-table td:nth-child(3){display:none}
+}
+
+/* Корзина-drawer */
+.drawer-veil{
+  position:fixed;inset:0;background:rgba(18,39,27,.45);z-index:90;
+  opacity:0;pointer-events:none;transition:opacity 250ms ease;
+}
+.drawer-veil.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(430px,94vw);z-index:95;
+  background:var(--paper);border-left:3px solid var(--green);
+  transform:translateX(102%);transition:transform 320ms var(--ease-out);
+  display:flex;flex-direction:column;
+}
+.drawer.open{transform:none}
+.drawer-head{
+  background:var(--green);color:var(--paper);padding:20px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.drawer-head h2{font-family:var(--display);font-weight:400;font-size:23px}
+.drawer-close{
+  background:none;border:1.5px solid rgba(245,240,228,.45);color:var(--paper);border-radius:99px;
+  width:36px;height:36px;font-size:17px;cursor:pointer;line-height:1;
+  transition:border-color 150ms ease-out,transform 150ms var(--ease-out);
+}
+.drawer-close:hover{border-color:var(--paper)}
+.drawer-close:active{transform:scale(.94)}
+.drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
+.cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--green-line);align-items:center}
+.cart-item .thumb{width:56px;height:56px;border-radius:5px;background:var(--paper-2);border:1px solid var(--green-line);flex:none;display:flex;align-items:center;justify-content:center}
+.cart-item .thumb svg{width:40px;height:40px}
+.cart-item .mid{flex:1;min-width:0}
+.cart-item h4{font-size:15.5px;font-weight:600;line-height:1.3}
+.cart-item .cp{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);margin-top:2px}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--green-line);border-radius:99px;overflow:hidden;margin-top:8px}
+.qty button{
+  width:30px;height:30px;background:var(--paper);border:none;font-size:16px;cursor:pointer;color:var(--ink);
+  transition:background-color 130ms ease-out;
+}
+.qty button:hover{background:var(--paper-2)}
+.qty span{min-width:30px;text-align:center;font-family:var(--mono);font-size:13.5px;font-variant-numeric:tabular-nums}
+.cart-item .sum{font-family:var(--display);font-size:17px;white-space:nowrap}
+.cart-empty{text-align:center;color:var(--ink-50);padding:44px 10px;font-size:15px}
+.drawer-foot{border-top:3px solid var(--green);padding:18px 24px 22px;background:var(--paper)}
+.cart-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.cart-total b{font-family:var(--display);font-weight:400;font-size:26px}
+.cart-total span{font-family:var(--mono);font-size:12px;color:var(--ink-50);letter-spacing:.1em;text-transform:uppercase}
+.delivery-note{font-size:13px;color:var(--ink-50);margin-bottom:14px}
+#cartForm .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+@media(max-width:420px){#cartForm .frow{grid-template-columns:1fr}}
+#cartForm input{
+  width:100%;background:#FFFDF6;border:1.5px solid var(--green-line);border-radius:4px;
+  font-family:var(--text);font-size:15px;padding:12px 13px;color:var(--ink);transition:border-color 150ms ease-out;
+}
+#cartForm input:focus{outline:none;border-color:var(--terra)}
+#cartForm input::placeholder{color:var(--ink-50)}
+#cartForm input.invalid{border-color:var(--terra)}
+#cartForm .btn{width:100%;margin-top:6px}
+.ferr{display:none;font-family:var(--mono);font-size:11.5px;color:var(--terra);margin-top:6px}
+#cartForm.invalid .ferr{display:block}
+
+/* Footer */
+footer{background:var(--green);color:var(--paper);padding:30px 0 36px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+.foot p{font-family:var(--mono);font-size:12px;color:rgba(245,240,228,.6)}
+.foot .demo-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(245,240,228,.35);padding:6px 10px;border-radius:3px;color:rgba(245,240,228,.7)}
+
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);
+  background:var(--green-deep);color:var(--paper);border-left:5px solid var(--ochre);
+  padding:15px 20px;font-size:15px;font-weight:500;max-width:min(92vw,480px);
+  box-shadow:0 12px 32px rgba(0,0,0,.35);
+  opacity:0;pointer-events:none;z-index:100;
+  transition:opacity 250ms var(--ease-out),transform 250ms var(--ease-out);
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast small{display:block;font-weight:400;font-size:12.5px;margin-top:3px;color:rgba(245,240,228,.75)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition-duration:1ms!important;animation-duration:1ms!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="ГЕРБАРИЙ — на главную">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <path d="M13 24V11" stroke="#B98A2F" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M13 12C13 7 10 3 4 2c0 6 3 9 9 10Z" fill="#F5F0E4"/>
+        <path d="M13 12c0-5 3-9 9-10 0 6-3 9-9 10Z" fill="#F5F0E4" opacity=".75"/>
+        <path d="M13 18c0-3.6 2.2-6.4 6.5-7-.4 4.2-2.6 6.5-6.5 7Z" fill="#F5F0E4" opacity=".55"/>
+      </svg>
+      ГЕРБАРИЙ
+    </a>
+    <ul class="nav-links">
+      <li><a href="#catalog">Каталог</a></li>
+      <li><a href="#care">Уход</a></li>
+      <li><a href="#delivery">Доставка</a></li>
+    </ul>
+    <button class="cart-btn" id="cartOpen" aria-haspopup="dialog">
+      <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M2.5 4h2l2.2 9h7.6l1.7-6.5H5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="8" cy="16" r="1.4" fill="currentColor"/>
+        <circle cx="13.5" cy="16" r="1.4" fill="currentColor"/>
+      </svg>
+      Корзина <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Растения с доставкой на дом</h1>
+        <p>Привозим в среду и пятницу. В каждом горшке карточка: куда поставить и как поливать. Не прижилось за 30 дней — заменим.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ochre" href="#catalog">Выбрать растение</a>
+          <a class="btn btn-ghost" href="#delivery">Доставка и гарантия</a>
+        </div>
+      </div>
+      <div class="shelf" aria-hidden="true">
+        <div class="pot-row" id="shelfRow"></div>
+        <div class="shelf-base"></div>
+        <div class="shelf-caption"><span>Хиты недели</span><span>из питомника в Калужской обл.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Каталог -->
+  <section id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Каталог</h2>
+        <p class="sec-note">8 растений, от простых к капризным</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Фильтр по сложности">
+        <button class="filter" data-f="all" aria-pressed="true">Все</button>
+        <button class="filter" data-f="easy" aria-pressed="false">Для новичков</button>
+        <button class="filter" data-f="mid" aria-pressed="false">Средней заботы</button>
+        <button class="filter" data-f="hard" aria-pressed="false">Для опытных</button>
+      </div>
+      <div class="catalog" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <!-- Уход -->
+  <section id="care" class="care-sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Карточка ухода в каждом горшке</h2>
+        <p class="sec-note">пример: монстера</p>
+      </div>
+      <table class="care-table">
+        <thead>
+          <tr><th>Параметр</th><th>Значение</th><th>Что это значит для вас</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Свет</td><td>яркий рассеянный</td><td>восточное или западное окно, в метре от южного</td></tr>
+          <tr><td>Полив</td><td>раз в 7–9 дней</td><td>проверьте землю пальцем на две фаланги — сухо, значит пора</td></tr>
+          <tr><td>Температура</td><td>18–27 °C</td><td>боится сквозняков и батарей зимой</td></tr>
+          <tr><td>Пересадка</td><td>раз в 2 года, весной</td><td>горшок на 3 см шире — не больше</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Доставка -->
+  <section id="delivery">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Доставка и гарантия</h2>
+        <p class="sec-note">по городу — на следующий день</p>
+      </div>
+      <div class="care-table" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border:none;background:none;gap:14px">
+        <div style="background:var(--paper);border:1.5px solid var(--green-line);border-radius:6px;padding:22px">
+          <h3 style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-ink);margin-bottom:10px">Курьер · 390 ₽</h3>
+          <p style="font-size:15px;color:var(--ink-70)">Привозим в пятницу и среду, упаковка держит горшок неподвижно. При заказе от 4 000 ₽ доставка бесплатная.</p>
+        </div>
+        <div style="background:var(--paper);border:1.5px solid var(--green-line);border-radius:6px;padding:22px">
+          <h3 style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-ink);margin-bottom:10px">Самовывоз · бесплатно</h3>
+          <p style="font-size:15px;color:var(--ink-70)">ул. Мастеровая, 14, ежедневно 10:00–20:00. Проверьте растение при нас: не понравился лист, возьмём обратно сразу.</p>
+        </div>
+        <div style="background:var(--paper);border:1.5px solid var(--green-line);border-radius:6px;padding:22px">
+          <h3 style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-ink);margin-bottom:10px">Живая гарантия · 30 дней</h3>
+          <p style="font-size:15px;color:var(--ink-70)">Растение захандрило в первый месяц? Пришлите фото, заменим или вернём деньги, без споров о вине.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 ГЕРБАРИЙ · магазин растений · ул. Мастеровая, 14</p>
+    <a class="demo-tag" href="../" style="text-decoration:none">Демо-сайт · хочу такой →</a>
+  </div>
+</footer>
+
+<!-- Корзина -->
+<div class="drawer-veil" id="veil"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>Корзина</h2>
+    <button class="drawer-close" id="cartClose" aria-label="Закрыть корзину">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="cart-total"><span>Итого</span><b id="cartSum">0 ₽</b></div>
+    <p class="delivery-note" id="deliveryNote">Доставка 390 ₽ · бесплатно от 4 000 ₽</p>
+    <form id="cartForm" novalidate>
+      <div class="frow">
+        <input type="text" id="cName" placeholder="Имя" autocomplete="name">
+        <input type="tel" id="cPhone" placeholder="Телефон" autocomplete="tel">
+      </div>
+      <input type="text" id="cAddr" placeholder="Адрес или «самовывоз»" style="width:100%;margin-bottom:10px">
+      <p class="ferr">Заполните имя, телефон и адрес</p>
+      <button class="btn btn-ochre" type="submit">Оформить заказ</button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var GREENS=['#2E5C3F','#3A6B4C','#27513A','#44785A','#1F4730'];
+
+  /* Генеративная ботаника: розетка листьев-эллипсов. Точная геометрия, не «картинка». */
+  function plantSVG(p,scale){
+    var s=scale||1;
+    var leaves='';
+    for(var i=0;i<p.count;i++){
+      var ang=p.start+i*(360/p.count)+p.wobble*Math.sin(i*2.7);
+      var rad=(ang*Math.PI)/180;
+      var L=p.len*(0.72+0.28*Math.abs(Math.cos(rad*1.3)));
+      var cx=p.cx+Math.cos(rad)*L*0.42;
+      var cy=p.cy+Math.sin(rad)*L*0.30;
+      leaves+='<ellipse cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" rx="'+(L*0.30).toFixed(1)+'" ry="'+(L*0.13+p.leafW).toFixed(1)+'" transform="rotate('+(ang+90).toFixed(1)+' '+cx.toFixed(1)+' '+cy.toFixed(1)+')" fill="'+p.color+'" opacity="'+(0.55+0.45*((i%3)/2)).toFixed(2)+'"/>';
+    }
+    var pot='<path d="M'+(p.cx-30*s)+' '+(p.cy+62*s)+'h'+(60*s)+'l-'+(7*s)+' '+(44*s)+'h-'+(46*s)+'Z" fill="'+p.pot+'"/>';
+    var stem='<path d="M'+p.cx+' '+(p.cy+62*s)+'V'+(p.cy+p.len*0.18).toFixed(0)+'" stroke="'+p.color+'" stroke-width="'+(4*s)+'" stroke-linecap="round"/>';
+    return '<svg viewBox="0 0 '+p.cx*2+' '+(p.cy+110*s)+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+p.name+'">'+pot+stem+'<g>'+leaves+'</g><circle cx="'+p.cx+'" cy="'+p.cy+'" r="'+(5*s)+'" fill="'+p.pot+'"/></svg>';
+  }
+  function params(name,seed,color,pot){
+    var r=function(n){var x=Math.sin(seed*13.7+n*7.3)*43758.5;return x-Math.floor(x);};
+    return{
+      name:name,cx:110,cy:96,count:6+Math.floor(r(1)*5),len:58+r(2)*30,start:r(3)*60,
+      wobble:4+r(4)*8,leafW:2+r(5)*5,color:color||GREENS[Math.floor(r(6)*GREENS.length)],pot:pot||'#C9A26B'
+    };
+  }
+
+  /* Каталог */
+  var PLANTS=[
+    {id:'sanse',name:'Сансевиерия',latin:'Sansevieria trifasciata',price:890,level:'easy',light:'любой свет',water:'раз в 2 недели',tags:['тень','сухой воздух'],seed:11,pot:'#8FA3B5'},
+    {id:'zami',name:'Замиокулькас',latin:'Zamioculcas zamiifolia',price:1490,level:'easy',light:'свет / полутень',water:'раз в 10 дней',tags:['неприхотливое'],seed:23,pot:'#C9A26B'},
+    {id:'potho',name:'Эпипремнум',latin:'Epipremnum aureum',price:790,level:'easy',light:'рассеянный',water:'раз в неделю',tags:['растёт быстро','можно в кашпо'],seed:35,pot:'#B5713F'},
+    {id:'hoya',name:'Хойя мясистая',latin:'Hoya carnosa',price:1290,level:'mid',light:'яркий рассеянный',water:'после просушки',tags:['цветёт'],seed:47,pot:'#D9C9A8'},
+    {id:'pepe',name:'Пеперомия',latin:'Peperomia caperata',price:990,level:'mid',light:'полутень',water:'раз в 8 дней',tags:['компактное'],seed:59,pot:'#A8B5A0'},
+    {id:'calat',name:'Калатея',latin:'Calathea orbifolia',price:1890,level:'hard',light:'полутень',water:'фильтрованной, часто',tags:['капризное','красивый лист'],seed:71,pot:'#C78B6B'},
+    {id:'ficus',name:'Фикус лирата',latin:'Ficus lyrata',price:3490,level:'hard',light:'яркий, без прямого',water:'раз в 6 дней',tags:['большое','для гостиной'],seed:83,pot:'#6E7F5E'},
+    {id:'monst',name:'Монстера',latin:'Monstera deliciosa',price:2590,level:'mid',light:'яркий рассеянный',water:'раз в 7 дней',tags:['разрезные листья'],seed:97,pot:'#C9A26B'}
+  ];
+  PLANTS.forEach(function(p){p.svg=plantSVG(params(p.name,p.seed,null,p.pot));});
+
+  var LEVEL_LABEL={easy:'просто',mid:'средне',hard:'опыт'};
+
+  var grid=document.getElementById('catalogGrid');
+  function render(filter){
+    var shown=0;
+    grid.innerHTML=PLANTS.map(function(p,i){
+      if(filter!=='all'&&p.level!==filter)return '';
+      shown++;
+      return '<article class="specimen" data-id="'+p.id+'">'+
+        '<div class="plate">'+p.svg+'<span class="no">№ '+(i+1)+'</span><span class="care-mark">'+LEVEL_LABEL[p.level]+'</span></div>'+
+        '<div class="body">'+
+          '<h3>'+p.name+'</h3><p class="latin">'+p.latin+'</p>'+
+          '<div class="tags"><span>'+p.light+'</span><span>'+p.water+'</span></div>'+
+          '<div class="buy"><span class="price">'+p.price.toLocaleString('ru-RU')+' ₽</span>'+
+          '<button class="add-btn" type="button" data-add="'+p.id+'">В корзину</button></div>'+
+        '</div></article>';
+    }).join('');
+    if(!shown)grid.innerHTML='<p class="catalog-empty">В этой категории пока пусто, загляните в «Все».</p>';
+  }
+  render('all');
+
+  document.getElementById('filters').addEventListener('click',function(e){
+    var b=e.target.closest('.filter');if(!b)return;
+    [].forEach.call(this.children,function(c){c.setAttribute('aria-pressed','false');});
+    b.setAttribute('aria-pressed','true');
+    render(b.getAttribute('data-f'));
+  });
+
+  /* Витрина hero: три растения */
+  document.getElementById('shelfRow').innerHTML=[11,71,97].map(function(seed){
+    var p=params('',seed);p.cy=88;p.len=52;
+    return '<div style="width:31%;max-width:150px">'+plantSVG(p)+'</div>';
+  }).join('');
+
+  /* ── Корзина ── */
+  var cart={}; // id -> qty
+  var drawer=document.getElementById('drawer'),veil=document.getElementById('veil');
+  var toast=document.getElementById('toast'),toastTimer=null;
+  function showToast(t,s){
+    toast.innerHTML=t+(s?'<small>'+s+'</small>':'');
+    toast.classList.add('show');clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove('show');},3600);
+  }
+  function money(n){return n.toLocaleString('ru-RU')+' ₽';}
+  function items(){return Object.keys(cart).map(function(id){
+    var p=PLANTS.filter(function(x){return x.id===id;})[0];
+    return {p:p,qty:cart[id]};
+  }).filter(function(x){return x.qty>0;});}
+  function renderCart(){
+    var list=items();
+    var count=list.reduce(function(a,x){return a+x.qty;},0);
+    document.getElementById('cartCount').textContent=count;
+    var body=document.getElementById('cartBody');
+    if(!list.length){
+      body.innerHTML='<p class="cart-empty">Корзина пуста.<br>Добавьте растение из каталога.</p>';
+      document.getElementById('cartFoot').style.display='none';
+      return;
+    }
+    document.getElementById('cartFoot').style.display='';
+    body.innerHTML=list.map(function(x){
+      return '<div class="cart-item">'+
+        '<div class="thumb">'+x.p.svg.replace('viewBox','width="40" height="40" viewBox')+'</div>'+
+        '<div class="mid"><h4>'+x.p.name+'</h4><p class="cp">'+money(x.p.price)+' / шт.</p>'+
+          '<span class="qty"><button type="button" data-dec="'+x.p.id+'" aria-label="Меньше">−</button><span>'+x.qty+'</span><button type="button" data-inc="'+x.p.id+'" aria-label="Больше">+</button></span>'+
+        '</div><span class="sum">'+money(x.p.price*x.qty)+'</span></div>';
+    }).join('');
+    var sum=list.reduce(function(a,x){return a+x.p.price*x.qty;},0);
+    document.getElementById('cartSum').textContent=money(sum);
+    document.getElementById('deliveryNote').textContent=sum>=4000?'Доставка бесплатно · курьер в среду и пятницу':'Доставка 390 ₽ · бесплатно от 4 000 ₽';
+  }
+  renderCart();
+
+  function openCart(){
+    drawer.classList.add('open');veil.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    document.getElementById('cartClose').focus();
+  }
+  function closeCart(){
+    drawer.classList.remove('open');veil.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  document.getElementById('cartOpen').addEventListener('click',openCart);
+  document.getElementById('cartClose').addEventListener('click',closeCart);
+  veil.addEventListener('click',closeCart);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart();});
+
+  /* Добавление/количество */
+  function addToCart(id){
+    cart[id]=(cart[id]||0)+1;
+    renderCart();
+    var p=PLANTS.filter(function(x){return x.id===id;})[0];
+    showToast(p.name+' — в корзине','В корзине '+items().reduce(function(a,x){return a+x.qty;},0)+' шт.');
+  }
+  document.addEventListener('click',function(e){
+    var add=e.target.closest('[data-add]');
+    if(add){addToCart(add.getAttribute('data-add'));return;}
+    var inc=e.target.closest('[data-inc]');
+    if(inc){cart[inc.getAttribute('data-inc')]++;renderCart();return;}
+    var dec=e.target.closest('[data-dec]');
+    if(dec){var id=dec.getAttribute('data-dec');cart[id]--;if(cart[id]<1)delete cart[id];renderCart();}
+  });
+
+  /* Оформление */
+  document.getElementById('cartForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=this;
+    var name=document.getElementById('cName'),phone=document.getElementById('cPhone'),addr=document.getElementById('cAddr');
+    var bad=false;
+    [name,phone,addr].forEach(function(inp){
+      var invalid=inp.value.trim().length<2;
+      inp.classList.toggle('invalid',invalid);
+      if(invalid)bad=true;
+    });
+    f.classList.toggle('invalid',bad);
+    if(bad)return;
+    var list=items();
+    var sum=list.reduce(function(a,x){return a+x.p.price*x.qty;},0);
+    var dow=new Date().getDay(),when=(dow===2||dow===4)?'завтра':(dow===3?'в пятницу':'в среду'); // курьер ездит в ср и пт
+    showToast('Заказ оформлен, '+name.value.trim()+'!','Курьер приедет '+when+' · '+money(sum)+' · позвоним заранее');
+    cart={};renderCart();f.reset();closeCart();
+  });
+})();
+</script>
+</body>
+</html>
