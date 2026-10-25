@@ -1,5 +1,5 @@
 // Принимает заявку с витрины и пересылает её в Telegram.
-// Секреты задаются в Cloudflare: BOT_TOKEN, CHAT_ID. Переменная ALLOWED_ORIGIN — адрес сайта.
+// Секреты задаются в Cloudflare: BOT_TOKEN, CHAT_ID. Переменная ALLOWED_ORIGIN — адреса сайта через запятую.
 const LIMITS = { contact: 80, name: 60, message: 1000, business: 40, kind: 30, page: 300 };
 
 function esc(s) {
@@ -8,17 +8,21 @@ function esc(s) {
 
 export default {
   async fetch(request, env) {
-    const origin = env.ALLOWED_ORIGIN || '*';
+    // ALLOWED_ORIGIN может перечислять несколько адресов через запятую
+    const allowed = (env.ALLOWED_ORIGIN || '*').split(',').map((o) => o.trim());
+    const from = request.headers.get('Origin') || '';
+    const okOrigin = allowed.includes('*') || allowed.includes(from);
     const cors = {
-      'Access-Control-Allow-Origin': origin,
+      'Access-Control-Allow-Origin': allowed.includes('*') ? '*' : (okOrigin ? from : allowed[0]),
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
+      'Vary': 'Origin',
     };
     const reply = (status, body) => new Response(JSON.stringify(body), { status, headers: { ...cors, 'Content-Type': 'application/json' } });
 
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     if (request.method !== 'POST') return reply(405, { ok: false });
-    if (origin !== '*' && request.headers.get('Origin') !== origin) return reply(403, { ok: false });
+    if (!okOrigin) return reply(403, { ok: false });
 
     let data;
     try { data = await request.json(); } catch { return reply(400, { ok: false, error: 'bad json' }); }
