@@ -65,7 +65,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 @media(max-width:760px){.top nav .hide-m{display:none}}
 
 /* Первый экран */
-.hero{padding:clamp(24px,4vw,56px) 0 clamp(72px,10vw,160px)}
+.hero{padding:clamp(24px,4vw,56px) 0 clamp(48px,6vw,96px)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,3vw,44px)}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
 .hero h1{font-size:clamp(36px,calc((100vw - 2 * var(--m)) / 9.6),112px);line-height:.95;letter-spacing:-.05em}
@@ -74,14 +74,17 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .js .hero h1 span b{animation:up 900ms var(--ease) both}
 .js .hero h1 span:nth-child(2) b{animation-delay:90ms}
 @keyframes up{from{transform:translateY(105%)}to{transform:none}}
-.hero .lead{font-size:var(--s-lead);line-height:1.35;max-width:30ch}
+.hero .lead{font-size:clamp(22px,1.1rem + 1.4vw,40px);line-height:1.2;letter-spacing:-.02em;max-width:24ch;margin-top:clamp(20px,2.4vw,36px);color:var(--muted)}
 .hero .acts{display:flex;gap:12px;flex-wrap:wrap}
-.js .hero .lead,.js .hero .acts{animation:fade 800ms 250ms var(--ease) both}
+.js .hero .lead{animation:fade 800ms 250ms var(--ease) both}
 @keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 /* Примерка в первом экране */
 .try{background:var(--surface);border-radius:28px;padding:clamp(20px,2.4vw,32px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
-.js .try{animation:fade 900ms 380ms var(--ease) both}
+.trysec{padding-bottom:clamp(72px,10vw,160px)}
+.trysec .try{padding:clamp(24px,4vw,56px);gap:clamp(24px,4vw,64px);align-items:center}
+.trysec .try h2{font-size:clamp(28px,1.2rem + 1.8vw,48px);margin-bottom:12px}
+.trysec .try p{font-size:var(--s-body);max-width:34ch}
 @media(max-width:560px){.try{grid-template-columns:1fr}}
 .try h2{font-size:22px;letter-spacing:-.02em;margin-bottom:8px}
 .try p{font-size:var(--s-small);color:var(--muted);margin-bottom:18px;max-width:30ch}
@@ -99,7 +102,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .opt[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 
 /* Телефон с наброском — интерфейс, свои скругления */
-.phone{width:220px;aspect-ratio:9/18.5;background:var(--ink);border-radius:34px;padding:9px;justify-self:center}
+.phone{width:clamp(210px,20vw,260px);aspect-ratio:9/18.5;background:var(--ink);border-radius:34px;padding:9px;justify-self:center}
 .screen{height:100%;border-radius:26px;overflow:hidden;background:var(--pv-bg);color:var(--pv-ink);font-family:var(--pv-font);display:flex;flex-direction:column;transition:background-color 350ms ease,color 350ms ease}
 .pv{--pv-bg:#FFFFFF;--pv-ink:#141414;--pv-soft:rgba(0,0,0,.06);--pv-acc:#B8330C;--pv-on-acc:#fff;--pv-font:var(--font);--pv-r:99px}
 .pv[data-style=dark]{--pv-bg:#101010;--pv-ink:#F2F2EE;--pv-soft:rgba(255,255,255,.09);--pv-acc:#D8F35A;--pv-on-acc:#101010;--pv-r:10px}
@@ -134,7 +137,7 @@ h2{font-size:var(--s-head);margin-bottom:clamp(32px,5vw,64px)}
 .pv-item b{font-weight:600}
 .pv-push{margin-top:auto}
 /* Что делаю */
-.do{padding:clamp(72px,10vw,160px) 0}
+.do{padding:clamp(16px,2vw,32px) 0 clamp(72px,10vw,140px)}
 .do ul{list-style:none}
 .do li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 40px;padding:clamp(20px,2.4vw,32px) 0;align-items:baseline}
 
@@ -210,40 +213,38 @@ footer :focus-visible{outline-color:var(--on-dark)}
   <main id="top">
     <section class="hero">
       <h1><span><b>Создаю и обновляю</b></span><span><b>сайты</b></span></h1>
-      <div class="hero-grid">
-      <div>
-        <p class="lead">Сайты, на которых клиенту сразу ясно, что вы предлагаете и как с вами связаться. Начинаем с наброска: сначала видите свой сайт, потом решаете.</p>
-      </div>
-
-      <div class="try" aria-labelledby="tryTitle">
-        <div>
-          <h2 id="tryTitle">Примерьте сайт на своё дело</h2>
-          <p>Впишите название, выберите тип и стиль. Это быстрый эскиз, а настоящий набросок я сделаю под ваши фото, цены и задачи.</p>
-          <label class="field"><span>Название</span><input id="bizName" maxlength="40" placeholder="Например, Кофейня на углу" autocomplete="organization"></label>
-          <div class="opts" id="kind" role="group" aria-label="Что должен уметь сайт">
-            <button class="opt" type="button" data-k="card" aria-pressed="true">Визитка</button>
-            <button class="opt" type="button" data-k="book" aria-pressed="false">Запись</button>
-            <button class="opt" type="button" data-k="shop" aria-pressed="false">Магазин</button>
-          </div>
-          <div class="opts" id="style" role="group" aria-label="Стиль сайта">
-            <button class="opt" type="button" data-s="light" aria-pressed="true">Светлый</button>
-            <button class="opt" type="button" data-s="dark" aria-pressed="false">Тёмный</button>
-            <button class="opt" type="button" data-s="bold" aria-pressed="false">Яркий</button>
-          </div>
-        </div>
-        <div class="phone" data-ui><div class="screen pv"></div></div>
-      </div>
-      </div>
+      <p class="lead">Сайты, по которым вам пишут и звонят.</p>
     </section>
 
     <section class="do" id="do">
       <h2 class="rise">С чем помогу</h2>
       <ul>
-        <li class="rise"><b>Клиенты ищут вас, а находят конкурентов</b><p>Сделаю сайт, по которому вас легко найти и сразу понять, почему стоит выбрать именно вас.</p></li>
-        <li class="rise"><b>Сайт есть, но заявок с него мало</b><p>Доработаю то, что мешает: дизайн, тексты, версию для телефона. То, что уже работает, оставлю.</p></li>
+        <li class="rise"><b>Клиенты ищут вас, а находят конкурентов</b><p>Сделаю сайт, где сразу видно, чем вы занимаетесь и как к вам попасть.</p></li>
+        <li class="rise"><b>Сайт есть, но заявок с него мало</b><p>Доработаю то, что мешает: дизайн, тексты, версию для телефона.</p></li>
         <li class="rise"><b>Запись тонет в переписке</b><p>Добавлю онлайн-запись или заявку: клиент сам выбирает время, а вам сразу приходит уведомление.</p></li>
         <li class="rise"><b>Хочется продавать без посредников</b><p>Каталог с ценами и заказ прямо на вашем сайте, без комиссии площадок.</p></li>
       </ul>
+    </section>
+
+    <section class="trysec" id="try">
+      <div class="try rise" aria-labelledby="tryTitle">
+      <div>
+        <h2 id="tryTitle">Примерьте сайт на своё дело</h2>
+        <p>Впишите название и посмотрите, каким может быть ваш сайт. Настоящий сделаю под ваши фото и цены.</p>
+        <label class="field"><span>Название</span><input id="bizName" maxlength="40" placeholder="Например, Кофейня на углу" autocomplete="organization"></label>
+        <div class="opts" id="kind" role="group" aria-label="Что должен уметь сайт">
+          <button class="opt" type="button" data-k="card" aria-pressed="true">Визитка</button>
+          <button class="opt" type="button" data-k="book" aria-pressed="false">Запись</button>
+          <button class="opt" type="button" data-k="shop" aria-pressed="false">Магазин</button>
+        </div>
+        <div class="opts" id="style" role="group" aria-label="Стиль сайта">
+          <button class="opt" type="button" data-s="light" aria-pressed="true">Светлый</button>
+          <button class="opt" type="button" data-s="dark" aria-pressed="false">Тёмный</button>
+          <button class="opt" type="button" data-s="bold" aria-pressed="false">Яркий</button>
+        </div>
+      </div>
+      <div class="phone" data-ui><div class="screen pv"></div></div>
+    </div>
     </section>
   </main>
 </div>
@@ -253,19 +254,19 @@ footer :focus-visible{outline-color:var(--on-dark)}
     <h2 class="rise">Как работаем</h2>
     <ol class="steps">
       <li class="step rise">
-        <div><h3>Рассказываете, что нужно</h3><p>Опишите идею своими словами, как рассказали бы знакомому. Техническое задание не нужно, детали уточним в переписке.</p></div>
+        <div><h3>Вы пишете, что нужно</h3><p>Пары сообщений о вашем деле достаточно. Техническое задание не нужно.</p></div>
         <div class="chat" data-ui><div class="msg">Здравствуйте! У меня студия маникюра, записываю клиентов в переписке и путаюсь во времени.</div><div class="msg">Можно, чтобы записывались сами?</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Видите набросок своего сайта</h3><p>Живая страница по ссылке, с вашим названием и услугами. Открываете с телефона и сразу понимаете, нравится или нет.</p></div>
+        <div><h3>Я присылаю первую версию</h3><p>Ссылка на сайт с вашим названием и услугами. Открываете с телефона и смотрите, нравится ли.</p></div>
         <div class="chat" data-ui><div class="msg me">Посмотрите с телефона:<br><u>ваша-студия.ru</u></div><div class="msg">Здорово! А цены можно видеть сразу?</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Доводим до результата</h3><p>Правлю всё, что важно для вас: тексты, фото, цвета. Проверяю сайт на разных телефонах, чтобы ничего не съезжало.</p></div>
+        <div><h3>Доделываем вместе</h3><p>Меняю тексты, фото и цвета, пока не понравится. Проверяю, как сайт выглядит на разных телефонах.</p></div>
         <div class="chat" data-ui><div class="msg me">Цены вынес на первый экран, проверил на iPhone и Android.</div><div class="msg">Отлично, запускаем!</div></div>
       </li>
       <li class="step rise">
-        <div><h3>Запускаю и остаюсь на связи</h3><p>Подключаю адрес сайта и уведомления о заявках. Нужно поменять цены или фото — пишете, и я обновлю.</p></div>
+        <div><h3>Запускаю и остаюсь на связи</h3><p>Сайт открывается по вашему адресу, заявки приходят вам в телефон. Нужно поменять цены или фото — пишете мне.</p></div>
         <div class="chat" data-ui><div class="msg">Пришла первая запись с сайта!</div><div class="msg">Поменяете цену на педикюр?</div><div class="msg me">Уже обновил.</div></div>
       </li>
     </ol>
