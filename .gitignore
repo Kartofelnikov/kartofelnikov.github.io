@@ -1,0 +1,6 @@
+node_modules/
+.impeccable/
+.edgeprof/
+.shots/
+.detect*.json
+.fix*.js

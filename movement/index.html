@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ОСЬ — студия движения</title>
+<meta name="description" content="Студия движения ОСЬ: растяжка, осанка, МФР, силовая мобильность. Малые группы до шести человек, расписание как табло поезда.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F9F8F4;
+  --grid:rgba(27,58,92,.075);
+  --grid-strong:rgba(27,58,92,.14);
+  --ink:#1B3A5C;
+  --ink-deep:#12283F;
+  --ink-70:rgba(27,58,92,.74);
+  --ink-50:rgba(27,58,92,.74);
+  --coral:#E8552B;
+  --coral-btn:#C23A14;
+  --coral-ink:#AD3A0E;
+  --coral-soft:rgba(232,85,43,.1);
+  --line:rgba(27,58,92,.2);
+  --display:'Spectral',Georgia,serif;
+  --text:'IBM Plex Sans','Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+::selection{background:var(--ink);color:var(--paper)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:#B9C6D4;border-radius:5px}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+a{color:inherit}
+.panel{background:#FFFDF8;border:1px solid var(--line);border-radius:4px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(249,248,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+.logo{font-family:var(--display);font-weight:600;font-size:24px;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:.01em}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-70);
+  padding:6px 2px;border-bottom:2px solid transparent;
+  transition:color 150ms ease-out,border-color 150ms ease-out;
+}
+.nav-links a:hover{color:var(--ink);border-color:var(--coral)}
+@media(max-width:840px){.nav-links{display:none}}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-size:15px;font-weight:600;padding:14px 26px;border-radius:3px;border:1.5px solid transparent;
+  cursor:pointer;text-decoration:none;
+  transition:transform 160ms var(--ease-out),background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out;
+}
+.btn:active{transform:scale(.97)}
+.btn-coral{background:var(--coral-btn);color:#FFF9F4}
+.btn-coral:hover{background:#A83210}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--ink-deep)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-line:hover{border-color:var(--ink)}
+header .btn{padding:10px 18px;font-size:14px}
+
+/* Hero */
+.hero{padding:80px 0 64px;padding:clamp(48px,8vw,96px) 0 clamp(44px,6vw,80px);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-50)}
+h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(40px,6.4vw,76px);line-height:1.06;letter-spacing:-0.01em;
+  margin:18px 0 20px;max-width:15ch;
+}
+h1 em{font-style:normal;color:var(--coral-ink)}
+.hero-lede{max-width:52ch;color:var(--ink-70);font-size:clamp(16px,1.6vw,18.5px);margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.next-class{
+  margin-top:34px;display:inline-flex;align-items:center;gap:14px;
+  padding:14px 18px;border:1px solid var(--line);border-radius:4px;background:#FFFDF8;
+}
+.next-class .pulse{
+  width:10px;height:10px;border-radius:50%;background:var(--coral-btn);flex:none;
+}
+.next-class b{font-weight:600}
+.next-class span{font-family:var(--mono);font-size:13px;color:var(--ink-70)}
+
+/* Схема плоскостей */
+.figure{position:relative}
+.figure svg{width:100%;height:auto;display:block}
+.figure figcaption{
+  font-family:var(--mono);font-size:12px;color:var(--ink-50);letter-spacing:.02em;
+  border-top:1px solid var(--line);padding-top:10px;margin-top:6px;display:flex;justify-content:space-between;gap:10px;
+}
+.axis-label{font-family:var(--mono);font-size:11px;fill:var(--ink-70);letter-spacing:.08em}
+.plane-hit{cursor:pointer}
+.plane-hit rect{fill:transparent}
+.plane-hit .pl-stroke{stroke:var(--line);stroke-width:1.6;fill:none;transition:stroke 200ms ease-out}
+.plane-hit .pl-dot{fill:var(--ink);transition:fill 200ms ease-out}
+.plane-hit:hover .pl-stroke,.plane-hit.on .pl-stroke{stroke:var(--coral-btn)}
+.plane-hit:hover .pl-dot,.plane-hit.on .pl-dot{fill:var(--coral-btn)}
+.plane-desc{
+  margin-top:14px;font-size:14px;color:var(--ink-70);min-height:3.2em;
+  padding:12px 14px;background:var(--coral-soft);border-radius:3px;
+}
+
+/* Секции */
+section{padding:clamp(56px,9vw,104px) 0}
+.sec-head{margin-bottom:clamp(26px,4vw,42px);display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.sec-title{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.4vw,50px);line-height:1.1;letter-spacing:-0.01em}
+.sec-note{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);letter-spacing:.02em}
+
+/* Полевой дневник направлений */
+.entries{border-top:2px solid var(--ink)}
+.entry{
+  display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);
+  padding:26px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.entry-fig{
+  font-family:var(--mono);font-size:12px;color:var(--ink-50);letter-spacing:.08em;line-height:1.7;padding-top:4px;
+}
+.entry-fig b{display:block;font-size:22px;color:var(--coral);font-weight:500;letter-spacing:.02em}
+.entry h3{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,28px);line-height:1.2}
+.entry p{color:var(--ink-70);font-size:15.5px;margin-top:8px;max-width:58ch}
+.entry-data{
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-70);
+}
+.entry-data span{border:1px solid var(--line);border-radius:3px;padding:5px 10px;background:#FFFDF8}
+@media(max-width:720px){
+  .entry{grid-template-columns:1fr}
+  .entry-fig{display:flex;gap:10px;align-items:baseline}
+}
+
+/* Табло расписания */
+.board-sec{background:var(--ink);color:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background-image:
+    linear-gradient(rgba(249,248,244,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(249,248,244,.06) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.board-sec .sec-note{color:rgba(249,248,244,.55)}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:12px}
+.slot-card{
+  border:1px solid rgba(249,248,244,.25);border-radius:4px;padding:16px 16px 18px;text-align:left;
+  background:rgba(249,248,244,.04);color:var(--paper);cursor:pointer;font-family:var(--text);
+  display:flex;flex-direction:column;gap:6px;
+  transition:border-color 180ms ease-out,background-color 180ms ease-out,transform 180ms var(--ease-out);
+}
+.slot-card:hover:not(:disabled){border-color:rgba(249,248,244,.7);transform:translateY(-3px)}
+.slot-card:active:not(:disabled){transform:scale(.98)}
+.slot-card:disabled{opacity:.35;cursor:not-allowed}
+.slot-time{font-family:var(--mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.slot-name{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.25}
+.slot-meta{font-family:var(--mono);font-size:12px;color:rgba(249,248,244,.6);display:flex;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px}
+.slot-card .hot{color:#FF9273;font-weight:500}
+.board-day{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,248,244,.55);
+  margin:26px 0 12px;display:flex;align-items:center;gap:14px;
+}
+.board-day::after{content:'';flex:1;height:1px;background:rgba(249,248,244,.2)}
+
+/* Тарифы */
+.tariffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#FFFDF8}
+.tariff{padding:28px 26px 30px;border-left:1px solid var(--line)}
+.tariff:first-child{border-left:none}
+.tariff h3{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50)}
+.tariff .price{font-family:var(--display);font-size:44px;font-weight:600;line-height:1;margin:14px 0 4px;letter-spacing:-0.01em}
+.tariff .unit{font-family:var(--mono);font-size:12.5px;color:var(--ink-50)}
+.tariff ul{list-style:none;margin-top:18px;font-size:14.5px;color:var(--ink-70)}
+.tariff li{padding:8px 0;border-top:1px solid rgba(27,58,92,.12)}
+.tariff.star{background:var(--ink);color:var(--paper)}
+.tariff.star h3{color:#FF9273}
+.tariff.star .unit{color:rgba(249,248,244,.6)}
+.tariff.star li{border-top-color:rgba(249,248,244,.15);color:rgba(249,248,244,.85)}
+@media(max-width:840px){.tariff{border-left:none;border-top:1px solid var(--line)}.tariff:first-child{border-top:none}}
+
+/* Журнал записи */
+.join-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,1fr);gap:clamp(32px,5vw,64px)}
+@media(max-width:920px){.join-grid{grid-template-columns:1fr}}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);margin-bottom:8px}
+.field input{width:100%;background:#FFFDF8;border:1.5px solid var(--line);border-radius:3px;color:var(--ink);font-family:var(--text);font-size:16px;padding:13px 14px;transition:border-color 150ms ease-out}
+.field input:focus{outline:none;border-color:var(--coral)}
+.field input::placeholder{color:var(--ink-50)}
+.field .err{display:none;font-family:var(--mono);font-size:12px;color:var(--coral);margin-top:6px}
+.field.invalid input{border-color:var(--coral)}
+.field.invalid .err{display:block}
+.join-form .btn{width:100%;padding:16px}
+.join-hint{font-size:13px;color:var(--ink-50);text-align:center;margin-top:12px}
+#joinPick{
+  font-family:var(--mono);font-size:13.5px;padding:14px;border:1.5px dashed var(--line);
+  border-radius:3px;color:var(--ink-70);background:var(--coral-soft);
+}
+#joinPick b{color:var(--coral-ink);font-weight:500}
+
+/* Журнал */
+.journal{padding:24px}
+.journal h3{font-family:var(--display);font-size:22px;font-weight:600;margin-bottom:4px}
+.journal .sub{font-family:var(--mono);font-size:12px;color:var(--ink-50);margin-bottom:16px}
+.journal-row{
+  display:flex;justify-content:space-between;gap:14px;padding:12px 0;
+  border-top:1px solid rgba(27,58,92,.14);font-size:14.5px;
+}
+.journal-row span:first-child{color:var(--ink-70)}
+.journal-row .rec{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);letter-spacing:.02em}
+.journal-empty{color:var(--ink-50);font-size:14.5px;padding:8px 0 4px}
+
+/* Контакты */
+.closing{text-align:center}
+.closing h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,4.2vw,46px);line-height:1.15;max-width:22ch;margin:0 auto 14px}
+.closing p{color:var(--ink-70);max-width:50ch;margin:0 auto 28px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 34px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+.foot p{font-family:var(--mono);font-size:12px;color:var(--ink-50)}
+.foot .demo-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);padding:6px 10px;border-radius:3px;color:var(--ink-50)}
+
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);
+  background:var(--ink);color:var(--paper);border-left:5px solid var(--coral);
+  padding:15px 20px;font-size:15px;font-weight:500;max-width:min(92vw,480px);
+  box-shadow:0 12px 32px rgba(18,40,63,.35);
+  opacity:0;pointer-events:none;z-index:100;
+  transition:opacity 250ms var(--ease-out),transform 250ms var(--ease-out);
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast small{display:block;font-weight:400;font-size:12.5px;margin-top:3px;color:rgba(249,248,244,.75)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .next-class .pulse{animation:none}
+  *{transition-duration:1ms!important;animation-duration:1ms!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="ОСЬ — на главную">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="13" cy="13" r="11.5" stroke="#1B3A5C" stroke-width="1.6"/>
+        <path d="M13 1.5v23M1.5 13h23" stroke="#1B3A5C" stroke-width="1.2"/>
+        <path d="M13 4 22 13 13 22 4 13Z" stroke="#E8552B" stroke-width="1.6" fill="none"/>
+      </svg>
+      ОСЬ
+    </a>
+    <ul class="nav-links">
+      <li><a href="#dir">Направления</a></li>
+      <li><a href="#board">Расписание</a></li>
+      <li><a href="#tariffs">Абонементы</a></li>
+      <li><a href="#join">Запись</a></li>
+    </ul>
+    <a class="btn btn-coral" href="#board">Ближайшие занятия</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Тело понимает <em>язык движения</em> лучше, чем слова</h1>
+        <p class="hero-lede">Малые группы до шести человек. Мы не тянем «через боль» и не считаем калории. Десять направлений от растяжки до силовой мобильности, все по анатомической логике: сначала понять, как устроен сустав, потом двигать им правильно.</p>
+        <div class="hero-actions">
+          <a class="btn btn-coral" href="#board">Выбрать занятие</a>
+          <a class="btn btn-line" href="#dir">Что за направления</a>
+        </div>
+        <div class="next-class">
+          <span class="pulse" aria-hidden="true"></span>
+          <span><b id="nextLabel">Ближайшее сегодня:</b> <span id="nextText">растяжка, 19:00, осталось 4 места</span></span>
+        </div>
+      </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 440 400" role="img" aria-label="Схема плоскостей движения тела: сагиттальная, фронтальная и горизонтальная">
+          <!-- рамка атласа -->
+          <rect x="1" y="1" width="438" height="398" fill="none" stroke="rgba(27,58,92,.25)" stroke-width="1.5"/>
+          <rect x="10" y="10" width="420" height="380" fill="none" stroke="rgba(27,58,92,.12)" stroke-width="1"/>
+          <!-- центральная ось -->
+          <line x1="220" y1="34" x2="220" y2="366" stroke="#1B3A5C" stroke-width="1.4" stroke-dasharray="5 6"/>
+          <circle cx="220" cy="200" r="4" fill="#1B3A5C"/>
+          <!-- сагиттальная плоскость: вертикальный эллипс -->
+          <g class="plane-hit" data-desc="Сагиттальная плоскость: сгибание и разгибание: наклоны, приседания, шаг. Наши занятия «Мобильность суставов» работают в ней.">
+            <rect x="150" y="0" width="140" height="400"/>
+            <ellipse class="pl-stroke" cx="220" cy="200" rx="58" ry="150"/>
+            <circle class="pl-dot" cx="220" cy="50" r="3.5"/>
+          </g>
+          <!-- фронтальная плоскость -->
+          <g class="plane-hit" data-desc="Фронтальная плоскость: наклоны в сторону, отведения, баланс. Это территория «Осанки и баланса» и МФР.">
+            <rect x="0" y="130" width="440" height="140"/>
+            <ellipse class="pl-stroke" cx="220" cy="200" rx="170" ry="56"/>
+            <circle class="pl-dot" cx="390" cy="200" r="3.5"/>
+          </g>
+          <!-- горизонтальная плоскость -->
+          <g class="plane-hit" data-desc="Горизонтальная плоскость: скручивания и вращения: позвоночник, бёдра, плечи. «Гибкая спина» относится сюда.">
+            <rect x="60" y="60" width="320" height="280"/>
+            <ellipse class="pl-stroke" cx="220" cy="200" rx="118" ry="118" transform="rotate(-14 220 200)"/>
+            <circle class="pl-dot" cx="220" cy="200" r="3.5"/>
+          </g>
+          <text class="axis-label" x="222" y="28">SAJITTA · 1</text>
+          <text class="axis-label" x="360" y="192">FRONS · 2</text>
+          <text class="axis-label" x="60" y="352" text-anchor="start">HORIZON · 3</text>
+        </svg>
+        <figcaption><span>Рис. 1. Плоскости движения</span><span>лист 04 / атлас ОСЬ</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <p class="plane-desc wrap" id="planeDesc" style="margin-top:-28px;margin-bottom:0;padding-bottom:34px;font-family:var(--text)">
+    Нажмите на одну из плоскостей на схеме: каждая объяснит, какие наши занятия в ней работают.
+  </p>
+
+  <!-- Направления -->
+  <section id="dir" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Полевой дневник направлений</h2>
+        <p class="sec-note">каждая запись отдельный курс · 55 минут</p>
+      </div>
+      <div class="entries">
+        <article class="entry">
+          <div class="entry-fig"><b>Рис. 2</b>лист 11</div>
+          <div>
+            <h3>Растяжка для неподвижных</h3>
+            <p>Для тех, кто сидит по восемь часов и не достаёт до носков. Плавно, с опорой на дыхание, без гонки за шпагатом: подвижность возвращается за 6–8 недель.</p>
+            <div class="entry-data"><span>новичкам: да</span><span>интенсивность 3/10</span><span>6 человек в группе</span></div>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-fig"><b>Рис. 3</b>лист 17</div>
+          <div>
+            <h3>Осанка и баланс</h3>
+            <p>Разбираем, как вы стоите на самом деле, и собираем заново: лопатки, шея, таз. Домашняя микропрограмма на 9 минут в день в подарок к абонементу.</p>
+            <div class="entry-data"><span>новичкам: да</span><span>интенсивность 4/10</span><span>работа в парах</span></div>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-fig"><b>Рис. 4</b>лист 23</div>
+          <div>
+            <h3>Гибкая спина</h3>
+            <p>Скручивания и вытяжение позвоночника во всех плоскостях. Любимое занятие программистов и стоматологов, всех, кто скручен над работой.</p>
+            <div class="entry-data"><span>уровень: средний</span><span>интенсивность 5/10</span><span>валики и роллы включены</span></div>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-fig"><b>Рис. 5</b>лист 29</div>
+          <div>
+            <h3>Силовая мобильность</h3>
+            <p>Гибкость, которая держит вес: глубокие приседы, мосты, подъёмы с пола. Здесь тепло, шумно, а через месяц садишься на шпагат, если очень хотелось.</p>
+            <div class="entry-data"><span>уровень: средний+</span><span>интенсивность 7/10</span><span>маты и гири до 12 кг</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Табло -->
+  <section id="board" class="board-sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title" style="color:var(--paper)">Расписание как табло</h2>
+        <p class="sec-note">кликните занятие, и оно подставится в запись · места живые</p>
+      </div>
+      <div id="boardAll"></div>
+    </div>
+  </section>
+
+  <!-- Абонементы -->
+  <section id="tariffs">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Абонементы</h2>
+        <p class="sec-note">заморозка до 30 дней · пробное занятие 500 ₽</p>
+      </div>
+      <div class="tariffs">
+        <div class="tariff">
+          <h3>4 занятия</h3>
+          <div class="price">3 200 ₽</div>
+          <div class="unit">800 ₽ за занятие · 6 недель</div>
+          <ul>
+            <li>Любые направления</li>
+            <li>Место в группе не фиксируется</li>
+          </ul>
+        </div>
+        <div class="tariff star">
+          <h3>8 занятий</h3>
+          <div class="price">5 200 ₽</div>
+          <div class="unit">650 ₽ за занятие · 10 недель</div>
+          <ul>
+            <li>Любые направления</li>
+            <li>Фиксация любимого времени</li>
+            <li>Домашняя микропрограмма</li>
+          </ul>
+        </div>
+        <div class="tariff">
+          <h3>Безлимит</h3>
+          <div class="price">6 900 ₽</div>
+          <div class="unit">в месяц · хоть каждый день</div>
+          <ul>
+            <li>Все занятия и мастер-классы</li>
+            <li>Гостевой визит для друга раз в месяц</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Запись -->
+  <section id="join" style="border-top:1px solid var(--line)">
+    <div class="wrap join-grid">
+      <form class="join-form" id="joinForm" novalidate>
+        <div class="sec-head" style="margin-bottom:26px">
+          <h2 class="sec-title">Внести запись в журнал</h2>
+        </div>
+        <div class="field">
+          <label>Выбранное занятие</label>
+          <p id="joinPick">Не выбрано: кликните время на <b><a href="#board" style="color:inherit">табло</a></b> или начните с растяжки: ближайшее сегодня в <b id="joinQuick">19:00</b>.</p>
+        </div>
+        <div class="frow" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="field" id="jNameW">
+            <label for="jName">Имя</label>
+            <input type="text" id="jName" placeholder="Как к вам обращаться" autocomplete="name" required>
+            <p class="err">Напишите имя, чтобы инструктор встретил вас по имени</p>
+          </div>
+          <div class="field" id="jPhoneW">
+            <label for="jPhone">Телефон</label>
+            <input type="tel" id="jPhone" placeholder="+7 900 000-00-00" autocomplete="tel" required>
+            <p class="err">Нужен телефон для напоминания за час</p>
+          </div>
+        </div>
+        <button class="btn btn-coral" type="submit">Записаться</button>
+        <p class="join-hint">За час до заная придёт SMS. Не смогли прийти? Перенесите одним сообщением, запись сохранится.</p>
+      </form>
+
+      <aside class="panel journal">
+        <h3>Журнал записей</h3>
+        <p class="sub">записи из этого браузера, демо без сервера</p>
+        <div id="journalList"><p class="journal-empty">Пока пусто. Ваша первая запись появится здесь же, сразу после формы.</p></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Первое занятие, «проба пера»: 500 ₽ и час о себе</h2>
+      <p>Приходите в любых легинсах, коврики и валики наши. Тапочки можно оставить дома: мы занимаемся босиком.</p>
+      <a class="btn btn-ink" href="#board">Смотреть табло</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 ОСЬ · студия движения · ул. Мастеровая, 14, этаж 3</p>
+    <span class="demo-tag">Демонстрационный макет</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var DAYS=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
+  var MONTHS=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  var CLASSES=[
+    {name:'Растяжка для неподвижных',tag:'рис. 2',base:'stretch'},
+    {name:'Осанка и баланс',tag:'рис. 3',base:'posture'},
+    {name:'Гибкая спина',tag:'рис. 4',base:'spine'},
+    {name:'Силовая мобильность',tag:'рис. 5',base:'power'}
+  ];
+
+  /* Схема: клики по плоскостям */
+  var desc=document.getElementById('planeDesc');
+  var hits=document.querySelectorAll('.plane-hit');
+  hits.forEach(function(h){
+    h.setAttribute('tabindex','0');
+    h.setAttribute('role','button');
+    var on=function(){
+      hits.forEach(function(x){x.classList.remove('on')});
+      h.classList.add('on');
+      desc.textContent=h.getAttribute('data-desc');
+    };
+    h.addEventListener('click',on);
+    h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();on();}});
+  });
+
+  /* Табло: генерим 3 дня занятий из даты — детерминированно */
+  function hash(n){var x=Math.sin(n)*10000;return x-Math.floor(x);}
+  var board=document.getElementById('boardAll');
+  var pick=null;
+  var html='';
+  for(var d=0;d<3;d++){
+    var date=new Date();date.setDate(date.getDate()+d);
+    var dayTitle=d===0?'Сегодня, '+date.getDate()+' '+MONTHS[date.getMonth()]:d===1?'Завтра, '+date.getDate()+' '+MONTHS[date.getMonth()]:DAYS[date.getDay()]+', '+date.getDate()+' '+MONTHS[date.getMonth()];
+    html+='<h3 class="board-day">'+dayTitle+'</h3><div class="board">';
+    var times=[10,0,12,0,14,30,17,0,19,0,20,30];
+    for(var t=0;t<times.length;t+=2){
+      var h=times[t],m=times[t+1];
+      var ci=Math.floor(hash(date.getDate()*31+t*7+d)*CLASSES.length);
+      var c=CLASSES[ci];
+      if(d===0&&h<new Date().getHours()+1)continue;
+      var cap=6;
+      var taken=Math.floor(hash(date.getDate()*17+h*3+m)*cap);
+      if(taken>=cap){
+        html+='<button type="button" class="slot-card" disabled><span class="slot-time">'+h+':'+String(m).padStart(2,'0')+'</span><span class="slot-name">'+c.name+'</span><span class="slot-meta"><span>'+c.tag+'</span><span>мест нет</span></span></button>';
+      }else{
+        var left=cap-taken;
+        html+='<button type="button" class="slot-card" data-pick="'+h+':'+String(m).padStart(2,'0')+'|'+dayTitle+'|'+c.name+'" data-left="'+left+'"><span class="slot-time">'+h+':'+String(m).padStart(2,'0')+'</span><span class="slot-name">'+c.name+'</span><span class="slot-meta"><span>'+c.tag+'</span><span class="'+(left<=2?'hot':'')+'">'+(left<=2?'осталось '+left:'места есть')+'</span></span></button>';
+      }
+    }
+    html+='</div>';
+  }
+  board.innerHTML=html;
+  board.addEventListener('click',function(e){
+    var b=e.target.closest('.slot-card');
+    if(!b||b.disabled)return;
+    pick=b.getAttribute('data-pick').split('|');
+    document.getElementById('joinPick').innerHTML='Выбрано: <b>'+pick[2]+'</b> · '+pick[1].split(',')[0].toLowerCase()+', '+pick[0];
+    document.getElementById('joinQuick').textContent=pick[0];
+    showToast('Занятие выбрано','Осталось заполнить имя и телефон в форме ниже');
+    var f=document.getElementById('jName');f.focus();
+    location.hash='#join';
+  });
+
+  /* Ближайшее сегодня */
+  (function(){
+    var first=board.querySelector('.slot-card:not([disabled])');
+    if(first){
+      document.getElementById('nextText').textContent=first.querySelector('.slot-name').textContent.toLowerCase()+', '+first.querySelector('.slot-time').textContent+', '+first.querySelector('.slot-meta span:last-child').textContent;
+      document.getElementById('joinQuick').textContent=first.querySelector('.slot-time').textContent;
+    }
+  })();
+
+  /* Журнал: читаем сохранённые */
+  function readJournal(){
+    try{return JSON.parse(localStorage.getItem('axisJournal')||'[]');}catch(e){return[];}
+  }
+  function renderJournal(){
+    var arr=readJournal();
+    var box=document.getElementById('journalList');
+    if(!arr.length){box.innerHTML='<p class="journal-empty">Пока пусто. Ваша первая запись появится здесь же, сразу после формы.</p>';return;}
+    box.innerHTML=arr.slice().reverse().map(function(r){
+      return '<div class="journal-row"><span>'+r.cls+'<br><span class="rec">'+r.when+'</span></span><span class="rec">'+r.name+'</span></div>';
+    }).join('');
+  }
+  renderJournal();
+
+  /* Форма */
+  var toast=document.getElementById('toast'),toastTimer=null;
+  function showToast(t,s){
+    toast.innerHTML=t+(s?'<small>'+s+'</small>':'');
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove('show');},4200);
+  }
+  var form=document.getElementById('joinForm');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('jName'),phone=document.getElementById('jPhone');
+    var ok=true;
+    if(name.value.trim().length<2){document.getElementById('jNameW').classList.add('invalid');ok=false;}
+    if(phone.value.replace(/\D/g,'').length<10){document.getElementById('jPhoneW').classList.add('invalid');ok=false;}
+    if(!ok)return;
+    if(!pick){pick=[document.getElementById('joinQuick').textContent,'сегодня',CLASSES[0].name];}
+    var when=pick[1].split(',')[0].toLowerCase()+', '+pick[0];
+    try{
+      var arr=readJournal();
+      arr.push({name:name.value.trim(),cls:pick[2],when:when,at:new Date().toISOString()});
+      localStorage.setItem('axisJournal',JSON.stringify(arr));
+    }catch(err){}
+    renderJournal();
+    showToast('Вы записаны, '+name.value.trim()+'!',pick[2]+' · '+when+' · придём SMS за час');
+    form.reset();pick=null;
+    document.getElementById('joinPick').innerHTML='Не выбрано: кликните время на <b><a href="#board" style="color:inherit">табло</a></b> выше.';
+  });
+  ['jName','jPhone'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',function(){
+      this.closest('.field').classList.remove('invalid');
+    });
+  });
+})();
+</script>
+</body>
+</html>

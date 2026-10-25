@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мастерская сайтов — сайты под ключ за неделю</title>
+<meta name="description" content="Делаю сайты под ключ для малого бизнеса: кофейни, барбершопы, студии, магазины. Живые примеры на этой странице — откройте и полистайте.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF7;
+  --ink:#141312;
+  --ink-70:rgba(20,19,18,.72);
+  --ink-50:rgba(20,19,18,.62);
+  --line:rgba(20,19,18,.16);
+  --red:#E0311F;
+  --red-ink:#BC1F10;
+  --display:'Unbounded','Arial Black',sans-serif;
+  --text:'Golos Text','Segoe UI',sans-serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:#C9C7C0;border-radius:5px}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+a{color:inherit}
+
+header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;background:var(--red);border-radius:1px}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{
+  font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-70);
+  transition:color 150ms ease-out;
+}
+.nav-links a:hover{color:var(--red)}
+@media(max-width:780px){.nav-links{display:none}}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-size:15px;font-weight:600;padding:14px 26px;border-radius:2px;border:2px solid transparent;
+  cursor:pointer;text-decoration:none;font-family:var(--text);
+  transition:transform 160ms var(--ease-out),background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out;
+}
+.btn:active{transform:scale(.97)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#C4240F}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#333}
+header .btn{padding:10px 18px;font-size:14px}
+
+/* Hero */
+.hero{padding:80px 0 56px;padding:clamp(52px,8vw,100px) 0 clamp(36px,5vw,64px);border-bottom:1px solid var(--line)}
+.status-line{
+  display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-70);
+  border:1px solid var(--line);border-radius:99px;padding:8px 14px;margin-bottom:28px;
+}
+.status-line .pulse{width:8px;height:8px;border-radius:50%;background:#2FA44F}
+h1{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(30px,5.6vw,64px);line-height:1.06;letter-spacing:-0.01em;
+  max-width:19ch;text-transform:uppercase;
+}
+h1 .accent{color:var(--red-ink)}
+h1 .strike{position:relative;white-space:nowrap}
+h1 .strike::after{
+  content:'';position:absolute;left:-2%;right:-2%;top:54%;height:.09em;background:var(--red);
+  transform:rotate(-1.5deg);
+}
+.hero-cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+@media(max-width:880px){.hero-cols{grid-template-columns:1fr}}
+.hero-sub{margin-top:26px;color:var(--ink-70);font-size:clamp(16px,1.7vw,19px);max-width:46ch}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-facts{display:flex;gap:clamp(20px,4vw,48px);flex-wrap:wrap;margin-top:38px}
+.fact b{font-family:var(--display);font-weight:700;font-size:clamp(26px,3vw,36px);display:block;line-height:1.1}
+.fact span{font-family:var(--mono);font-size:12px;color:var(--ink-50);letter-spacing:.06em;text-transform:uppercase}
+
+/* Интерактивный список ниш */
+.niches{border:1px solid var(--ink);border-radius:4px;overflow:hidden;background:#fff}
+.niches-head{
+  display:flex;justify-content:space-between;padding:12px 18px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+}
+.niche-row{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 18px;border-top:1px solid var(--line);cursor:pointer;background:transparent;
+  font-family:inherit;color:inherit;text-align:left;width:100%;border-left:none;border-right:none;border-bottom:none;
+  transition:background-color 180ms ease-out,padding-left 180ms var(--ease-out);
+}
+.niche-row:first-of-type{border-top:none}
+@media(hover:hover){.niche-row:hover{background:var(--swatch);padding-left:26px}}
+.niche-row .n-name{font-family:var(--display);font-weight:500;font-size:clamp(15px,1.8vw,19px);text-transform:uppercase;letter-spacing:.01em}
+.niche-row .n-go{font-family:var(--mono);font-size:12px;color:var(--ink-50);white-space:nowrap}
+.niche-row .swatch{width:34px;height:34px;border-radius:3px;background:var(--swatch);flex:none;transition:transform 180ms var(--ease-out)}
+@media(hover:hover){.niche-row:hover .swatch{transform:rotate(-8deg) scale(1.12)}}
+
+/* Работы — большие строки */
+.works{padding:clamp(56px,9vw,104px) 0}
+.works-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:clamp(22px,4vw,40px)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.8vw,44px);line-height:1.1;text-transform:uppercase;letter-spacing:-0.01em}
+.works-note{font-family:var(--mono);font-size:12.5px;color:var(--ink-50);letter-spacing:.02em}
+.work{
+  display:grid;grid-template-columns:minmax(200px,340px) minmax(0,1fr) auto;gap:clamp(18px,3vw,44px);
+  align-items:center;padding:clamp(22px,3.5vw,36px) 0;border-top:1px solid var(--ink);
+  text-decoration:none;position:relative;
+  transition:padding-left 220ms var(--ease-out);
+}
+.work:last-of-type{border-bottom:1px solid var(--ink)}
+.work .w-mini{border-radius:4px;overflow:hidden;aspect-ratio:4/2.9;position:relative;border:1px solid rgba(20,19,18,.12)}
+@media(hover:hover) and (pointer:fine){
+  .work:hover{padding-left:14px}
+  .work:hover .w-mini{box-shadow:6px 6px 0 var(--wc)}
+}
+.w-mini .m-bar{height:16%;display:flex}
+.w-mini .m-bar i{flex:1}
+.w-mini .m-body{padding:7% 8%;display:flex;flex-direction:column;gap:6%}
+.w-mini .m-line{height:7px;border-radius:2px;background:rgba(20,19,18,.16)}
+.w-mini .m-title{height:13px;width:56%;border-radius:2px}
+.w-mini .m-btn{height:12%;width:34%;border-radius:2px;margin-top:2%}
+.work .w-info h3{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.4vw,26px);text-transform:uppercase;line-height:1.15}
+.work .w-info .w-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red-ink);margin-bottom:8px;display:block}
+.work .w-info p{font-size:15px;color:var(--ink-70);margin-top:10px;max-width:56ch}
+.work .w-arrow{
+  width:52px;height:52px;border:2px solid var(--ink);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex:none;
+  transition:background-color 200ms ease-out,transform 220ms var(--ease-out),border-color 200ms ease-out;
+}
+.work:hover .w-arrow{background:var(--wc);border-color:var(--wc);transform:rotate(45deg)}
+.work:hover .w-arrow svg{stroke:#fff}
+@media(max-width:760px){
+  .work{grid-template-columns:minmax(120px,200px) minmax(0,1fr);grid-template-rows:auto auto}
+  .work .w-arrow{display:none}
+}
+
+/* Процесс */
+.process{background:var(--ink);color:var(--paper);padding:clamp(56px,9vw,104px) 0}
+.process .works-note{color:rgba(250,250,247,.5)}
+.steps{margin-top:clamp(24px,4vw,40px);border-top:1px solid rgba(250,250,247,.25)}
+.step{
+  display:grid;grid-template-columns:90px minmax(0,1fr) minmax(0,1.2fr);gap:clamp(14px,3vw,40px);
+  padding:clamp(20px,3vw,30px) 0;border-bottom:1px solid rgba(250,250,247,.18);
+}
+.step .s-num{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.6vw,30px);color:#FF6A57}
+.step h3{font-family:var(--display);font-weight:500;font-size:clamp(17px,2vw,22px);text-transform:uppercase;line-height:1.25}
+.step p{color:rgba(250,250,247,.72);font-size:15px}
+.step p b{color:var(--paper)}
+@media(max-width:700px){.step{grid-template-columns:56px 1fr}.step p{grid-column:2}}
+
+/* Что входит */
+.included{padding:clamp(56px,9vw,104px) 0}
+.inc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:clamp(24px,4vw,40px)}
+.inc{background:var(--paper);padding:26px 24px 28px}
+.inc h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-ink);margin-bottom:12px}
+.inc ul{list-style:none;font-size:15px;color:var(--ink-70)}
+.inc li{padding:7px 0;display:flex;gap:10px;align-items:baseline}
+.inc li::before{content:'—';color:var(--red-ink);flex:none}
+
+/* CTA */
+.cta{border-top:1px solid var(--ink);padding:100px 0;padding:clamp(64px,10vw,120px) 0;text-align:center}
+.cta h2{max-width:24ch;margin:0 auto 16px}
+.cta p{color:var(--ink-70);max-width:52ch;margin:0 auto 30px;font-size:clamp(16px,1.7vw,18.5px)}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta .small{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--ink-50);letter-spacing:.03em}
+
+footer{border-top:1px solid var(--line);padding:26px 0 32px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.foot p{font-family:var(--mono);font-size:12px;color:var(--ink-50);max-width:72ch}
+.foot .demo-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);padding:6px 10px;border-radius:2px;color:var(--ink-50);white-space:nowrap}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .status-line .pulse{animation:none}
+  *{transition-duration:1ms!important;animation-duration:1ms!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>МАСТЕРСКАЯ САЙТОВ</a>
+    <ul class="nav-links">
+      <li><a href="#works">Примеры</a></li>
+      <li><a href="#process">Как работаем</a></li>
+      <li><a href="#included">Что входит</a></li>
+    </ul>
+    <a class="btn btn-red" href="https://t.me/username" target="_blank" rel="noopener">Обсудить сайт</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Первый экран -->
+  <div class="hero">
+    <div class="wrap">
+      <h1>Сайт для вашего дела — <span class="accent">живой</span>, а не <span class="strike">визитка из 2010-х</span></h1>
+      <p class="status-line" style="margin-top:24px;margin-bottom:0"><span class="pulse" aria-hidden="true"></span>Беру заказы на этот месяц · 2 места свободно</p>
+      <div class="hero-cols">
+        <div>
+          <p class="hero-sub">Кофейня, барбершоп, студия, магазин: откройте примеры ниже прямо на телефоне, формы записи и корзина внутри работают. Ваш сайт будет про ваш бизнес: ваши цены, ваши фото, ваш характер.</p>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn btn-ink" href="#works">Смотреть примеры</a>
+          </div>
+          <div class="hero-facts">
+            <div class="fact"><b>7–10 дней</b><span>от брифа до запуска</span></div>
+            <div class="fact"><b>от 25 000 ₽</b><span>лендинг под ключ</span></div>
+            <div class="fact"><b>0 ₽ хостинг</b><span>публикация включена</span></div>
+          </div>
+        </div>
+
+        <div class="niches" aria-label="Ниши, под которые делаются сайты">
+          <div class="niches-head"><span>Демо можно открыть</span><span>4 сайта · кликабельны</span></div>
+          <button type="button" class="niche-row" style="--swatch:#3E2A1A" data-href="coffee/">
+            <span class="swatch" aria-hidden="true"></span><span class="n-name">Кофейня</span><span class="n-go">открыть →</span>
+          </button>
+          <button type="button" class="niche-row" style="--swatch:#C8102E" data-href="barber/">
+            <span class="swatch" aria-hidden="true"></span><span class="n-name">Барбершоп</span><span class="n-go">открыть →</span>
+          </button>
+          <button type="button" class="niche-row" style="--swatch:#1B3A5C" data-href="movement/">
+            <span class="swatch" aria-hidden="true"></span><span class="n-name">Студия</span><span class="n-go">открыть →</span>
+          </button>
+          <button type="button" class="niche-row" style="--swatch:#1C3A2A" data-href="plants/">
+            <span class="swatch" aria-hidden="true"></span><span class="n-name">Магазин</span><span class="n-go">открыть →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Работы -->
+  <section class="works" id="works">
+    <div class="wrap">
+      <div class="works-head">
+        <h2>Четыре демо, четыре характера</h2>
+        <p class="works-note">каждое открывается как настоящий сайт · листайте на телефоне</p>
+      </div>
+
+      <a class="work" href="coffee/" style="--wc:#E8552B">
+        <div class="w-mini" style="background:#F4EAD8">
+          <div class="m-bar"><i style="background:#17110B"></i><i style="background:#1F170F"></i><i style="background:#E8552B"></i></div>
+          <div class="m-body">
+            <div class="m-title" style="background:#17110B;width:62%"></div>
+            <div class="m-line"></div>
+            <div class="m-line" style="width:78%"></div>
+            <div class="m-btn" style="background:#E8552B"></div>
+          </div>
+        </div>
+        <div class="w-info">
+          <span class="w-tag">Общепит · кофейня-обжарщик «РОСТ»</span>
+          <h3>Меню, паспорт обжарки, подписка</h3>
+          <p>Тёмный «цеховой» стиль, меню-чек, живая этикетка сегодняшней партии и форма подписки на кофе с выбором помола.</p>
+        </div>
+        <span class="w-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#141312" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="work" href="barber/" style="--wc:#C8102E">
+        <div class="w-mini" style="background:#EFE6D0">
+          <div class="m-bar"><i style="background:#C8102E"></i><i style="background:#141210"></i></div>
+          <div class="m-body">
+            <div class="m-title" style="background:#141210;width:48%"></div>
+            <div class="m-line" style="width:88%"></div>
+            <div class="m-line"></div>
+            <div class="m-btn" style="background:#C8102E"></div>
+          </div>
+        </div>
+        <div class="w-info">
+          <span class="w-tag">Услуги · барбершоп «РУБКА»</span>
+          <h3>Прейскурант, мастера, талон на запись</h3>
+          <p>Плакатный стиль с характером: живая сетка свободных окошек, выбор мастера и услуги, а по кнопке вы получаете отрывной талон с номером.</p>
+        </div>
+        <span class="w-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#141312" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="work" href="movement/" style="--wc:#1B3A5C">
+        <div class="w-mini" style="background:#F9F8F4">
+          <div class="m-bar"><i style="background:#1B3A5C"></i><i style="background:#E8552B"></i><i style="background:#1B3A5C"></i></div>
+          <div class="m-body">
+            <div class="m-title" style="background:#1B3A5C;width:54%"></div>
+            <div class="m-line" style="width:70%"></div>
+            <div class="m-line" style="width:84%"></div>
+            <div class="m-btn" style="background:#1B3A5C"></div>
+          </div>
+        </div>
+        <div class="w-info">
+          <span class="w-tag">Расписание · студия движения «ОСЬ»</span>
+          <h3>Табло занятий и журнал записи</h3>
+          <p>Спокойный «атласный» стиль на миллиметровке: кликабельное расписание-табло на три дня, схема плоскостей движения и запись в журнал.</p>
+        </div>
+        <span class="w-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#141312" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="work" href="plants/" style="--wc:#1C3A2A">
+        <div class="w-mini" style="background:#F5F0E4">
+          <div class="m-bar"><i style="background:#1C3A2A"></i><i style="background:#B98A2F"></i></div>
+          <div class="m-body">
+            <div class="m-title" style="background:#1C3A2A;width:44%"></div>
+            <div class="m-line" style="width:80%"></div>
+            <div class="m-line" style="width:64%"></div>
+            <div class="m-btn" style="background:#B98A2F"></div>
+          </div>
+        </div>
+        <div class="w-info">
+          <span class="w-tag">Торговля · магазин растений «ГЕРБАРИЙ»</span>
+          <h3>Каталог, фильтры, рабочая корзина</h3>
+          <p>Ботанический стиль с векторными растениями: фильтр по сложности, корзина с количеством и суммой, оформление заказа в один экран.</p>
+        </div>
+        <span class="w-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="#141312" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Процесс -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="works-head">
+        <h2>Как проходит работа</h2>
+        <p class="works-note">без словарных терминов · вы всегда знаете, на каком этапе сайт</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="s-num">01</span>
+          <h3>Разговор и бриф</h3>
+          <p><b>День 1.</b> Созваниваемся или переписываемся: чем занимаетесь, кто клиенты, что сайт должен продавать. Вы присылаете фото, цены, тексты, или собираю их сам с ваших слов.</p>
+        </div>
+        <div class="step">
+          <span class="s-num">02</span>
+          <h3>Дизайн-эскиз</h3>
+          <p><b>Дни 2–3.</b> Показываю первый экран в цвете и характере. Правим, пока не скажете «вот оно». Дизайн утверждаем до кода, сюрпризов дальше не будет.</p>
+        </div>
+        <div class="step">
+          <span class="s-num">03</span>
+          <h3>Сборка и наполнение</h3>
+          <p><b>Дни 4–8.</b> Собираю сайт целиком: страницы, формы, анимации, мобильная версия. Ссылку на черновик пришлю, вы полистаете его вживую и вернёте правки списком.</p>
+        </div>
+        <div class="step">
+          <span class="s-num">04</span>
+          <h3>Запуск и передача</h3>
+          <p><b>Дни 9–10.</b> Публикую в интернете, подключаю домен, показываю, как менять цены и тексты. Дальше на связи: правки после запуска входят в цену.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Что входит -->
+  <section class="included" id="included">
+    <div class="wrap">
+      <div class="works-head">
+        <h2>В каждый сайт входит</h2>
+        <p class="works-note">это не «дополнительно за деньги», это база</p>
+      </div>
+      <div class="inc-grid">
+        <div class="inc">
+          <h3>Технически</h3>
+          <ul>
+            <li>Мобильная версия: телефон первый</li>
+            <li>Загрузка быстрее 2 секунд</li>
+            <li>Формы записи и заявок на почту/мессенджер</li>
+            <li>Публикация и хостинг включены</li>
+          </ul>
+        </div>
+        <div class="inc">
+          <h3>Для клиентов</h3>
+          <ul>
+            <li>Понятно за 5 секунд, чем вы занимаетесь</li>
+            <li>Кнопка «позвонить/написать» всегда под рукой</li>
+            <li>Карта, часы работы, цены на виду</li>
+            <li>Видно в поиске по названию</li>
+          </ul>
+        </div>
+        <div class="inc">
+          <h3>Для вас</h3>
+          <ul>
+            <li>Правки текстов и цен делаете сами за минуту</li>
+            <li>Никаких подписок и «абонентских плат» за сайт</li>
+            <li>Домен оформлен на вас</li>
+            <li>Месяц поддержки после запуска бесплатно</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Расскажите про своё дело, и я покажу, каким будет сайт</h2>
+      <p>Напишите пару предложений: чем занимаетесь и что хотите от сайта. Пришлю эскиз первого экрана бесплатно, понравится, продолжим.</p>
+      <div class="cta-actions">
+        <a class="btn btn-red" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn-ink" href="tel:+79000000000">Позвонить</a>
+      </div>
+      <p class="small">Отвечаю с 10:00 до 21:00 · обычно в течение часа</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>Все сайты выше, демонстрационные макеты: названия, цены и отзывы вымышлены. Ваш сайт будет наполнен вашим содержанием. © 2026</p>
+    <span class="demo-tag">Портфолио-витрина</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* Строки ниш — переход на демо */
+  document.querySelectorAll('.niche-row').forEach(function(b){
+    b.addEventListener('click',function(){
+      window.location.href=b.getAttribute('data-href');
+    });
+  });
+})();
+</script>
+</body>
+</html>
